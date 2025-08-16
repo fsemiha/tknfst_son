@@ -95,7 +95,7 @@
                         <div id="strength-label"></div>
                         <div id="crack-time"></div>
                         <div id="congrats-message"></div>
-                        <div id="next-task-btn" class="next-task-btn" style="display:none;">
+                        <div id="next-task-btn" class="next-task-btn">
                             <img src="assets/Asset 35.svg" alt="Paylaş/Sakla Görevine Geç" loading="lazy">
                         </div>
                     </div>
@@ -873,6 +873,13 @@
         playPasswordStrengthSound(strength);
         
         document.getElementById('password-result').style.display = 'flex';
+        
+        // Next task butonunu görünür hale getir
+        const nextTaskBtn = document.getElementById('next-task-btn');
+        if (nextTaskBtn) {
+            nextTaskBtn.style.display = 'flex';
+        }
+        
         document.getElementById('password-result').innerHTML = `
             <div id="strength-label"><span class="strength-badge" style="background:${color};color:#fff;">Güç: ${strength}</span></div>
             <div id="crack-time">⚡ Kırılma Süresi: ${result.crackTimeDisplay}</div>
@@ -904,8 +911,8 @@
                     ⚠️ Kişisel bilgilerden kaçının!
                 </div>
             </div>
-            <div id="next-task-btn" class="next-task-btn" style="display:block;">
-                <img src="assets/Asset 35.svg" alt="Paylaş/Sakla Görevine Geç">
+            <div id="next-task-btn" class="next-task-btn" style="display:flex;">
+                <img src="assets/Asset 35.svg" alt="Paylaş/Sakla Görevine Geç" loading="lazy">
             </div>
         `;
         

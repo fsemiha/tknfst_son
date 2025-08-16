@@ -885,7 +885,7 @@ body, html {
     bottom: unset;
     transform: none;
     width: auto;
-    display: flex !important;
+    display: none; /* İlk başta gizli */
     justify-content: center;
     align-items: center;
     margin: 20px 0 0 0;
@@ -900,6 +900,12 @@ body, html {
     backdrop-filter: blur(15px);
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
     padding: 15px;
+}
+
+/* Parola sonucu gösterildiğinde buton görünür olsun */
+.password-result #next-task-btn,
+#password-result #next-task-btn {
+    display: flex !important;
 }
 
 #next-task-btn img {
