@@ -285,14 +285,14 @@ body, html {
     /* Çerçevesiz mobil tasarım */
     .password-panel-outer {
         background: linear-gradient(135deg, 
-            rgba(108, 43, 207, 0.20), 
-            rgba(145, 70, 255, 0.15), 
-            rgba(75, 0, 130, 0.25)
+            rgba(215, 48, 196, 0.15), 
+            rgba(176, 72, 212, 0.18), 
+            rgba(122, 105, 235, 0.20)
         );
-        border: 2px solid rgba(145, 70, 255, 0.5);
+        border: 2px solid rgba(215, 48, 196, 0.6);
         border-radius: 20px;
         backdrop-filter: blur(15px);
-        box-shadow: 0 8px 32px rgba(108, 43, 207, 0.3);
+        box-shadow: 0 8px 32px rgba(215, 48, 196, 0.4);
     }
 }
 
@@ -505,14 +505,14 @@ body, html {
         min-height: 60vh;
         max-height: 75vh;
         background: linear-gradient(135deg, 
-            rgba(108, 43, 207, 0.20), 
-            rgba(145, 70, 255, 0.15), 
-            rgba(75, 0, 130, 0.25)
+            rgba(215, 48, 196, 0.15), 
+            rgba(176, 72, 212, 0.18), 
+            rgba(122, 105, 235, 0.20)
         );
-        border: 2px solid rgba(145, 70, 255, 0.5);
+        border: 2px solid rgba(215, 48, 196, 0.6);
         border-radius: 16px;
         backdrop-filter: blur(15px);
-        box-shadow: 0 8px 32px rgba(108, 43, 207, 0.3);
+        box-shadow: 0 8px 32px rgba(215, 48, 196, 0.4);
         padding: 15px 10px;
     }
     
@@ -568,14 +568,14 @@ body, html {
         min-height: 55vh;
         max-height: 70vh;
         background: linear-gradient(135deg, 
-            rgba(108, 43, 207, 0.20), 
-            rgba(145, 70, 255, 0.15), 
-            rgba(75, 0, 130, 0.25)
+            rgba(215, 48, 196, 0.15), 
+            rgba(176, 72, 212, 0.18), 
+            rgba(122, 105, 235, 0.20)
         );
-        border: 2px solid rgba(145, 70, 255, 0.5);
+        border: 2px solid rgba(215, 48, 196, 0.6);
         border-radius: 12px;
         backdrop-filter: blur(15px);
-        box-shadow: 0 6px 24px rgba(108, 43, 207, 0.3);
+        box-shadow: 0 6px 24px rgba(215, 48, 196, 0.4);
         padding: 10px;
         margin: 5px auto;
     }
@@ -654,14 +654,14 @@ body, html {
         min-height: 50vh;
         max-height: 65vh;
         background: linear-gradient(135deg, 
-            rgba(108, 43, 207, 0.20), 
-            rgba(145, 70, 255, 0.15), 
-            rgba(75, 0, 130, 0.25)
+            rgba(215, 48, 196, 0.15), 
+            rgba(176, 72, 212, 0.18), 
+            rgba(122, 105, 235, 0.20)
         );
-        border: 2px solid rgba(145, 70, 255, 0.5);
+        border: 2px solid rgba(215, 48, 196, 0.6);
         border-radius: 10px;
         backdrop-filter: blur(15px);
-        box-shadow: 0 4px 16px rgba(108, 43, 207, 0.3);
+        box-shadow: 0 4px 16px rgba(215, 48, 196, 0.4);
         padding: 8px;
         margin: 5px auto;
     }
@@ -915,6 +915,24 @@ body, html {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
+    position: static !important;
+    z-index: 999 !important;
+}
+
+/* KESIN BUTON GÖRÜNÜRLÜĞÜ */
+.next-task-btn {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* HTML'deki buton için özel kural */
+#next-task-btn {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    z-index: 999 !important;
 }
 
 #next-task-btn img {
@@ -1075,14 +1093,14 @@ body, html {
 @media (max-width: 700px) {
     .final-score-container {
         background: linear-gradient(135deg, 
-            rgba(108, 43, 207, 0.20), 
-            rgba(145, 70, 255, 0.15), 
-            rgba(75, 0, 130, 0.25)
+            rgba(215, 48, 196, 0.15), 
+            rgba(176, 72, 212, 0.18), 
+            rgba(122, 105, 235, 0.20)
         );
-        border: 2px solid rgba(145, 70, 255, 0.5);
+        border: 2px solid rgba(215, 48, 196, 0.6);
         border-radius: 20px;
         backdrop-filter: blur(15px);
-        box-shadow: 0 8px 32px rgba(108, 43, 207, 0.3);
+        box-shadow: 0 8px 32px rgba(215, 48, 196, 0.4);
         padding: 20px;
         width: 95vw;
         max-width: 400px;
@@ -1317,14 +1335,14 @@ body, html {
     /* Oltalama testine geç butonu için çerçeve */
     #continue-to-phishing-btn {
         background: linear-gradient(135deg, 
-            rgba(108, 43, 207, 0.20), 
-            rgba(145, 70, 255, 0.15), 
-            rgba(75, 0, 130, 0.25)
+            rgba(215, 48, 196, 0.15), 
+            rgba(176, 72, 212, 0.18), 
+            rgba(122, 105, 235, 0.20)
         );
-        border: 2px solid rgba(145, 70, 255, 0.5);
+        border: 2px solid rgba(215, 48, 196, 0.6);
         border-radius: 15px;
         backdrop-filter: blur(15px);
-        box-shadow: 0 6px 24px rgba(108, 43, 207, 0.3);
+        box-shadow: 0 6px 24px rgba(215, 48, 196, 0.4);
         padding: 15px;
     }
 }
@@ -1348,14 +1366,14 @@ body, html {
     /* Oltalama testine geç butonu için çerçeve - küçük ekranlar */
     #continue-to-phishing-btn {
         background: linear-gradient(135deg, 
-            rgba(108, 43, 207, 0.20), 
-            rgba(145, 70, 255, 0.15), 
-            rgba(75, 0, 130, 0.25)
+            rgba(215, 48, 196, 0.15), 
+            rgba(176, 72, 212, 0.18), 
+            rgba(122, 105, 235, 0.20)
         );
-        border: 2px solid rgba(145, 70, 255, 0.5);
+        border: 2px solid rgba(215, 48, 196, 0.6);
         border-radius: 12px;
         backdrop-filter: blur(15px);
-        box-shadow: 0 4px 16px rgba(108, 43, 207, 0.3);
+        box-shadow: 0 4px 16px rgba(215, 48, 196, 0.4);
         padding: 12px;
     }
 }

@@ -874,11 +874,20 @@
         
         document.getElementById('password-result').style.display = 'flex';
         
-        // Next task butonunu görünür hale getir
-        const nextTaskBtn = document.getElementById('next-task-btn');
-        if (nextTaskBtn) {
-            nextTaskBtn.style.display = 'flex';
-        }
+        // Next task butonunu kesin görünür hale getir
+        setTimeout(() => {
+            const nextTaskBtn = document.getElementById('next-task-btn');
+            if (nextTaskBtn) {
+                nextTaskBtn.style.display = 'flex !important';
+                nextTaskBtn.style.visibility = 'visible !important';
+                nextTaskBtn.style.opacity = '1 !important';
+                nextTaskBtn.style.position = 'static !important';
+                nextTaskBtn.style.zIndex = '999 !important';
+                console.log('✅ Next task butonu zorla görünür hale getirildi');
+            } else {
+                console.log('❌ Next task butonu bulunamadı');
+            }
+        }, 500);
         
         document.getElementById('password-result').innerHTML = `
             <div id="strength-label"><span class="strength-badge" style="background:${color};color:#fff;">Güç: ${strength}</span></div>
