@@ -285,14 +285,14 @@ body, html {
     /* Çerçevesiz mobil tasarım */
     .password-panel-outer {
         background: linear-gradient(135deg, 
-            rgba(108, 43, 207, 0.25), 
-            rgba(145, 70, 255, 0.20), 
-            rgba(138, 43, 226, 0.15)
+            rgba(26, 40, 68, 0.85), 
+            rgba(42, 60, 102, 0.80), 
+            rgba(10, 20, 40, 0.90)
         );
-        border: 2px solid rgba(138, 43, 226, 0.6);
+        border: 2px solid rgba(255, 255, 255, 0.3);
         border-radius: 20px;
         backdrop-filter: blur(15px);
-        box-shadow: 0 8px 32px rgba(138, 43, 226, 0.4);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     }
 }
 
@@ -505,14 +505,14 @@ body, html {
         min-height: 60vh;
         max-height: 75vh;
         background: linear-gradient(135deg, 
-            rgba(108, 43, 207, 0.25), 
-            rgba(145, 70, 255, 0.20), 
-            rgba(138, 43, 226, 0.15)
+            rgba(26, 40, 68, 0.85), 
+            rgba(42, 60, 102, 0.80), 
+            rgba(10, 20, 40, 0.90)
         );
-        border: 2px solid rgba(138, 43, 226, 0.6);
+        border: 2px solid rgba(255, 255, 255, 0.3);
         border-radius: 16px;
         backdrop-filter: blur(15px);
-        box-shadow: 0 8px 32px rgba(138, 43, 226, 0.4);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         padding: 15px 10px;
     }
     
@@ -568,14 +568,14 @@ body, html {
         min-height: 55vh;
         max-height: 70vh;
         background: linear-gradient(135deg, 
-            rgba(108, 43, 207, 0.25), 
-            rgba(145, 70, 255, 0.20), 
-            rgba(138, 43, 226, 0.15)
+            rgba(26, 40, 68, 0.85), 
+            rgba(42, 60, 102, 0.80), 
+            rgba(10, 20, 40, 0.90)
         );
-        border: 2px solid rgba(138, 43, 226, 0.6);
+        border: 2px solid rgba(255, 255, 255, 0.3);
         border-radius: 12px;
         backdrop-filter: blur(15px);
-        box-shadow: 0 6px 24px rgba(138, 43, 226, 0.4);
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
         padding: 10px;
         margin: 5px auto;
     }
@@ -654,14 +654,14 @@ body, html {
         min-height: 50vh;
         max-height: 65vh;
         background: linear-gradient(135deg, 
-            rgba(108, 43, 207, 0.25), 
-            rgba(145, 70, 255, 0.20), 
-            rgba(138, 43, 226, 0.15)
+            rgba(26, 40, 68, 0.85), 
+            rgba(42, 60, 102, 0.80), 
+            rgba(10, 20, 40, 0.90)
         );
-        border: 2px solid rgba(138, 43, 226, 0.6);
+        border: 2px solid rgba(255, 255, 255, 0.3);
         border-radius: 10px;
         backdrop-filter: blur(15px);
-        box-shadow: 0 4px 16px rgba(138, 43, 226, 0.4);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
         padding: 8px;
         margin: 5px auto;
     }
@@ -885,11 +885,21 @@ body, html {
     bottom: unset;
     transform: none;
     width: auto;
-    display: flex;
+    display: flex !important;
     justify-content: center;
     align-items: center;
-    margin: 14px 0 0 0;
+    margin: 20px 0 0 0;
     z-index: 10;
+    background: linear-gradient(135deg, 
+        rgba(26, 40, 68, 0.85), 
+        rgba(42, 60, 102, 0.80), 
+        rgba(10, 20, 40, 0.90)
+    );
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+    padding: 15px;
 }
 
 #next-task-btn img {
@@ -897,6 +907,46 @@ body, html {
     max-width: 98vw;
     height: auto;
     display: block;
+}
+
+/* Mobil cihazlarda next task button optimizasyonu */
+@media (max-width: 900px) {
+    .next-task-btn {
+        margin: 15px 0 0 0;
+        padding: 12px;
+        border-radius: 12px;
+    }
+    
+    #next-task-btn img {
+        width: 300px;
+        max-width: 90vw;
+    }
+}
+
+@media (max-width: 600px) {
+    .next-task-btn {
+        margin: 12px 0 0 0;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    
+    #next-task-btn img {
+        width: 280px;
+        max-width: 85vw;
+    }
+}
+
+@media (max-width: 400px) {
+    .next-task-btn {
+        margin: 10px 0 0 0;
+        padding: 8px;
+        border-radius: 8px;
+    }
+    
+    #next-task-btn img {
+        width: 250px;
+        max-width: 80vw;
+    }
 }
 
 .svg-box {
@@ -1010,14 +1060,14 @@ body, html {
 @media (max-width: 700px) {
     .final-score-container {
         background: linear-gradient(135deg, 
-            rgba(108, 43, 207, 0.25), 
-            rgba(145, 70, 255, 0.20), 
-            rgba(138, 43, 226, 0.15)
+            rgba(26, 40, 68, 0.85), 
+            rgba(42, 60, 102, 0.80), 
+            rgba(10, 20, 40, 0.90)
         );
-        border: 2px solid rgba(138, 43, 226, 0.6);
+        border: 2px solid rgba(255, 255, 255, 0.3);
         border-radius: 20px;
         backdrop-filter: blur(15px);
-        box-shadow: 0 8px 32px rgba(138, 43, 226, 0.4);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         padding: 20px;
         width: 95vw;
         max-width: 400px;
@@ -1252,14 +1302,14 @@ body, html {
     /* Oltalama testine geç butonu için çerçeve */
     #continue-to-phishing-btn {
         background: linear-gradient(135deg, 
-            rgba(108, 43, 207, 0.25), 
-            rgba(145, 70, 255, 0.20), 
-            rgba(138, 43, 226, 0.15)
+            rgba(26, 40, 68, 0.85), 
+            rgba(42, 60, 102, 0.80), 
+            rgba(10, 20, 40, 0.90)
         );
-        border: 2px solid rgba(138, 43, 226, 0.6);
+        border: 2px solid rgba(255, 255, 255, 0.3);
         border-radius: 15px;
         backdrop-filter: blur(15px);
-        box-shadow: 0 6px 24px rgba(138, 43, 226, 0.4);
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
         padding: 15px;
     }
 }
@@ -1283,14 +1333,14 @@ body, html {
     /* Oltalama testine geç butonu için çerçeve - küçük ekranlar */
     #continue-to-phishing-btn {
         background: linear-gradient(135deg, 
-            rgba(108, 43, 207, 0.25), 
-            rgba(145, 70, 255, 0.20), 
-            rgba(138, 43, 226, 0.15)
+            rgba(26, 40, 68, 0.85), 
+            rgba(42, 60, 102, 0.80), 
+            rgba(10, 20, 40, 0.90)
         );
-        border: 2px solid rgba(138, 43, 226, 0.6);
+        border: 2px solid rgba(255, 255, 255, 0.3);
         border-radius: 12px;
         backdrop-filter: blur(15px);
-        box-shadow: 0 4px 16px rgba(138, 43, 226, 0.4);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
         padding: 12px;
     }
 }
