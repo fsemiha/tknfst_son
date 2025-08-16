@@ -2,30 +2,14 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Siber Macera</title>
-    
-    <!-- PWA ve Mobil İyileştirmeleri -->
-    <meta name="theme-color" content="#0a1428">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Siber Macera">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    
-    <!-- Touch Icon -->
-    <link rel="apple-touch-icon" href="assets/Asset 5.svg">
-    <link rel="icon" type="image/svg+xml" href="assets/Asset 5.svg">
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
-    
     <!-- Font preload for faster loading -->
     <link rel="preload" href="fonts/Gilmer Regular.otf" as="font" type="font/otf" crossorigin>
     <link rel="preload" href="fonts/Gilmer Light.otf" as="font" type="font/otf" crossorigin>
     <link rel="preload" href="fonts/Gilmer Bold.otf" as="font" type="font/otf" crossorigin>
     <link rel="preload" href="fonts/conthrax-sb.otf" as="font" type="font/otf" crossorigin>
-    <link rel="stylesheet" href="style.css?v=3.2">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js" defer></script>
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js" defer></script>
@@ -142,7 +126,7 @@
                     </div>
                     
                     <div id="continue-to-phishing-btn" class="continue-btn" style="display:block !important; text-align: center; margin-top: 30px; width: 100%; padding: 20px; position: relative; z-index: 100; visibility: visible !important; opacity: 1 !important;" onclick="checkShareAnswers()">
-                        <img src="assets/oltalamatestinegec.svg" alt="Oltalama Testine Geç" style="max-width: 300px; width: 90%; cursor: pointer; transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+                        <img src="assets/oltalamatestinegec.svg" alt="Oltalama Testine Geç" style="max-width: 350px; width: 100%; cursor: pointer; transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                     </div>
                     
                     <div id="share-results" class="share-results" style="display:none;">
@@ -772,17 +756,7 @@
         // Username'i global değişkene kaydet
         currentUsername = username;
         
-        // Tüm panelleri gizle
-        document.getElementById('main-panel').style.display = 'none';
         document.getElementById('username-panel').style.display = 'none';
-        document.getElementById('share-panel').style.display = 'none';
-        document.getElementById('phishing-panel').style.display = 'none';
-        document.getElementById('final-score-panel').style.display = 'none';
-        if (document.getElementById('scoreboard-panel')) {
-            document.getElementById('scoreboard-panel').style.display = 'none';
-        }
-        
-        // Sadece password panelini göster
         document.getElementById('password-panel').style.display = 'flex';
         startTimer();
         setScore(0);
@@ -965,17 +939,7 @@
     // PAYLAŞ/SAKLA butonuna tıklanınca panel geçişi
     document.addEventListener('click', function(e) {
         if (e.target.closest('#next-task-btn')) {
-            // Tüm panelleri gizle
-            document.getElementById('main-panel').style.display = 'none';
-            document.getElementById('username-panel').style.display = 'none';
             document.getElementById('password-panel').style.display = 'none';
-            document.getElementById('phishing-panel').style.display = 'none';
-            document.getElementById('final-score-panel').style.display = 'none';
-            if (document.getElementById('scoreboard-panel')) {
-                document.getElementById('scoreboard-panel').style.display = 'none';
-            }
-            
-            // Sadece share panelini göster
             document.getElementById('share-panel').style.display = 'flex';
             
             // Yeni share panel sistemini başlat
@@ -984,8 +948,12 @@
         
                                   // Phishing testine geçiş butonu
          if (e.target.closest('#phishing-test-btn')) {
-             // showPhishingPanel fonksiyonunu çağır - duplicate önlemek için
-             showPhishingPanel();
+             document.getElementById('share-panel').style.display = 'none';
+             document.getElementById('phishing-panel').style.display = 'flex';
+             
+             // İlk phishing sorusunu başlat
+             currentPhishingQuestion = 0;
+             showNextPhishingQuestion();
          }
          
          // Ana ekrana dön butonu
@@ -1132,13 +1100,6 @@
                  // Phishing test butonları
          if (e.target.closest('.phishing-button')) {
              const button = e.target.closest('.phishing-button');
-             
-             // Buton zaten disabled ise duplicate event'i engelle
-             if (button.style.pointerEvents === 'none') {
-                 console.log("🚫 Phishing buton zaten disabled - duplicate event engellendi");
-                 return;
-             }
-             
              const isCorrect = button.getAttribute('data-answer') === 'correct';
              const explanation = document.getElementById('phishing-explanation');
              
@@ -1146,14 +1107,6 @@
                  currentQuestion: currentPhishingQuestion,
                  isCorrect: isCorrect,
                  questionText: phishingQuestions[currentPhishingQuestion]?.text
-             });
-             
-             // HEMEN butonları devre dışı bırak - duplicate önlemek için
-             const allButtons = document.querySelectorAll('.phishing-button');
-             allButtons.forEach(btn => {
-                 btn.style.pointerEvents = 'none';
-                 btn.style.opacity = '0.7';
-                 btn.style.transform = 'none';
              });
              
              // Phishing ses efektini çal
@@ -1172,6 +1125,14 @@
                  explanation.className = 'share-explanation wrong';
                  console.log("❌ Yanlış cevap! -5 puan");
              }
+             
+             // Butonları devre dışı bırak
+             const allButtons = document.querySelectorAll('.phishing-button');
+             allButtons.forEach(btn => {
+                 btn.style.pointerEvents = 'none';
+                 btn.style.opacity = '0.7';
+                 btn.style.transform = 'none';
+             });
              
                          // 4 saniye sonra bir sonraki soruya geç (çocukların açıklamayı okuyabilmesi için)
             setTimeout(() => {
@@ -2238,17 +2199,8 @@
         
                  // Share panel fonksiyonu - phishing'ten geri dönüş için
          window.showSharePanel = function() {
-             // Tüm panelleri gizle
-             document.getElementById('main-panel').style.display = 'none';
-             document.getElementById('username-panel').style.display = 'none';
              document.getElementById('password-panel').style.display = 'none';
              document.getElementById('phishing-panel').style.display = 'none';
-             document.getElementById('final-score-panel').style.display = 'none';
-             if (document.getElementById('scoreboard-panel')) {
-                 document.getElementById('scoreboard-panel').style.display = 'none';
-             }
-             
-             // Sadece share panelini göster
              document.getElementById('share-panel').style.display = 'flex';
              displayShareQuestions();
          };
@@ -2257,18 +2209,11 @@
          window.showPhishingPanel = function() {
              console.log("🎮 Phishing paneline geçiliyor...");
              
-             // Tüm panelleri gizle
-             document.getElementById('main-panel').style.display = 'none';
-             document.getElementById('username-panel').style.display = 'none';
-             document.getElementById('password-panel').style.display = 'none';
              document.getElementById('share-panel').style.display = 'none';
-             document.getElementById('final-score-panel').style.display = 'none';
-             if (document.getElementById('scoreboard-panel')) {
-                 document.getElementById('scoreboard-panel').style.display = 'none';
-             }
-             
-             // Sadece phishing panelini göster
              document.getElementById('phishing-panel').style.display = 'flex';
+             
+             // İlk phishing sorusunu başlat
+             currentPhishingQuestion = 0;
              
              // 5 saniye timeout - eğer phishing test 5 saniyede yüklenmezse atla
              const timeoutId = setTimeout(() => {
@@ -2333,254 +2278,6 @@
              showNextPhishingQuestion();
          };
     });
-    
-    // Touch Event Handler'ları - Mobil uyumluluk için
-    function addTouchSupport() {
-        // Tüm clickable elementlere touch support ekle
-        const clickableElements = document.querySelectorAll(
-            '.main-btn-svg, .start-svg, .password-check-btn, .share-button, .phishing-button, ' +
-            '.scoreboard-img, .final-back-btn, .continue-btn, [onclick], #start-btn, #play-btn'
-        );
-        
-        console.log(`🔧 Touch desteği ekleniyor: ${clickableElements.length} element`);
-        
-        clickableElements.forEach(element => {
-            // Daha önce touch support eklenmişse skip et
-            if (element.hasAttribute('data-touch-enabled')) {
-                return;
-            }
-            element.setAttribute('data-touch-enabled', 'true');
-            
-            // Touch start ve end event'leri ekle
-            let touchStarted = false;
-            
-            element.addEventListener('touchstart', function(e) {
-                touchStarted = true;
-                this.classList.add('touching');
-                // Haptic feedback (titreşim) - sadece destekleyen cihazlarda
-                if ('vibrate' in navigator) {
-                    navigator.vibrate(20);
-                }
-                // Visual feedback için scale efekti
-                this.style.transform = 'scale(0.95)';
-                this.style.transition = 'transform 0.1s ease';
-            }, {passive: true});
-            
-            element.addEventListener('touchend', function(e) {
-                if (touchStarted) {
-                    this.classList.remove('touching');
-                    this.style.transform = '';
-                    touchStarted = false;
-                    
-                    // Touch end'de click eventi tetikle
-                    setTimeout(() => {
-                        // Özel ID'ler için direct handling
-                        if (this.id === 'start-btn') {
-                            // Tüm panelleri gizle
-                            document.getElementById('main-panel').style.display = 'none';
-                            document.getElementById('password-panel').style.display = 'none';
-                            document.getElementById('share-panel').style.display = 'none';
-                            document.getElementById('phishing-panel').style.display = 'none';
-                            document.getElementById('final-score-panel').style.display = 'none';
-                            if (document.getElementById('scoreboard-panel')) {
-                                document.getElementById('scoreboard-panel').style.display = 'none';
-                            }
-                            
-                            // Sadece username panelini göster
-                            document.getElementById('username-panel').style.display = 'flex';
-                        } else if (this.id === 'play-btn') {
-                            const usernameInput = document.getElementById('username-input');
-                            const username = usernameInput.value.trim();
-                            if (username) {
-                                localStorage.setItem('playerUsername', username);
-                                // Oyun başlatma fonksiyonunu çağır (parola paneline geç)
-                                document.getElementById('play-btn').onclick();
-                            }
-                        } else if (this.id === 'check-password-btn' || this.classList.contains('password-check-btn')) {
-                            // Password check buton özel handling
-                            const password = document.getElementById('password-input-1').value;
-                            const confirmPassword = document.getElementById('password-input-2').value;
-                            if (password && confirmPassword && password === confirmPassword) {
-                                // Orijinal fonksiyonu çağır
-                                if (document.getElementById('check-password-btn').onclick) {
-                                    document.getElementById('check-password-btn').onclick();
-                                }
-                            }
-                        } else if (this.classList.contains('phishing-button')) {
-                            // Phishing butonları için özel handling - event delegation kullanıyor, manuel tetikleme YAPMA
-                            console.log('🚫 Phishing buton touch - event delegation kullanıyor, manuel tetiklenmeyecek');
-                            return; // Exit early, normal click event çalışsın
-                        } else if (this.onclick) {
-                            this.onclick(e);
-                        } else {
-                            this.click();
-                        }
-                    }, 50);
-                }
-            }, {passive: true});
-            
-            element.addEventListener('touchcancel', function(e) {
-                this.classList.remove('touching');
-                this.style.transform = '';
-                touchStarted = false;
-            }, {passive: true});
-            
-            // Touch move'da element dışına çıkılırsa cancel et
-            element.addEventListener('touchmove', function(e) {
-                const touch = e.touches[0];
-                const rect = this.getBoundingClientRect();
-                const isOutside = touch.clientX < rect.left || touch.clientX > rect.right || 
-                                touch.clientY < rect.top || touch.clientY > rect.bottom;
-                
-                if (isOutside && touchStarted) {
-                    this.classList.remove('touching');
-                    this.style.transform = '';
-                    touchStarted = false;
-                }
-            }, {passive: true});
-        });
-        
-        // Input alanları için özel touch desteği
-        const inputs = document.querySelectorAll('input');
-        inputs.forEach(input => {
-            // Daha önce eklenmişse skip et
-            if (input.hasAttribute('data-input-touch-enabled')) {
-                return;
-            }
-            input.setAttribute('data-input-touch-enabled', 'true');
-            
-            // iOS Safari'de zoom'u engellemek için
-            input.addEventListener('touchstart', function(e) {
-                // Input focus olduğunda sayfa zoom'unu engelle
-                document.querySelector('meta[name=viewport]').setAttribute(
-                    'content', 
-                    'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
-                );
-            });
-            
-            input.addEventListener('blur', function(e) {
-                // Input'tan çıkınca zoom'u tekrar etkinleştir
-                document.querySelector('meta[name=viewport]').setAttribute(
-                    'content', 
-                    'width=device-width, initial-scale=1.0, user-scalable=no'
-                );
-            });
-        });
-    }
-    
-    // Mobil cihaz tespiti
-    function isMobileDevice() {
-        // User Agent kontrolü - gerçek mobil cihazlar
-        const mobileUserAgent = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        
-        // Touch desteği + küçük ekran - ama sadece gerçekten mobil ise
-        const isTouchDevice = 'ontouchstart' in window;
-        const isSmallScreen = window.innerWidth <= 768;
-        const hasCoarsePointer = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
-        
-        // Sadece gerçekten mobil cihazlar için true döndür
-        return mobileUserAgent || (isTouchDevice && isSmallScreen && hasCoarsePointer);
-    }
-    
-    // Touch events'i yükle
-    document.addEventListener('DOMContentLoaded', function() {
-        const isMobile = isMobileDevice();
-        console.log('🔍 Cihaz tespiti:', {
-            isMobile: isMobile,
-            userAgent: navigator.userAgent,
-            screenWidth: window.innerWidth,
-            touchSupport: 'ontouchstart' in window,
-            pointerType: window.matchMedia ? window.matchMedia("(pointer: coarse)").matches : 'unknown'
-        });
-        
-        if (isMobile) {
-            console.log('📱 Mobil cihaz tespit edildi - Touch desteği ve temiz çerçeve aktifleştiriliyor');
-            addTouchSupport();
-            
-            // Mobil için ek optimizasyonlar
-            document.body.classList.add('mobile-device');
-            
-            // Dinamik içerik için touch desteği yenileme
-            const observer = new MutationObserver(function(mutations) {
-                mutations.forEach(function(mutation) {
-                    if (mutation.type === 'childList') {
-                        // Yeni eklenen elementler için touch desteği ekle
-                        setTimeout(() => addTouchSupport(), 100);
-                    }
-                });
-            });
-            
-            observer.observe(document.body, {
-                childList: true,
-                subtree: true
-            });
-        } else {
-            console.log('🖥️ Desktop cihaz tespit edildi - Eski çerçeveler korunuyor');
-        }
-    });
-    
-    // Orientation change event'i - telefon çevrildiğinde
-    window.addEventListener('orientationchange', function() {
-        setTimeout(function() {
-            // Ekran orientation değiştiğinde scroll'u sıfırla
-            window.scrollTo(0, 0);
-            console.log('📱 Ekran yönü değişti');
-        }, 100);
-    });
-    
-    // Prevent double-tap zoom on buttons
-    let lastTouchEnd = 0;
-    document.addEventListener('touchend', function (event) {
-        const now = (new Date()).getTime();
-        if (now - lastTouchEnd <= 300) {
-            event.preventDefault();
-        }
-        lastTouchEnd = now;
-    }, false);
-    
-    // Service Worker kaydı - PWA desteği için
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('./sw.js')
-                .then(function(registration) {
-                    console.log('✅ Service Worker kayıt başarılı:', registration.scope);
-                    
-                    // Güncelleme kontrolü
-                    registration.addEventListener('updatefound', () => {
-                        const newWorker = registration.installing;
-                        newWorker.addEventListener('statechange', () => {
-                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                                console.log('🔄 Yeni güncelleme mevcut - Yenile butonuna basın');
-                                // Kullanıcıya güncelleme bildirimi gösterilebilir
-                            }
-                        });
-                    });
-                })
-                .catch(function(error) {
-                    console.log('❌ Service Worker kayıt hatası:', error);
-                });
-        });
-    } else {
-        console.log('⚠️ Service Worker desteklenmiyor');
-    }
-    
-    // PWA Install prompt
-    let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', (e) => {
-        console.log('📱 PWA kurulum prompt\'u hazır');
-        e.preventDefault();
-        deferredPrompt = e;
-        
-        // Install butonu gösterilebilir (isteğe bağlı)
-        // showInstallPrompt();
-    });
-    
-    // PWA kurulum tamamlandığında
-    window.addEventListener('appinstalled', (evt) => {
-        console.log('🎉 PWA başarıyla kuruldu!');
-        // Analytics olayı gönderilebilir
-    });
-    
     </script>
 </body>
 </html> 
