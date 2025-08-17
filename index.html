@@ -2034,37 +2034,12 @@
         // Mevcut modalları kaldır
         clearExplanation();
         
-        // Tamamlama modalı - mobil çerçeve stilinde
+        // Tamamlama modalı - responsive çerçeve (web'de SVG, mobilde CSS)
         const modalHTML = `
-            <div id="explanation-modal" style="
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                z-index: 1000;
-                max-width: 90vw;
-                width: 400px;
-                min-height: 450px;
-                text-align: center;
-                font-size: 1.3rem;
-                line-height: 1.5;
-                animation: modalFadeIn 0.5s ease-out;
-                background: linear-gradient(135deg, 
-                    rgba(30, 41, 59, 0.2), 
-                    rgba(51, 65, 85, 0.25), 
-                    rgba(71, 85, 105, 0.3)
-                );
-                border: 2px solid rgba(71, 85, 105, 0.6);
-                border-radius: 16px;
-                backdrop-filter: blur(15px);
-                box-shadow: 0 8px 32px rgba(30, 41, 59, 0.4);
-            ">
-                <div style="
-                    position: relative;
-                    z-index: 1;
-                    padding: 40px 30px;
-                    color: #ffffff;
-                ">
+            <div id="explanation-modal" class="completion-modal">
+                <!-- Web için SVG çerçeve -->
+                <img src="assets/Asset 43.svg" alt="Modal Çerçeve" class="modal-svg-frame">
+                <div class="modal-content">
                 <div style="margin-bottom: 30px;">
                     <img src="assets/Asset 46.svg" alt="Soru İşareti" style="max-width: 60px; height: auto;">
                 </div>
