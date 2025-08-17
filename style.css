@@ -538,8 +538,8 @@ body, html {
     .password-panel-outer {
         width: 90vw;
         height: auto;
-        min-height: auto;
-        max-height: none;
+        min-height: 75vh;
+        max-height: 85vh;
         background: linear-gradient(135deg, 
             rgba(215, 48, 196, 0.15), 
             rgba(176, 72, 212, 0.18), 
@@ -550,15 +550,22 @@ body, html {
         backdrop-filter: blur(15px);
         box-shadow: 0 8px 32px rgba(215, 48, 196, 0.4);
         padding: 15px 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     
     .password-panel-content {
-        top: 60px;
+        top: 30px;
         position: relative;
-        padding: 0;
+        padding: 20px 0;
         min-height: auto;
         max-height: none;
         overflow: visible;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     
     #share-panel .password-panel-content, 
@@ -601,8 +608,8 @@ body, html {
     .password-panel-outer {
         width: 95vw;
         height: auto;
-        min-height: auto;
-        max-height: none;
+        min-height: 70vh;
+        max-height: 80vh;
         background: linear-gradient(135deg, 
             rgba(215, 48, 196, 0.15), 
             rgba(176, 72, 212, 0.18), 
@@ -614,15 +621,22 @@ body, html {
         box-shadow: 0 6px 24px rgba(215, 48, 196, 0.4);
         padding: 10px;
         margin: 5px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     
     .password-panel-content {
-        top: 55px;
+        top: 25px;
         position: relative;
-        padding: 0;
+        padding: 15px 0;
         min-height: auto;
         max-height: none;
         overflow: visible;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     
     #share-panel .password-panel-content, 
@@ -687,8 +701,8 @@ body, html {
     .password-panel-outer {
         width: 95vw;
         height: auto;
-        min-height: auto;
-        max-height: none;
+        min-height: 65vh;
+        max-height: 75vh;
         background: linear-gradient(135deg, 
             rgba(215, 48, 196, 0.15), 
             rgba(176, 72, 212, 0.18), 
@@ -700,6 +714,22 @@ body, html {
         box-shadow: 0 4px 16px rgba(215, 48, 196, 0.4);
         padding: 8px;
         margin: 5px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .password-panel-content {
+        top: 20px;
+        position: relative;
+        padding: 10px 0;
+        min-height: auto;
+        max-height: none;
+        overflow: visible;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     
     .password-panel-top {
