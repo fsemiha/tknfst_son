@@ -979,6 +979,17 @@
             document.getElementById('password-panel').style.display = 'none';
             document.getElementById('share-panel').style.display = 'flex';
             
+            // Paylaş/Sakla butonunun görünür olduğunu garanti et
+            setTimeout(() => {
+                const phishingBtn = document.getElementById('continue-to-phishing-btn');
+                if (phishingBtn) {
+                    phishingBtn.style.setProperty('display', 'flex', 'important');
+                    phishingBtn.style.setProperty('visibility', 'visible', 'important');
+                    phishingBtn.style.setProperty('opacity', '1', 'important');
+                    console.log('✅ Oltalama testine geç butonu görünür hale getirildi');
+                }
+            }, 100);
+            
             // Yeni share panel sistemini başlat
             displayShareQuestions();
         }
