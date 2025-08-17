@@ -2034,7 +2034,7 @@
         // Mevcut modalları kaldır
         clearExplanation();
         
-        // Tamamlama modalı
+        // Tamamlama modalı - mobil çerçeve stilinde
         const modalHTML = `
             <div id="explanation-modal" style="
                 position: fixed;
@@ -2042,27 +2042,27 @@
                 left: 50%;
                 transform: translate(-50%, -50%);
                 z-index: 1000;
-                max-width: 700px;
-                width: 85vw;
-                min-height: 400px;
+                max-width: 90vw;
+                width: 400px;
+                min-height: 450px;
                 text-align: center;
                 font-size: 1.3rem;
                 line-height: 1.5;
                 animation: modalFadeIn 0.5s ease-out;
+                background: linear-gradient(135deg, 
+                    rgba(30, 41, 59, 0.2), 
+                    rgba(51, 65, 85, 0.25), 
+                    rgba(71, 85, 105, 0.3)
+                );
+                border: 2px solid rgba(71, 85, 105, 0.6);
+                border-radius: 16px;
+                backdrop-filter: blur(15px);
+                box-shadow: 0 8px 32px rgba(30, 41, 59, 0.4);
             ">
-                <img src="assets/Asset 43.svg" alt="Modal Çerçeve" style="
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    z-index: 0;
-                    pointer-events: none;
-                ">
                 <div style="
                     position: relative;
                     z-index: 1;
-                    padding: 50px 40px;
+                    padding: 40px 30px;
                     color: #ffffff;
                 ">
                 <div style="margin-bottom: 30px;">
@@ -2074,15 +2074,15 @@
                 <div style="color: #ffffff; line-height: 1.4; margin-bottom: 30px; font-size: 1.2rem;">
                     Bu işlemden sonra oltalama testine geçeceksiniz.
                 </div>
-                <div style="margin-top: 35px; display: flex; gap: 30px; justify-content: center; align-items: center; flex-wrap: wrap;">
+                <div style="margin-top: 35px; display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap;">
                     <img src="assets/Asset 60.svg" alt="Geç" onclick="continueToPhishing()" style="
-                        max-width: 180px;
+                        max-width: 140px;
                         cursor: pointer;
                         transition: transform 0.2s ease;
                     " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                     
                     <img src="assets/Asset 61.svg" alt="Geçme" onclick="cancelToPhishing()" style="
-                        max-width: 180px;
+                        max-width: 140px;
                         cursor: pointer;
                         transition: transform 0.2s ease;
                     " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">

@@ -182,7 +182,7 @@ body, html {
 
 .scoreboard {
     position: fixed;
-    right: 32px;
+    right: 80px; /* Daha sağa kaydırıldı, PAYLAŞ/SAKLA ikonuyla çakışmasın */
     bottom: 32px;
     display: flex;
     align-items: center;
@@ -2099,6 +2099,43 @@ div[id="next-task-btn"] {
         max-height: none;
         overflow: visible;
         height: auto;
+    }
+}
+
+/* Oltalama testine geç modalı - mobil optimizasyonu */
+@media (max-width: 900px) {
+    #explanation-modal {
+        width: 85vw !important;
+        max-width: 85vw !important;
+        min-height: 380px !important;
+        font-size: 1.1rem !important;
+        background: linear-gradient(135deg, 
+            rgba(30, 41, 59, 0.25), 
+            rgba(51, 65, 85, 0.3), 
+            rgba(71, 85, 105, 0.35)
+        ) !important;
+        border: 2px solid rgba(71, 85, 105, 0.7) !important;
+        border-radius: 14px !important;
+        backdrop-filter: blur(20px) !important;
+        box-shadow: 0 10px 40px rgba(30, 41, 59, 0.5) !important;
+    }
+}
+
+@media (max-width: 600px) {
+    #explanation-modal {
+        width: 90vw !important;
+        max-width: 90vw !important;
+        min-height: 350px !important;
+        font-size: 1rem !important;
+    }
+}
+
+@media (max-width: 400px) {
+    #explanation-modal {
+        width: 95vw !important;
+        max-width: 95vw !important;
+        min-height: 320px !important;
+        font-size: 0.9rem !important;
     }
 }
 
