@@ -548,23 +548,25 @@ body, html {
     }
     
     .password-panel-outer {
-        width: 95vw;
+        width: 85vw; /* Logo ile çakışmaması için daraltıldı */
         height: auto;
-        min-height: 80vh;
-        max-height: 90vh;
+        min-height: 75vh; /* Biraz küçültüldü */
+        max-height: 85vh;
         background: linear-gradient(135deg, 
-            rgba(215, 48, 196, 0.15), 
-            rgba(176, 72, 212, 0.18), 
-            rgba(122, 105, 235, 0.20)
-        );
-        border: 2px solid rgba(215, 48, 196, 0.6);
+            rgba(30, 41, 59, 0.2), 
+            rgba(51, 65, 85, 0.25), 
+            rgba(71, 85, 105, 0.3)
+        ); /* Daha koyu/nötr ton */
+        border: 2px solid rgba(71, 85, 105, 0.6);
         border-radius: 16px;
         backdrop-filter: blur(15px);
-        box-shadow: 0 8px 32px rgba(215, 48, 196, 0.4);
-        padding: 20px 15px;
+        box-shadow: 0 8px 32px rgba(30, 41, 59, 0.4);
+        padding: 15px 12px; /* Padding küçültüldü */
         display: flex;
         flex-direction: column;
         justify-content: center;
+        margin-left: 60px; /* Logo alanını boş bırak */
+        margin-right: auto;
     }
     
     .password-panel-content {
@@ -631,21 +633,23 @@ body, html {
     }
     
     .password-panel-outer {
-        width: 95vw;
+        width: 80vw; /* Daha da daraltıldı */
         height: auto;
-        min-height: 75vh;
-        max-height: 85vh;
+        min-height: 70vh;
+        max-height: 80vh;
         background: linear-gradient(135deg, 
-            rgba(215, 48, 196, 0.15), 
-            rgba(176, 72, 212, 0.18), 
-            rgba(122, 105, 235, 0.20)
+            rgba(30, 41, 59, 0.2), 
+            rgba(51, 65, 85, 0.25), 
+            rgba(71, 85, 105, 0.3)
         );
-        border: 2px solid rgba(215, 48, 196, 0.6);
+        border: 2px solid rgba(71, 85, 105, 0.6);
         border-radius: 12px;
         backdrop-filter: blur(15px);
-        box-shadow: 0 6px 24px rgba(215, 48, 196, 0.4);
-        padding: 15px 12px;
+        box-shadow: 0 6px 24px rgba(30, 41, 59, 0.4);
+        padding: 12px 10px;
         margin: 5px auto;
+        margin-left: 50px; /* Logo alanı için boşluk */
+        margin-right: auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -737,21 +741,23 @@ body, html {
     }
     
     .password-panel-outer {
-        width: 95vw;
+        width: 75vw; /* En küçük ekranlarda daha dar */
         height: auto;
-        min-height: 70vh;
-        max-height: 80vh;
+        min-height: 65vh;
+        max-height: 75vh;
         background: linear-gradient(135deg, 
-            rgba(215, 48, 196, 0.15), 
-            rgba(176, 72, 212, 0.18), 
-            rgba(122, 105, 235, 0.20)
+            rgba(30, 41, 59, 0.2), 
+            rgba(51, 65, 85, 0.25), 
+            rgba(71, 85, 105, 0.3)
         );
-        border: 2px solid rgba(215, 48, 196, 0.6);
+        border: 2px solid rgba(71, 85, 105, 0.6);
         border-radius: 10px;
         backdrop-filter: blur(15px);
-        box-shadow: 0 4px 16px rgba(215, 48, 196, 0.4);
-        padding: 12px 10px;
+        box-shadow: 0 4px 16px rgba(30, 41, 59, 0.4);
+        padding: 10px 8px;
         margin: 5px auto;
+        margin-left: 45px; /* Logo alanı için boşluk */
+        margin-right: auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -1521,13 +1527,14 @@ div[id="next-task-btn"] {
 /* Mobil cihazlar için paylaş/sakla optimizasyonu */
 @media (max-width: 900px) {
     .share-questions-container {
-        grid-template-columns: 1fr;
-        gap: 8px;
+        grid-template-columns: repeat(2, 1fr); /* İki sütun düzeni */
+        gap: 10px;
         margin: 15px auto;
-        padding: 5px;
-        max-height: 45vh;
+        padding: 10px;
+        max-height: 50vh;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        max-width: 100%;
     }
     
     .share-question-item {
@@ -1569,11 +1576,11 @@ div[id="next-task-btn"] {
 
 @media (max-width: 600px) {
     .share-questions-container {
-        grid-template-columns: 1fr;
-        gap: 6px;
+        grid-template-columns: repeat(2, 1fr); /* Küçük ekranlarda da iki sütun */
+        gap: 8px;
         margin: 10px auto;
-        padding: 0;
-        max-height: 40vh;
+        padding: 8px;
+        max-height: 45vh;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
     }
@@ -1655,8 +1662,11 @@ div[id="next-task-btn"] {
 
 @media (max-width: 400px) {
     .share-questions-container {
-        max-height: 35vh;
+        grid-template-columns: 1fr; /* Çok küçük ekranlarda tek sütun */
+        max-height: 40vh;
         margin: 8px auto;
+        padding: 5px;
+        gap: 6px;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
     }
