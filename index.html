@@ -125,7 +125,7 @@
                         <!-- Sorular buraya dinamik olarak eklenecek -->
                     </div>
                     
-                    <div id="continue-to-phishing-btn" class="continue-btn" style="display:flex !important; text-align: center; margin-top: 30px; width: 100%; padding: 0; position: relative; z-index: 100; visibility: visible !important; opacity: 1 !important; justify-content: center; align-items: center;" onclick="checkShareAnswers()">
+                    <div id="continue-to-phishing-btn" class="continue-btn" style="display:flex !important; text-align: center; margin-top: 30px; width: 100%; padding: 0; position: relative; z-index: 999; visibility: visible !important; opacity: 1 !important; justify-content: center; align-items: center;" onclick="checkShareAnswers()">
                         <img src="assets/oltalamatestinegec.svg" alt="Oltalama Testine Geç" style="max-width: 350px; width: 100%; cursor: pointer; transition: transform 0.2s ease;" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                     </div>
                     
@@ -1843,10 +1843,15 @@
         // Gönderme butonunu göster ve stil ver
         const submitBtn = document.getElementById('continue-to-phishing-btn');
         if (submitBtn) {
-            submitBtn.style.display = 'block !important';
-            submitBtn.style.opacity = '1';
-            submitBtn.style.visibility = 'visible';
-            submitBtn.style.position = 'relative';
+            submitBtn.style.setProperty('display', 'flex', 'important');
+            submitBtn.style.setProperty('opacity', '1', 'important');
+            submitBtn.style.setProperty('visibility', 'visible', 'important');
+            submitBtn.style.setProperty('position', 'relative', 'important');
+            submitBtn.style.setProperty('z-index', '999', 'important');
+            submitBtn.style.setProperty('pointer-events', 'auto', 'important');
+            submitBtn.style.setProperty('justify-content', 'center', 'important');
+            submitBtn.style.setProperty('align-items', 'center', 'important');
+            console.log('✅ Web versiyonunda buton görünür hale getirildi');
             submitBtn.style.zIndex = '100';
             submitBtn.style.width = '100%';
             submitBtn.style.textAlign = 'center';
