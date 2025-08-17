@@ -1124,6 +1124,17 @@ div[id="next-task-btn"] {
     text-align: center !important;
 }
 
+/* Mobilde next-task-btn'i küçült - %100 zoom'da sığsın */
+@media (max-width: 900px) {
+    #next-task-btn img {
+        width: 75% !important; /* %85 yerine %75 */
+        max-width: 300px !important; /* 350px yerine 300px */
+        height: auto !important;
+        display: block !important;
+        margin: 0 auto !important;
+    }
+}
+
 /* Paylaş/Sakla ve Parola Gücü butonları aynı stilde */
 #continue-to-phishing-btn img,
 #next-task-btn img {
@@ -1137,6 +1148,21 @@ div[id="next-task-btn"] {
     max-width: 98vw;
     height: auto;
     display: block;
+}
+
+/* Mobilde next-task-btn için responsive ayar */
+@media (max-width: 600px) {
+    #next-task-btn img {
+        width: 70% !important; /* Daha küçük */
+        max-width: 280px !important; /* Daha küçük */
+    }
+}
+
+@media (max-width: 400px) {
+    #next-task-btn img {
+        width: 65% !important; /* En küçük */
+        max-width: 250px !important; /* En küçük */
+    }
 }
 
 /* Mobil cihazlarda next task button optimizasyonu */
@@ -2166,8 +2192,8 @@ div[id="next-task-btn"] {
     }
     
     #continue-to-phishing-btn img {
-        max-width: 300px !important;
-        width: 85% !important;
+        max-width: 250px !important; /* Daha küçük - %100 zoom'da sığsın */
+        width: 75% !important; /* %85 yerine %75 */
         height: auto !important;
         display: block !important;
         margin: 0 auto !important;
@@ -2189,8 +2215,8 @@ div[id="next-task-btn"] {
     }
     
     #continue-to-phishing-btn img {
-        max-width: 280px !important;
-        width: 80% !important;
+        max-width: 240px !important; /* Daha küçük */
+        width: 70% !important; /* Daha dar */
     }
 }
 
@@ -2209,8 +2235,8 @@ div[id="next-task-btn"] {
     }
     
     #continue-to-phishing-btn img {
-        max-width: 250px !important;
-        width: 75% !important;
+        max-width: 220px !important; /* En küçük ekranlar için */
+        width: 65% !important; /* Daha da dar */
     }
 }
 
