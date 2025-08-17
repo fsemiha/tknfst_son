@@ -877,17 +877,38 @@
         // Next task butonunu kesin görünür hale getir
         setTimeout(() => {
             const nextTaskBtn = document.getElementById('next-task-btn');
+            console.log('🔍 Buton arama sonucu:', nextTaskBtn);
+            
             if (nextTaskBtn) {
-                nextTaskBtn.style.display = 'flex !important';
-                nextTaskBtn.style.visibility = 'visible !important';
-                nextTaskBtn.style.opacity = '1 !important';
-                nextTaskBtn.style.position = 'static !important';
-                nextTaskBtn.style.zIndex = '999 !important';
-                console.log('✅ Next task butonu zorla görünür hale getirildi');
+                // CSS ile görünür yap
+                nextTaskBtn.style.setProperty('display', 'flex', 'important');
+                nextTaskBtn.style.setProperty('visibility', 'visible', 'important');
+                nextTaskBtn.style.setProperty('opacity', '1', 'important');
+                nextTaskBtn.style.setProperty('position', 'static', 'important');
+                nextTaskBtn.style.setProperty('z-index', '999', 'important');
+                nextTaskBtn.style.setProperty('margin', '20px auto', 'important');
+                
+                // Class da ekle
+                nextTaskBtn.classList.add('force-visible');
+                
+                console.log('✅ Next task butonu ZORLA görünür hale getirildi');
+                console.log('📏 Buton boyutları:', nextTaskBtn.getBoundingClientRect());
             } else {
-                console.log('❌ Next task butonu bulunamadı');
+                console.log('❌ Next task butonu HTML\'de bulunamadı');
+                
+                // Buton yoksa oluştur
+                const passwordResult = document.getElementById('password-result');
+                if (passwordResult) {
+                    const newBtn = document.createElement('div');
+                    newBtn.id = 'next-task-btn';
+                    newBtn.className = 'next-task-btn force-visible';
+                    newBtn.innerHTML = '<img src="assets/Asset 35.svg" alt="Paylaş/Sakla Görevine Geç" loading="lazy">';
+                    newBtn.style.cssText = 'display: flex !important; visibility: visible !important; opacity: 1 !important; z-index: 999 !important; margin: 20px auto !important;';
+                    passwordResult.appendChild(newBtn);
+                    console.log('🆕 Yeni buton oluşturuldu ve eklendi');
+                }
             }
-        }, 500);
+        }, 100);
         
         document.getElementById('password-result').innerHTML = `
             <div id="strength-label"><span class="strength-badge" style="background:${color};color:#fff;">Güç: ${strength}</span></div>

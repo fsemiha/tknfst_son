@@ -919,20 +919,63 @@ body, html {
     z-index: 999 !important;
 }
 
-/* KESIN BUTON GÖRÜNÜRLÜĞÜ */
-.next-task-btn {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-/* HTML'deki buton için özel kural */
-#next-task-btn {
+/* KESIN BUTON GÖRÜNÜRLÜĞÜ - TÜM DURUMLAR */
+.next-task-btn,
+#next-task-btn,
+div[id="next-task-btn"] {
     display: flex !important;
     visibility: visible !important;
     opacity: 1 !important;
     position: static !important;
     z-index: 999 !important;
+    margin: 20px auto !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+}
+
+/* Password result içindeki buton */
+.password-result .next-task-btn,
+.password-result #next-task-btn,
+#password-result .next-task-btn,
+#password-result #next-task-btn {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: relative !important;
+    z-index: 999 !important;
+}
+
+/* Buton gösterildikten sonra gizlenmesin */
+#next-task-btn[style*="display: none"] {
+    display: flex !important;
+}
+
+/* Force visible sınıfı - JavaScript tarafından eklenir */
+.force-visible {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    z-index: 9999 !important;
+    pointer-events: auto !important;
+}
+
+/* Mobil debug için */
+@media (max-width: 900px) {
+    .next-task-btn::after {
+        content: "📱BUTON" !important;
+        position: absolute !important;
+        top: -30px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        background: red !important;
+        color: white !important;
+        padding: 5px !important;
+        font-size: 12px !important;
+        border-radius: 5px !important;
+        z-index: 9999 !important;
+    }
 }
 
 #next-task-btn img {
