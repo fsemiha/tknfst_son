@@ -182,7 +182,7 @@ body, html {
 
 .scoreboard {
     position: fixed;
-    right: 80px; /* Daha sağa kaydırıldı, PAYLAŞ/SAKLA ikonuyla çakışmasın */
+    right: 150px; /* Çok daha sağa kaydırıldı, PAYLAŞ/SAKLA ikonuyla kesinlikle çakışmasın */
     bottom: 32px;
     display: flex;
     align-items: center;
