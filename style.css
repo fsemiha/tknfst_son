@@ -548,25 +548,24 @@ body, html {
     }
     
     .password-panel-outer {
-        width: 85vw; /* Logo ile çakışmaması için daraltıldı */
+        width: 80vw; /* Orta boyut */
         height: auto;
-        min-height: 75vh; /* Biraz küçültüldü */
+        min-height: 75vh;
         max-height: 85vh;
         background: linear-gradient(135deg, 
             rgba(30, 41, 59, 0.2), 
             rgba(51, 65, 85, 0.25), 
             rgba(71, 85, 105, 0.3)
-        ); /* Daha koyu/nötr ton */
+        );
         border: 2px solid rgba(71, 85, 105, 0.6);
         border-radius: 16px;
         backdrop-filter: blur(15px);
         box-shadow: 0 8px 32px rgba(30, 41, 59, 0.4);
-        padding: 15px 12px; /* Padding küçültüldü */
+        padding: 15px 12px;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-left: 60px; /* Logo alanını boş bırak */
-        margin-right: auto;
+        margin: 10px auto; /* Ortala */
     }
     
     .password-panel-content {
@@ -633,7 +632,7 @@ body, html {
     }
     
     .password-panel-outer {
-        width: 80vw; /* Daha da daraltıldı */
+        width: 75vw; /* Küçük ekranlar için */
         height: auto;
         min-height: 70vh;
         max-height: 80vh;
@@ -647,9 +646,7 @@ body, html {
         backdrop-filter: blur(15px);
         box-shadow: 0 6px 24px rgba(30, 41, 59, 0.4);
         padding: 12px 10px;
-        margin: 5px auto;
-        margin-left: 50px; /* Logo alanı için boşluk */
-        margin-right: auto;
+        margin: 5px auto; /* Ortala */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -741,7 +738,7 @@ body, html {
     }
     
     .password-panel-outer {
-        width: 75vw; /* En küçük ekranlarda daha dar */
+        width: 70vw; /* Çok küçük ekranlar için */
         height: auto;
         min-height: 65vh;
         max-height: 75vh;
@@ -755,9 +752,7 @@ body, html {
         backdrop-filter: blur(15px);
         box-shadow: 0 4px 16px rgba(30, 41, 59, 0.4);
         padding: 10px 8px;
-        margin: 5px auto;
-        margin-left: 45px; /* Logo alanı için boşluk */
-        margin-right: auto;
+        margin: 5px auto; /* Ortala */
         display: flex;
         flex-direction: column;
         justify-content: center;
