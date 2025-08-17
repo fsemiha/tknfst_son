@@ -571,6 +571,8 @@ body, html {
     #share-panel .password-panel-content, 
     #phishing-panel .password-panel-content {
         top: 60px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
     
     .password-panel-top {
@@ -642,6 +644,8 @@ body, html {
     #share-panel .password-panel-content, 
     #phishing-panel .password-panel-content {
         top: 55px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
     
     .password-panel-top {
@@ -1408,6 +1412,28 @@ div[id="next-task-btn"] {
     }
 }
 
+/* Paylaş/Sakla scroll bar'ını güzelleştir - mobil için */
+@media (max-width: 900px) {
+    .share-questions-container::-webkit-scrollbar {
+        width: 6px;
+        display: block;
+    }
+    
+    .share-questions-container::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+    }
+    
+    .share-questions-container::-webkit-scrollbar-thumb {
+        background: rgba(215, 48, 196, 0.6);
+        border-radius: 10px;
+    }
+    
+    .share-questions-container::-webkit-scrollbar-thumb:hover {
+        background: rgba(215, 48, 196, 0.8);
+    }
+}
+
 /* Mobil cihazlar için paylaş/sakla optimizasyonu */
 @media (max-width: 900px) {
     .share-questions-container {
@@ -1415,8 +1441,9 @@ div[id="next-task-btn"] {
         gap: 8px;
         margin: 15px auto;
         padding: 5px;
-        max-height: none;
-        overflow-y: visible;
+        max-height: 45vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
     
     .share-question-item {
@@ -1432,8 +1459,9 @@ div[id="next-task-btn"] {
         gap: 6px;
         margin: 10px auto;
         padding: 0;
-        max-height: none;
-        overflow-y: visible;
+        max-height: 40vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
     
     .share-question-item {
@@ -1483,8 +1511,10 @@ div[id="next-task-btn"] {
 
 @media (max-width: 400px) {
     .share-questions-container {
-        max-height: none;
+        max-height: 35vh;
         margin: 8px auto;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
     
     .share-question-item {
