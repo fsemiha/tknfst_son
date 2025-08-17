@@ -539,6 +539,13 @@ body, html {
         z-index: 999;
         position: fixed;
     }
+    
+    /* Süre/Puan kutularını aşağı kaydır - PAYLAŞ/SAKLA ikonuyla çakışmasın */
+    .password-panel-top {
+        top: 80px !important; /* Daha aşağıda konumlandır */
+        position: relative !important;
+        z-index: 10 !important;
+    }
 }
 
 @media (max-width: 900px) {
@@ -622,6 +629,13 @@ body, html {
         left: 5px;
         z-index: 999;
         position: fixed;
+    }
+    
+    /* Süre/Puan kutularını aşağı kaydır */
+    .password-panel-top {
+        top: 85px !important;
+        position: relative !important;
+        z-index: 10 !important;
     }
 }
 
@@ -728,6 +742,13 @@ body, html {
         left: 5px;
         z-index: 999;
         position: fixed;
+    }
+    
+    /* Süre/Puan kutularını aşağı kaydır */
+    .password-panel-top {
+        top: 90px !important;
+        position: relative !important;
+        z-index: 10 !important;
     }
 }
 
