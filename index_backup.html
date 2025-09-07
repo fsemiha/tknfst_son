@@ -36,546 +36,11 @@
     <link rel="preload" href="fonts/conthrax-sb.otf" as="font" type="font/otf" crossorigin> -->
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css?v=9.0&t=1735683000&cache=bust&mobile=fix&iphone12=final&buttons=tight">
+    <link rel="stylesheet" href="style.css?v=7.0&t=1735400000&cache=bust&mobile=fix">
     
-    <!-- MOBIL CSS - SUPER GÜÇLÜ -->
-    <style>
-        /* HER CIHAZDA ÇALIŞSIN */
-        /* Phishing efektleri tamamen kaldırıldı */
-        
-        /* iPhone 12 Pro ZORUNLU DÜZELTİCİ - BYPASS CACHE */
-        @media (max-width: 400px) and (min-height: 800px) {
-            .panel-desc {
-                font-size: 0.85rem !important;
-                position: relative !important;
-                top: -8px !important;
-                line-height: 1.1 !important;
-                margin-bottom: 6px !important;
-                padding: 0 4px !important;
-                word-wrap: break-word !important;
-                overflow-wrap: break-word !important;
-            }
-            
-            .inside-panel {
-                top: 54% !important;
-                transform: translate(-50%, -54%) !important;
-                gap: 12px !important;
-            }
-            
-            .main-title-panel {
-                height: 75vh !important;
-                min-height: 450px !important;
-            }
-        }
-        #phishing-panel .password-panel-content {
-            padding-top: 35px !important;
-        }
-    </style>
-    
-    <!-- JAVASCRIPT ZORLA STYLE UYGULAYICI -->
-    <script>
-        // TÜM EKRANLARDA TURUNCU MESAJLARI KALDIR
-        function applyResponsiveFix() {
-            console.log('TURUNCU KALDIRICI - Timestamp: ' + new Date().getTime());
-            
-            // HER EKRANDA ÇALIŞ - ana menü kontrolü kaldırıldı
-            
-            const panelDesc = document.querySelector('.panel-desc');
-            const insidePanel = document.querySelector('.inside-panel');
-            const mainButtons = document.querySelector('.main-buttons');
-            
-            // Mobil cihazlar için (iPhone 12 Pro dahil)
-            if (window.innerWidth <= 500 && window.innerHeight >= 700) {
-                if (panelDesc) {
-                    // Mobilde yazıyı ZORLA kaldır
-                    panelDesc.style.cssText = `
-                        display: none !important;
-                        visibility: hidden !important;
-                        opacity: 0 !important;
-                        height: 0 !important;
-                        margin: 0 !important;
-                        padding: 0 !important;
-                        position: absolute !important;
-                        top: -9999px !important;
-                        left: -9999px !important;
-                    `;
-                    panelDesc.innerHTML = '';
-                    console.log('Mobile: Text FORCEFULLY hidden and emptied');
-                }
-                
-                if (insidePanel) {
-                    // Butonları daha da aşağı indir - çok rahat mesafe
-                    insidePanel.style.cssText = `
-                        position: absolute !important;
-                        top: 65% !important;
-                        left: 50% !important;
-                        transform: translate(-50%, -65%) !important;
-                        display: flex !important;
-                        flex-direction: column !important;
-                        align-items: center !important;
-                        gap: 8px !important;
-                        width: 85% !important;
-                        z-index: 2 !important;
-                        padding: 5px !important;
-                    `;
-                    console.log('Mobile: Buttons moved down to 65% - very comfortable spacing');
-                }
-                
-                if (mainButtons) {
-                    mainButtons.style.cssText = `
-                        display: flex !important;
-                        flex-direction: column !important;
-                        align-items: center !important;
-                        gap: 6px !important;
-                        width: 100% !important;
-                    `;
-                    console.log('Mobile: Button gaps reduced to 6px');
-                }
-            }
-            
-            // Tüm cihazlarda turuncu/kırmızı uyarı mesajlarını kaldır
-            const warningMessages = [
-                document.getElementById('password-match-message'),
-                document.getElementById('crack-time'),
-                document.querySelector('#crack-time'),
-                document.querySelector('.crack-time'),
-                document.querySelector('.warning-message'),
-                document.querySelector('.error-message'),
-                document.querySelector('[style*="orange"]'),
-                document.querySelector('[style*="#ff"]'),
-                document.querySelector('[style*="color: orange"]'),
-                document.querySelector('[style*="color: #ff"]'),
-                document.querySelector('[style*="color: red"]'),
-                document.querySelector('[style*="#ff4444"]'),
-                document.querySelector('[style*="#ffaa00"]'),
-                document.querySelector('[style*="background: red"]'),
-                document.querySelector('.strength-warning'),
-                document.querySelector('.password-warning'),
-                document.querySelector('.strength-badge'),
-                document.querySelector('.password-result')
-            ];
-            
-            // NUCLEAR TURUNCU KALDIRMA - HER ŞEYİ TARA
-            const allElements = document.querySelectorAll('*');
-            allElements.forEach(element => {
-                try {
-                    // Sadece spesifik turuncu mesajları hedefle - phishing'e dokunma
-                    if (element.id === 'crack-time' || element.className.includes('crack-time')) {
-                        element.style.cssText = 'display: none !important; visibility: hidden !important; opacity: 0 !important; height: 0 !important; width: 0 !important; position: absolute !important; top: -9999px !important; left: -9999px !important;';
-                        element.innerHTML = '';
-                        element.remove();
-                        console.log('CRACK-TIME DIV DESTROYED: ' + element.id);
-                    }
-                    
-                    // Sadece "Lütfen parolayı tekrar girin" mesajını hedefle
-                    if (element.textContent && element.textContent.trim() === 'Lütfen parolayı tekrar girin') {
-                        element.style.display = 'none !important';
-                        element.innerHTML = '';
-                        console.log('PASSWORD WARNING DESTROYED');
-                    }
-                    
-                    // Style attribute kontrol et
-                    if (element.getAttribute('style')) {
-                        const style = element.getAttribute('style');
-                        if (style.includes('#ffaa00') || 
-                            style.includes('#ff4444') ||
-                            style.includes('orange') ||
-                            style.includes('255, 170, 0') ||
-                            style.includes('255, 68, 68')) {
-                            element.style.cssText = 'display: none !important;';
-                            element.innerHTML = '';
-                            element.remove();
-                            console.log('TURUNCU STYLE DESTROYED');
-                        }
-                    }
-                } catch(e) {
-                    // Ignore errors
-                }
-            });
-            
-            // CRACK-TIME DIV'İNİ ÖZELLIKLE HEDEFLE - SPESİFİK
-            const crackTimeDiv = document.getElementById('crack-time');
-            if (crackTimeDiv) {
-                crackTimeDiv.style.cssText = 'display: none !important; visibility: hidden !important; opacity: 0 !important; height: 0 !important; width: 0 !important; position: absolute !important; top: -9999px !important; left: -9999px !important;';
-                crackTimeDiv.innerHTML = '';
-                crackTimeDiv.parentNode.removeChild(crackTimeDiv);
-                console.log('CRACK-TIME DIV COMPLETELY REMOVED FROM DOM!');
-            }
-            
-            // Tüm crack içeren elementleri de kaldır
-            document.querySelectorAll('[id*="crack"], [class*="crack"]').forEach(el => {
-                if (el) {
-                    el.style.display = 'none !important';
-                    el.remove();
-                    console.log('Crack element removed: ' + el.id || el.className);
-                }
-            });
-            
-            warningMessages.forEach(msg => {
-                if (msg) {
-                    msg.style.display = 'none !important';
-                    msg.style.visibility = 'hidden !important';
-                    msg.style.opacity = '0 !important';
-                    msg.innerHTML = '';
-                }
-            });
-            
-            // Ana menü butonlarını eşitle (Asset 10 ve Asset 11)
-            const mainMenuButtons = document.querySelectorAll('.main-btn-svg');
-            if (mainMenuButtons.length > 0) {
-                mainMenuButtons.forEach((button, index) => {
-                    // Asset 10 (Paylaş/Sakla) ve Asset 11 (Oltalama Testi) butonları
-                    if (index === 1 || index === 2) { // 2. ve 3. butonlar
-                        button.style.cssText = `
-                            width: 98% !important;
-                            max-width: 440px !important;
-                            min-width: 220px !important;
-                            height: auto !important;
-                            display: block !important;
-                            cursor: pointer !important;
-                            transition: transform 0.15s !important;
-                            margin: 0 auto !important;
-                            font-family: 'Gilmer', Arial, sans-serif !important;
-                            font-weight: bold !important;
-                        `;
-                    }
-                });
-                console.log('Main menu buttons (Paylaş/Sakla & Oltalama) equalized');
-            }
-            
-            console.log('All orange/red warning messages removed');
-            
-            // Yeşil butonlara dokunma - sadece ana menü butonlarını düzenle
-            
-            // Honor Pad ve büyük ekranlar için
-            else if (window.innerWidth >= 1000) {
-                if (panelDesc) {
-                    // Honor Pad'de yazıyı büyüt
-                    panelDesc.style.cssText = `
-                        color: #ffffff !important;
-                        font-size: 1.7rem !important;
-                        text-align: center !important;
-                        margin-bottom: 20px !important;
-                        font-family: 'Gilmer', Arial, sans-serif !important;
-                        font-weight: 400 !important;
-                        letter-spacing: 0.6px !important;
-                        line-height: 1.4 !important;
-                        display: block !important;
-                    `;
-                    console.log('Honor Pad: Text enlarged to 1.7rem');
-                }
-            }
-        }
-        
-        // Sayfa yüklendiğinde uygula
-        document.addEventListener('DOMContentLoaded', applyResponsiveFix);
-        
-        // Window resize'da da kontrol et
-        window.addEventListener('resize', applyResponsiveFix);
-        
-        // Hemen uygula (eğer DOM hazırsa)
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', function() {
-                setTimeout(applyResponsiveFix, 100);
-            });
-        } else {
-            setTimeout(applyResponsiveFix, 100);
-        }
-        
-        // SÜREKLI TURUNCU KALDIRICI - HER EKRANDA
-        setInterval(applyResponsiveFix, 1000);
-        setTimeout(applyResponsiveFix, 100);
-        setTimeout(applyResponsiveFix, 500);
-    </script>
-    
-    <style>
-        
-        /* MOBIL OPTIMIZASYON */
-        /* Mobilde ana menü çerçevesi için özel ayar */
-        @media screen and (max-width: 767px) {
-            .main-title-svg {
-                content: url('assets/sibermacera_cerceve.svg') !important;
-                width: 130% !important;
-                height: 130% !important;
-                margin: -15% !important;
-                max-width: none !important;
-            }
-            
-            .main-title-panel {
-                width: 98vw !important;
-                max-width: 98vw !important;
-            }
-            
-            /* Mobilde TAMAMEN yeni çerçeve sistemi */
-            .password-panel-outer,
-            #share-panel .password-panel-outer,
-            #phishing-panel .password-panel-outer {
-                background-image: url('assets/cerceve.svg') !important;
-                background-size: 100% 100% !important;
-                background-repeat: no-repeat !important;
-                background-position: center !important;
-                border: none !important;
-            }
-            
-            /* Eski çerçeveleri tamamen kaldır */
-            .password-panel-bg,
-            #share-panel .password-panel-bg,
-            #phishing-panel .password-panel-bg,
-            .password-panel-outer::before,
-            #share-panel .password-panel-outer::before,
-            #phishing-panel .password-panel-outer::before {
-                display: none !important;
-                visibility: hidden !important;
-                content: none !important;
-            }
-            
-            /* Panel boyutlarını ayarla */
-            .password-panel-outer,
-            #share-panel .password-panel-outer,
-            #phishing-panel .password-panel-outer {
-                width: 98vw !important;
-                max-width: 450px !important;
-                height: auto !important;
-                min-height: 80vh !important;
-                position: relative !important;
-                overflow: visible !important;
-            }
-            
-            /* Panel içeriğinin z-index ayarı */
-            .password-panel-content,
-            #share-panel .password-panel-content,
-            #phishing-panel .password-panel-content {
-                position: relative !important;
-                z-index: 2 !important;
-            }
-            
-            /* Panel içeriğini normale döndür */
-            .password-panel-content,
-            #share-panel .password-panel-content {
-                padding-top: 20px !important;
-                margin-top: 0 !important;
-            }
-            
-                         /* Tüm panellerde skor ve time kutularını çerçeve içinde konumlandır */
-             .password-panel-top,
-             #share-panel .password-panel-top,
-             #phishing-panel .password-panel-top {
-                 position: absolute !important;
-                 top: 60px !important;
-                 left: 0 !important;
-                 right: 0 !important;
-                 margin: 0 !important;
-                 z-index: 10 !important;
-                 display: flex !important;
-                 justify-content: space-between !important;
-                 align-items: center !important;
-                 padding: 0 30px !important;
-                 width: 100% !important;
-                 box-sizing: border-box !important;
-             }
-            
-            /* İkon ve diğer öğeleri normal pozisyona döndür */
-            .password-panel-content .security-icon,
-            #share-panel .password-panel-content .security-icon {
-                margin-top: 0 !important;
-            }
-            
-            .password-panel-content .password-title,
-            #share-panel .password-panel-content .password-title {
-                margin-top: 0 !important;
-            }
-            
-            .password-panel-content .password-desc,
-            #share-panel .password-panel-content .password-desc {
-                margin-top: 0 !important;
-            }
-            
-                         /* Oltalama testindeki seçenek yazılarını ultra küçük boyutta düzenle */
-             #phishing-panel .phishing-button div {
-                 font-size: 0.5rem !important;
-                 line-height: 0.5 !important;
-                 background: rgba(0,0,0,0.9) !important;
-                 padding: 1px 2px !important;
-                 border-radius: 1px !important;
-                 font-weight: 200 !important;
-                 color: #ffffff !important;
-                 text-align: center !important;
-                 max-width: 80% !important;
-                 word-wrap: break-word !important;
-                 overflow-wrap: break-word !important;
-                 white-space: normal !important;
-                 margin: 0px auto !important;
-                 box-sizing: border-box !important;
-                 display: block !important;
-                 transform: scale(0.3) !important;
-                 zoom: 0.3 !important;
-             }
-            
-            /* Sadece spesifik turuncu uyarı mesajlarını kaldır */
-            .warning-message,
-            .error-message,
-            .password-warning,
-            [style*="color: orange"],
-            [style*="color: #ffaa00"],
-            [style*="color: #ff4444"] {
-                display: none !important;
-                visibility: hidden !important;
-                opacity: 0 !important;
-            }
-            
-            /* crack-time elementini göster ve dinamik renkler */
-            #crack-time {
-                display: block !important;
-                font-size: 0.9rem !important;
-                margin: 8px 0 !important;
-                padding: 5px 10px !important;
-                border-radius: 6px !important;
-                text-align: center !important;
-                font-weight: bold !important;
-                transition: all 0.3s ease !important;
-            }
-            
-            /* Kırılma süresine göre renkler ve animasyonlar */
-            #crack-time.very-weak,
-            #crack-time.weak {
-                color: #ff4444 !important;
-                background: rgba(255, 68, 68, 0.2) !important;
-                border: 1px solid rgba(255, 68, 68, 0.5) !important;
-                animation: dangerPulse 0.5s infinite alternate !important;
-            }
-            
-            #crack-time.medium {
-                color: #ffaa00 !important;
-                background: rgba(255, 170, 0, 0.2) !important;
-                border: 1px solid rgba(255, 170, 0, 0.5) !important;
-                animation: warningPulse 1s infinite alternate !important;
-            }
-            
-            #crack-time.good,
-            #crack-time.very-strong {
-                color: #00ff99 !important;
-                background: rgba(0, 255, 153, 0.2) !important;
-                border: 1px solid rgba(0, 255, 153, 0.5) !important;
-            }
-            
-            /* Animasyonlar */
-            @keyframes dangerPulse {
-                0% { 
-                    background: rgba(255, 68, 68, 0.2);
-                    box-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
-                }
-                100% { 
-                    background: rgba(255, 68, 68, 0.4);
-                    box-shadow: 0 0 15px rgba(255, 68, 68, 0.6);
-                }
-            }
-            
-            @keyframes warningPulse {
-                0% { 
-                    background: rgba(255, 170, 0, 0.2);
-                    box-shadow: 0 0 5px rgba(255, 170, 0, 0.3);
-                }
-                100% { 
-                    background: rgba(255, 170, 0, 0.3);
-                    box-shadow: 0 0 10px rgba(255, 170, 0, 0.5);
-                }
-            }
-            
-            /* Tüm geçiş butonlarını eşitle */
-            .next-task-btn img,
-            #continue-to-phishing-btn img {
-                max-width: 350px !important;
-                width: 100% !important;
-            }
-            
-            /* Paylaş/Sakla görevine geç butonu boyutu */
-            .next-task-btn img[alt*="Paylaş/Sakla"] {
-                max-width: 350px !important;
-                width: 100% !important;
-            }
-            
-            /* Oltalama testine geç butonu da aynı boyutta */
-            img[src*="oltalamatestinegec.svg"] {
-                max-width: 350px !important;
-                width: 200% !important;
-            }
-            
-            /* Paylaş/Sakla seçimleri için renk geri bildirimi */
-            .share-question-item {
-                transition: all 0.3s ease !important;
-                border-radius: 8px !important;
-                padding: 8px !important;
-                margin: 4px 0 !important;
-                cursor: pointer !important;
-                border: 2px solid transparent !important;
-            }
-            
-            .share-question-item.correct {
-                background: rgba(0, 255, 153, 0.2) !important;
-                border: 2px solid rgba(0, 255, 153, 0.5) !important;
-                color: #00ff99 !important;
-                box-shadow: 0 0 10px rgba(0, 255, 153, 0.3) !important;
-            }
-            
-            .share-question-item.wrong {
-                background: rgba(255, 68, 68, 0.2) !important;
-                border: 2px solid rgba(255, 68, 68, 0.5) !important;
-                color: #ff4444 !important;
-                box-shadow: 0 0 10px rgba(255, 68, 68, 0.3) !important;
-                animation: shake 0.5s ease-in-out !important;
-            }
-            
-            .share-question-item.selected {
-                background: rgba(255, 255, 255, 0.1) !important;
-                border: 2px solid rgba(255, 255, 255, 0.3) !important;
-            }
-            
-            @keyframes shake {
-                0%, 100% { transform: translateX(0); }
-                25% { transform: translateX(-5px); }
-                75% { transform: translateX(5px); }
-            }
-            
-            /* Final score paneli için mobilde */
-            .final-score-bg {
-                content: url('assets/cerceve.svg') !important;
-            }
-            
-            /* Modal çerçevesi için mobilde */
-            #explanation-modal img[src*="Asset 43"] {
-                content: url('assets/cerceve.svg') !important;
-            }
-        }
-        
-        /* Mobilde modal için özel ayarlar */
-        @media screen and (max-width: 480px) {
-            /* Modal çerçevesini sibermacera_cerceve yap */
-            #explanation-modal img[src*="Asset 43"] {
-                content: url('assets/sibermacera_cerceve.svg') !important;
-            }
-            
-            /* Modal yazılarını küçült */
-            #explanation-modal {
-                max-width: 300px !important;
-                font-size: 0.9rem !important;
-                padding: 15px 20px !important;
-            }
-            
-            #explanation-modal div:first-of-type {
-                font-size: 1.0rem !important;
-                margin-bottom: 8px !important;
-            }
-            
-            #explanation-modal div:nth-of-type(2) {
-                font-size: 0.8rem !important;
-            }
-            
-            #explanation-modal img[src*="Asset 60"],
-            #explanation-modal img[src*="Asset 61"] {
-                max-width: 80px !important;
-            }
-            
-            /* Phishing buton efektleri kaldırıldı */
+    <!-- Basit Mobil CSS v7.0 UPDATED -->
+    <style id="mobile-css-v7-updated">
+        @media (max-width: 480px) {
 	/* Timer kutlarını göster */
 	.svg-box { 
 		display: block !important;
@@ -876,7 +341,19 @@
 		height: 100% !important;
 	}
 	
-	/* Phishing buton div efektleri kaldırıldı */
+	.phishing-button div {
+		position: absolute !important;
+		top: 50% !important;
+		left: 50% !important;
+		transform: translate(-50%, -50%) !important;
+		font-size: 8px !important;
+		color: white !important;
+		background: rgba(0,0,0,0.4) !important;
+		padding: 3px 6px !important;
+		border-radius: 3px !important;
+		z-index: 10 !important;
+		line-height: 1.0 !important;
+	}
 	
 	/* Modal yazılarını küçült */
 	#explanation-modal {
@@ -911,41 +388,9 @@
 			min-height: 800px !important;
 		}
 		
-		        .main-title-svg {
-            max-width: 500px !important; /* Logo boyutunu küçült */
-        }
-        
-        /* Logo boyutunu küçült */
-        .logo {
-            max-width: 150px !important;
-            width: 150px !important;
-        }
-        
-        /* Sağ alttaki skor tablosu butonunu küçült */
-        .scoreboard-img {
-            max-width: 100px !important;
-            width: 100px !important;
-            height: auto !important;
-        }
-        
-        /* Skor tablosu container'ını da küçült */
-        .scoreboard {
-            transform: scale(0.7) !important;
-            transform-origin: bottom right !important;
-        }
-        
-        /* Skor tablosu başlığını küçült */
-        .password-title {
-            font-size: 1.2rem !important;
-        }
-        
-        #scoreboard-panel .password-title {
-            font-size: 1.2rem !important;
-        }
-        
-        #scoreboard-panel .password-desc {
-            font-size: 1.1rem !important;
-        }
+		.main-title-svg {
+			max-width: 700px !important;
+		}
 		
 		.panel-desc {
 			font-size: 24px !important;
@@ -1106,49 +551,33 @@
         
         console.log('Mobil kontrol:', window.innerWidth, 'isMobile:', isMobile());
         
-        // Mobilde direkt DOM manipülasyonu
+        // Mobilde direkt style uygula
         if (isMobile()) {
-            console.log('Mobil tespit edildi, DOM manipülasyonu başlıyor...');
+            console.log('Mobil tespit edildi, direkt style uygulanıyor...');
             
-            // Phishing butonlarını direkt setProperty ile değiştir
-            function fixPhishingButtons() {
-                const container = document.querySelector('.phishing-buttons-container');
-                if (container) {
-                    container.style.setProperty('gap', '3px', 'important');
-                    container.style.setProperty('margin-top', '15px', 'important');
-                    console.log('✅ Phishing container düzeltildi');
-                }
-                
-                const buttons = document.querySelectorAll('.phishing-button');
-                buttons.forEach((btn, index) => {
-                    btn.style.setProperty('margin-bottom', '2px', 'important');
-                    const img = btn.querySelector('img');
-                    if (img) {
-                        img.style.setProperty('min-height', '35px', 'important');
-                        img.style.setProperty('height', 'auto', 'important');
+            // Phishing butonlarını yakınlaştır
+            const style = document.createElement('style');
+            style.textContent = `
+                @media (max-width: 480px) {
+                    .phishing-buttons-container {
+                        gap: 2px !important;
+                        margin-top: 8px !important;
                     }
-                    const div = btn.querySelector('div');
-                    if (div) {
-                        div.style.setProperty('font-size', '0.7rem', 'important');
-                        div.style.setProperty('background', 'rgba(0,0,0,0.4)', 'important');
-                        div.style.setProperty('padding', '2px 4px', 'important');
-                        div.style.setProperty('border-radius', '3px', 'important');
-                        div.style.setProperty('line-height', '1.0', 'important');
+                    .phishing-button {
+                        margin: 1px auto !important;
+                        min-height: 30px !important;
                     }
-                    console.log('✅ Phishing buton', index, 'düzeltildi');
-                });
-                
-                const phishingContent = document.querySelector('#phishing-panel .password-panel-content');
-                if (phishingContent) {
-                    phishingContent.style.setProperty('padding-top', '35px', 'important');
-                    console.log('✅ Phishing content padding düzeltildi');
+                    #phishing-panel .password-panel-content {
+                        padding-top: 30px !important;
+                    }
+                    #phishing-panel .password-desc {
+                        margin: 3px 0 !important;
+                        font-size: 9px !important;
+                    }
                 }
-            }
-            
-            // Birden fazla kez dene
-            setTimeout(fixPhishingButtons, 500);
-            setTimeout(fixPhishingButtons, 1000);
-            setTimeout(fixPhishingButtons, 2000);
+            `;
+            document.head.appendChild(style);
+            console.log('Mobil style eklendi!');
         }
         
         // Timer fonksiyonu kaldırıldı - basit CSS ile çözülecek
@@ -1352,7 +781,7 @@
   <body>
       <!-- Yükleme Ekranı -->
       <div id="loading-screen" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: linear-gradient(135deg, #0a1428 0%, #1a2844 50%, #2a3c66 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 9999;">
-          <img src="assets/oyungirisekranı.svg" alt="Oyun Giriş Ekranı" style="max-width: 80%; max-height: 40%; margin-bottom: 30px;" loading="eager" class="loading-screen-img">
+          <img src="assets/oyungirisekranı.svg" alt="Oyun Giriş Ekranı" style="max-width: 80%; max-height: 40%; margin-bottom: 30px;" loading="eager">
           <div style="color: #ffaa00; font-family: 'Gilmer Light', Arial, sans-serif; font-size: 1.2rem; margin-bottom: 30px; text-align: center;">
               Oyun yükleniyor...
           </div>
@@ -1421,7 +850,7 @@
                         <img src="assets/Asset 32.svg" alt="Parola Onay Input" class="input-svg" loading="lazy">
                         <input type="password" class="username-input-on-svg password-input" placeholder="Parolayı tekrar girin..." id="password-input-2">
                     </div>
-                    <div id="password-match-message" style="display: none; text-align: center; margin: 8px 0; font-size: 0.9rem; color: #ff4444;"></div>
+                    <div id="password-match-message" style="text-align: center; margin: 8px 0; font-size: 0.9rem; color: #ff4444;"></div>
                     <div class="password-check-btn-wrapper" id="password-check-btn-wrapper">
                         <img src="assets/Asset 33.svg" alt="Kontrol Et" class="password-check-btn" id="check-password-btn" style="opacity: 0.5; pointer-events: none;" loading="lazy">
                     </div>
@@ -1488,18 +917,18 @@
                     <img src="assets/Asset 30.svg" alt="Phishing Test İkon" class="security-icon">
                     <div class="password-title">OLTALAMA TESTİ</div>
                     <div class="password-desc" id="phishing-desc">Instagram şifrenizi güncellemeniz gerekiyor. Buraya tıklayın.<br>Link adresi: insta-security.verify-update.ru</div>
-                                         <div class="phishing-buttons-container" style="display: flex; flex-direction: column; gap: 12px; margin-top: 50px; width: 100%; max-width: 600px;">
-                                                 <div class="phishing-button" data-answer="wrong" style="position: relative; cursor: pointer;">
-                             <img src="assets/Asset 31.svg" style="width: 100%; height: auto; min-height: 60px;">
-                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-family: 'Gilmer Light', sans-serif; font-size: 1rem; text-align: center; width: 90%; line-height: 1.2;">Link gerçek gibi, tıklarım.</div>
+                                         <div class="phishing-buttons-container" style="display: flex; flex-direction: column; gap: 3px; margin-top: 20px; width: 100%; max-width: 600px;">
+                                                 <div class="phishing-button" data-answer="wrong" style="position: relative; cursor: pointer; transition: all 0.3s ease;">
+                             <img src="assets/Asset 31.svg" style="width: 100%; height: auto; min-height: 35px;">
+                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-family: 'Gilmer Light', sans-serif; font-size: 0.7rem; text-align: center; width: 90%; line-height: 1.1; background: rgba(0,0,0,0.3); padding: 2px 4px; border-radius: 3px;">Link gerçek gibi, tıklarım.</div>
                          </div>
-                         <div class="phishing-button" data-answer="correct" style="position: relative; cursor: pointer;">
-                             <img src="assets/Asset 31.svg" style="width: 100%; height: auto; min-height: 60px;">
-                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-family: 'Gilmer Light', sans-serif; font-size: 1rem; text-align: center; width: 90%; line-height: 1.2;">Adres tuhaf, dikkatli olurum.</div>
+                         <div class="phishing-button" data-answer="correct" style="position: relative; cursor: pointer; transition: all 0.3s ease;">
+                             <img src="assets/Asset 31.svg" style="width: 100%; height: auto; min-height: 35px;">
+                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-family: 'Gilmer Light', sans-serif; font-size: 0.7rem; text-align: center; width: 90%; line-height: 1.1; background: rgba(0,0,0,0.3); padding: 2px 4px; border-radius: 3px;">Adres tuhaf, dikkatli olurum.</div>
                          </div>
-                         <div class="phishing-button" data-answer="wrong" style="position: relative; cursor: pointer;">
-                             <img src="assets/Asset 31.svg" style="width: 100%; height: auto; min-height: 60px;">
-                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-family: 'Gilmer Light', sans-serif; font-size: 1rem; text-align: center; width: 90%; line-height: 1.2;">Şifreyi yazar geçerim.</div>
+                         <div class="phishing-button" data-answer="wrong" style="position: relative; cursor: pointer; transition: all 0.3s ease;">
+                             <img src="assets/Asset 31.svg" style="width: 100%; height: auto; min-height: 35px;">
+                             <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-family: 'Gilmer Light', sans-serif; font-size: 0.7rem; text-align: center; width: 90%; line-height: 1.1; background: rgba(0,0,0,0.3); padding: 2px 4px; border-radius: 3px;">Şifreyi yazar geçerim.</div>
                          </div>
                     </div>
                     <div id="phishing-explanation" class="share-explanation"></div>
@@ -2449,13 +1878,13 @@
              if (isCorrect) {
                  phishingScore += 10;
                  addScore(10);
-                 explanation.innerHTML = phishingQuestions[currentPhishingQuestion].explanation.replace(/\n+/g, '<br>');
+                 explanation.textContent = phishingQuestions[currentPhishingQuestion].explanation;
                  explanation.className = 'share-explanation correct';
                  console.log("✅ Doğru cevap! +10 puan");
              } else {
                  phishingScore -= 5;
                  addScore(-5);
-                 explanation.innerHTML = phishingQuestions[currentPhishingQuestion].explanation.replace(/\n+/g, '<br>');
+                 explanation.textContent = phishingQuestions[currentPhishingQuestion].explanation;
                  explanation.className = 'share-explanation wrong';
                  console.log("❌ Yanlış cevap! -5 puan");
              }
@@ -2477,55 +1906,65 @@
          }
     });
 
-    // Phishing butonları için hover efekti - KALDIRILDI
-    // Hiç efekt yok artık
+    // Phishing butonları için hover efekti
+    document.addEventListener('mouseover', function(e) {
+        if (e.target.closest('.phishing-button') && e.target.closest('.phishing-button').style.pointerEvents !== 'none') {
+            e.target.closest('.phishing-button').style.transform = 'scale(1.02)';
+        }
+    });
+
+    document.addEventListener('mouseout', function(e) {
+        if (e.target.closest('.phishing-button') && e.target.closest('.phishing-button').style.pointerEvents !== 'none') {
+            e.target.closest('.phishing-button').style.transform = 'scale(1)';
+        }
+    });
 
     // PHISHING TEST - Çoklu Soru Sistemi
     let phishingQuestions = [
         {
-            text: "YouTube'da yorum görüyorsun:\n'Bu kanala abone ol, ilk 100 kişiye iPhone hediye!\nLink profilimde'Ne yaparsın?",
+            text: "YouTube'da yorum görüyorsun: 'Bu kanala abone ol, ilk 100 kişiye iPhone hediye! Link profilimde'\nNe yaparsın?",
             options: [
                 { text: "Profiline gidip linke tıklarım", correct: false },
                 { text: "Sahte olduğunu düşünür, tıklamam", correct: true },
                 { text: "Arkadaşlarıma da gönderir herkesi uyarırım", correct: false }
             ],
-            explanation: "YouTube yorumlarındaki hediye linkler genellikle sahte.\nGerçek kanallar böyle hediye vermez."
+            explanation: "YouTube yorumlarındaki hediye linkler genellikle sahte. Gerçek kanallar böyle hediye vermez."
         },
         {
-            text: "WhatsApp'ta arkadaşından mesaj geliyor:\n'Bu linke tıkla çok komik video var: bit.ly/xyz123'Ne yaparsın?",
+            text: "WhatsApp'ta arkadaşından mesaj geliyor: 'Bu linke tıkla çok komik video var: bit.ly/xyz123'\nNe yaparsın?",
             options: [
                 { text: "Arkadaşımdan geldiği için güvenle tıklarım", correct: false },
                 { text: "Önce arkadaşıma sorarak doğruluğunu kontrol ederim", correct: true },
                 { text: "Hemen tıklarım, arkadaşım gönderdi sonuçta", correct: false }
             ],
-            explanation: "Arkadaşının hesabı çalınmış olabilir.\nŞüpheli linkler için önce kişiyi arayıp doğrulamak en iyisi."
+            explanation: "Arkadaşının hesabı çalınmış olabilir. Şüpheli linkler için önce kişiyi arayıp doğrulamak en iyisi."
         },
         {
-            text: "Telefonunda açılır pencere çıkıyor:\n'DİKKAT! Telefonunuz virüslü. Hemen temizlemek için TIKLA'Ne yaparsın?",
+            text: "Telefonunda açılır pencere çıkıyor: 'DİKKAT! Telefonunuz virüslü. Hemen temizlemek için TIKLA'\nNe yaparsın?",
             options: [
                 { text: "Hemen tıklarım, telefonum tehlikede", correct: false },
                 { text: "Bu sahte bir uyarı, kapatırım", correct: true },
                 { text: "Tıklayıp virüs programını indiririm", correct: false }
             ],
-            explanation: "Açılır pencere virüs uyarıları genellikle sahte.\nTelefonlar böyle uyarı vermez, güvenlik uygulamanız verir."
+            explanation: "Açılır pencere virüs uyarıları genellikle sahte. Telefonlar böyle uyarı vermez, güvenlik uygulamanız verir."
         },
         {
-            text: "Instagram'dan DM geliyor:\n'Şifren çalındı! Hesabını kurtarmak için buraya git: insta-guvenlik.com'\nNe yaparsın?",
+            text: "Instagram'dan DM geliyor: 'Şifren çalındı! Hesabını kurtarmak için buraya git: insta-guvenlik.com'\nNe yaparsın?",
             options: [
                 { text: "Linke tıklamam, Instagram uygulamasından kontrol ederim", correct: true },
                 { text: "Hemen linke tıklayıp şifremi değiştiririm", correct: false },
                 { text: "Mesajdaki linke tıklayıp bilgilerimi veririm", correct: false }
             ],
-            explanation: "Gerçek Instagram'ın adresi instagram.com'dur.\nSahte siteler farklı adresler kullanır. Her zaman resmi uygulamayı kullan."
+            explanation: "Gerçek Instagram'ın adresi instagram.com'dur. Sahte siteler farklı adresler kullanır. Her zaman resmi uygulamayı kullan."
         },
         {
-            text: "Discord'da tanımadığın biri mesaj atıyor:\n'Bedava Roblox/Minecraft premium hesap istiyorsan şifreni yaz'\nNe yaparsın?",
+            text: "Discord'da tanımadığın biri mesaj atıyor: 'Bedava Roblox/Minecraft premium hesap istiyorsan şifreni yaz'\nNe yaparsın?",
             options: [
                 { text: "Bedava hesap için şifremi veririm", correct: false },
                 { text: "Bu bir tuzak, engellerim ve bildiririm", correct: true },
                 { text: "Arkadaşlarıma da söylerim belki onlar da ister", correct: false }
             ],
-            explanation: "Asla kimseyle oyun şifrelerini paylaşma!\nBedava hesap vaadiyle bilgilerini çalmaya çalışıyorlar."
+            explanation: "Asla kimseyle oyun şifrelerini paylaşma! Bedava hesap vaadiyle bilgilerini çalmaya çalışıyorlar."
         }
     ];
     
@@ -2606,7 +2045,7 @@
         
         // Açıklamayı temizle
         if (explanation) {
-            explanation.innerHTML = '';
+            explanation.textContent = '';
             explanation.className = 'share-explanation';
         }
         
@@ -3339,21 +2778,21 @@
                 <div style="margin-bottom: 30px;">
                     <img src="assets/Asset 46.svg" alt="Soru İşareti" style="max-width: 60px; height: auto;">
                 </div>
-                <div style="font-size: 1.1rem; font-weight: bold; margin-bottom: 15px; color: #fff;">
+                <div style="font-size: 1.5rem; font-weight: bold; margin-bottom: 20px; color: #fff;">
                     Bölümü bitirmek istediğinize emin misiniz?
                 </div>
-                <div style="color: #ffffff; line-height: 1.3; margin-bottom: 20px; font-size: 0.9rem;">
+                <div style="color: #ffffff; line-height: 1.4; margin-bottom: 30px; font-size: 1.2rem;">
                     Bu işlemden sonra oltalama testine geçeceksiniz.
                 </div>
-                <div style="margin-top: 20px; display: flex; gap: 15px; justify-content: center; align-items: center; flex-wrap: nowrap;">
+                <div style="margin-top: 35px; display: flex; gap: 30px; justify-content: center; align-items: center; flex-wrap: wrap;">
                     <img src="assets/Asset 60.svg" alt="Geç" onclick="continueToPhishing()" style="
-                        max-width: 90px;
+                        max-width: 180px;
                         cursor: pointer;
                         transition: transform 0.2s ease;
                     " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
                     
                     <img src="assets/Asset 61.svg" alt="Geçme" onclick="cancelToPhishing()" style="
-                        max-width: 90px;
+                        max-width: 180px;
                         cursor: pointer;
                         transition: transform 0.2s ease;
                     " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
@@ -3777,52 +3216,6 @@
             }
             lastTouchEnd = now;
         }, false);
-        
-        // Phishing buton yazılarını garantile - ESKİ KOD GİBİ ORTADA
-        setTimeout(() => {
-            const phishingTexts = document.querySelectorAll('.phishing-button div');
-            phishingTexts.forEach(textDiv => {
-                // ESKİ KODDA OLDUĞU GİBİ ORTADA KONUMLANDIRMA
-                textDiv.style.setProperty('position', 'absolute', 'important');
-                textDiv.style.setProperty('top', '50%', 'important');
-                textDiv.style.setProperty('left', '50%', 'important');
-                textDiv.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
-                textDiv.style.setProperty('color', 'white', 'important');
-                textDiv.style.setProperty('font-family', 'Gilmer Light, sans-serif', 'important');
-                textDiv.style.setProperty('font-size', '1rem', 'important');
-                textDiv.style.setProperty('text-align', 'center', 'important');
-                textDiv.style.setProperty('width', '90%', 'important');
-                textDiv.style.setProperty('line-height', '1.2', 'important');
-                
-                // TÜM EFEKTLERİ KALDIR
-                textDiv.style.setProperty('background', 'none', 'important');
-                textDiv.style.setProperty('padding', '0', 'important');
-                textDiv.style.setProperty('margin', '0', 'important');
-                textDiv.style.setProperty('border', 'none', 'important');
-                textDiv.style.setProperty('border-radius', '0', 'important');
-                textDiv.style.setProperty('box-shadow', 'none', 'important');
-                textDiv.style.setProperty('text-shadow', 'none', 'important');
-                textDiv.style.setProperty('font-weight', 'normal', 'important');
-                textDiv.style.setProperty('transition', 'none', 'important');
-                console.log('🎯 Phishing yazı ESKİ KOD GİBİ ORTADA:', textDiv.textContent);
-            });
-            
-            // Butonlardaki transition efektini de kaldır
-            const phishingButtons = document.querySelectorAll('.phishing-button');
-            phishingButtons.forEach(button => {
-                button.style.setProperty('transition', 'none', 'important');
-                button.style.setProperty('transform', 'none', 'important');
-                console.log('🚫 Buton transition kaldırıldı');
-            });
-            
-            // Buton yüksekliklerini eski koda göre ayarla
-            const phishingButtonImages = document.querySelectorAll('.phishing-button img');
-            phishingButtonImages.forEach(img => {
-                img.style.setProperty('min-height', '60px', 'important'); // Eski kodda 60px
-                img.style.setProperty('transition', 'none', 'important');
-                console.log('📏 Phishing buton yüksekliği eski koda göre ayarlandı');
-            });
-        }, 1000);
 
         // Prevent pinch zoom
         document.addEventListener('touchmove', function (event) {

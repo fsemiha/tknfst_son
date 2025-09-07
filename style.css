@@ -32,43 +32,18 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'Gilmer', Arial, sans-serif;
-    background: radial-gradient(circle at 20% 40%, #241b4f 60%, #241b4f 100%);
+    background: radial-gradient(circle at 20% 40%, #0a2a4d 60%, #0b0f2a 100%);
     color: #fff;
     min-height: 100vh;
-    max-height: 100vh;
-    overflow: hidden !important;
-    overflow-x: hidden !important;
-    overflow-y: hidden !important;
-    /* Touch ve mobile optimizasyonları */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-text-size-adjust: 100%;
-    touch-action: manipulation;
-}
-
-/* Tarayıcı scroll bar'ını tamamen gizle */
-::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
-}
-
-/* Tüm elementlerde scroll'u kapat */
-* {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-}
-
-*::-webkit-scrollbar {
-    display: none;
+    overflow: hidden;
 }
 
 .background {
     width: 100vw;
     height: 100vh;
-    max-height: 100vh;
     position: relative;
-    overflow: hidden !important;
-    background: linear-gradient(135deg, #241b4f 0%, #241b4f 50%, #241b4f 100%);
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a1428 0%, #1a2844 50%, #2a3c66 100%);
 }
 
 .background-img {
@@ -88,11 +63,11 @@ body, html {
 
 .logo {
     position: fixed;
-    top: 32px;
-    left: 32px;
-    width: 110px;
+    top: clamp(10px, 1vh, 40px);
+    left: clamp(10px, 1vw, 40px);
+    width: clamp(40px, 6vw, 120px);
     height: auto;
-    z-index: 999;
+    z-index: 3;
 }
 
 .center-panel {
@@ -106,15 +81,15 @@ body, html {
     z-index: 2;
 }
 
+
 .main-title-panel {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 700px;
-    max-width: 98vw;
-    height: 560px;
-    max-height: 80vw;
+    width: clamp(300px, 90vw, 800px);
+    height: clamp(250px, 70vh, 600px);
+    aspect-ratio: 5/4;
     margin: 0;
 }
 
@@ -137,14 +112,17 @@ body, html {
     z-index: 2;
 }
 
+
 .panel-desc {
     color: #ffffff;
-    font-size: 1.15rem;
+    font-size: clamp(1.6rem, 5vw, 2.8rem);
     text-align: center;
-    margin-bottom: 18px;
+    margin-bottom: clamp(15px, 3.5vh, 35px);
     font-family: 'Gilmer', Arial, sans-serif;
-    font-weight: 400;
-    letter-spacing: 0.5px;
+    font-weight: 500;
+    letter-spacing: clamp(0.7px, 0.25vw, 1.6px);
+    line-height: 1.4;
+    padding: 0 clamp(10px, 2.5vw, 25px);
 }
 
 .main-buttons {
@@ -182,8 +160,8 @@ body, html {
 
 .scoreboard {
     position: fixed;
-    right: 150px; /* Çok daha sağa kaydırıldı, PAYLAŞ/SAKLA ikonuyla kesinlikle çakışmasın */
-    bottom: 32px;
+    right: clamp(10px, 2vw, 40px);
+    bottom: clamp(10px, 2vh, 40px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -195,7 +173,7 @@ body, html {
 }
 
 .scoreboard-img {
-    width: 200px;
+    width: clamp(100px, 15vw, 220px);
     height: auto;
     display: block;
     object-fit: contain;
@@ -210,8 +188,8 @@ body, html {
 
 .input-svg-wrapper {
     position: relative;
-    width: 80%;
-    max-width: 340px;
+    width: 85%;
+    max-width: 400px;
     margin: 0 auto 18px auto;
     display: flex;
     justify-content: center;
@@ -232,7 +210,7 @@ body, html {
     border: none;
     outline: none;
     color: #000000;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-family: 'Gilmer', Arial, sans-serif;
     text-align: center;
     padding: 0 18px;
@@ -250,33 +228,105 @@ body, html {
 
 #username-panel .start-svg {
     margin-top: 0;
-    width: 80%;
-    max-width: 340px;
+    width: 85%;
+    max-width: 400px;
 }
 
-@media (max-width: 700px) {
-    .main-title-panel {
-        width: 98vw;
-        height: 60vw;
-        min-height: 260px;
+/* Touch friendly buton boyutları - Tüm tabletler için */
+.main-btn-svg:hover {
+    transform: scale(1.05);
+}
+
+/* Kiosk mode için tam ekran optimizasyonu */
+.background {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* Büyük ekranlar için ek ince ayarlar */
+@media (min-width: 1200px) {
+    .main-btn-svg:hover {
+        transform: scale(1.08);
     }
+    
+    .panel-desc {
+        font-size: clamp(2rem, 5.5vw, 3.2rem);
+        margin-bottom: clamp(25px, 5vh, 50px);
+        letter-spacing: clamp(1px, 0.4vw, 2px);
+        font-weight: 500;
+    }
+    
+    .svg-box {
+        width: clamp(150px, 23vw, 290px);
+        height: clamp(75px, 13vh, 115px);
+    }
+    
+    .svg-text {
+        font-size: clamp(0.9rem, 2.8vw, 1.4rem);
+        font-weight: 400;
+        max-width: 85%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+
+/* iPad Mini özel optimizasyon (768x1024) */
+@media (min-width: 768px) and (max-width: 820px) and (min-height: 1000px) and (max-height: 1100px) {
+    .panel-desc {
+        font-size: clamp(1.8rem, 5vw, 2.6rem);
+        margin-bottom: clamp(20px, 4vh, 40px);
+        letter-spacing: clamp(0.9px, 0.3vw, 1.8px);
+        line-height: 1.4;
+        font-weight: 500;
+    }
+    
+    .svg-box {
+        width: clamp(140px, 22vw, 270px);
+        height: clamp(70px, 12vh, 105px);
+    }
+    
+    .svg-text {
+        font-size: clamp(0.8rem, 2.2vw, 1.2rem);
+        font-weight: 400;
+        max-width: 85%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .password-panel-content {
+        top: clamp(80px, 14vh, 110px);
+        padding: clamp(20px, 3vh, 30px) clamp(12px, 2vw, 24px) clamp(50px, 8vh, 80px) clamp(12px, 2vw, 24px);
+        gap: clamp(8px, 1.5vh, 15px);
+    }
+    
+    #share-panel .password-panel-content,
+    #phishing-panel .password-panel-content {
+        top: clamp(80px, 14vh, 110px);
+        padding: clamp(20px, 3vh, 30px) clamp(12px, 2vw, 24px) clamp(50px, 8vh, 80px) clamp(12px, 2vw, 24px);
+        gap: clamp(8px, 1.5vh, 15px);
+    }
+    
+    .password-result {
+        gap: clamp(8px, 1.5vh, 15px);
+        margin-top: clamp(10px, 2vh, 20px);
+    }
+}
+
+/* Çok küçük ekranlar için ek optimizasyonlar */
+@media (max-width: 480px) {
     .inside-panel {
-        width: 95%;
-        gap: 10px;
+        gap: clamp(6px, 2vh, 12px);
+        padding: clamp(4px, 1vh, 8px);
     }
-    .main-btn-svg, .start-svg {
-        max-width: 98vw;
+    
+    .main-buttons {
+        gap: clamp(4px, 1vh, 10px);
     }
-    .logo {
-        width: 50px;
-        top: 10px;
-        left: 10px;
-        z-index: 999;
-        position: fixed;
-    }
-    .scoreboard {
-        display: none !important; /* Mobilde skor tablosunu gizle */
-    }
+}
+    
     .background-img {
         width: 100vw;
         height: 100vh;
@@ -287,65 +337,203 @@ body, html {
         min-height: 100vh;
     }
     .panel-desc {
-        font-size: 1rem;
+        font-size: 1.2rem !important;
+        line-height: 1.1 !important;
+        margin-bottom: 4px !important;
+        padding: 0 4px !important;
+        text-align: center !important;
+        word-wrap: break-word !important;
+        max-width: 100% !important;
+        overflow-wrap: break-word !important;
+        position: relative !important;
+        top: -12px !important;
     }
     
-    /* Ana menü ve username paneli için özel mobil tasarım */
-    .main-title-panel {
-        width: 90vw;
-        height: auto;
-        min-height: 350px;
-        max-height: 500px;
-    }
-    
-    /* Mobil ekranlarda çerçeveleri gizle */
-    .password-panel-bg {
-        display: none !important;
-    }
-    
-    /* Çerçevesiz mobil tasarım */
+    /* Mobilde password panel için Asset 21 kullan */
     .password-panel-outer {
-        background: linear-gradient(135deg, 
-            rgba(215, 48, 196, 0.15), 
-            rgba(176, 72, 212, 0.18), 
-            rgba(122, 105, 235, 0.20)
-        );
-        border: 2px solid rgba(215, 48, 196, 0.6);
-        border-radius: 20px;
-        backdrop-filter: blur(15px);
-        box-shadow: 0 8px 32px rgba(215, 48, 196, 0.4);
+        width: 88vw;
+        height: 95vh;
+        max-width: none;
+        margin: 2.5vh auto;
+        min-height: 700px;
+        max-height: none;
+    }
+    
+    /* Mobilde eski img çerçeveyi gizle */
+    .password-panel-bg {
+        display: none;
+    }
+    
+    /* Mobilde Asset 21 ile yeni çerçeve */
+    .password-panel-outer::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+        background-image: url('assets/Asset 21.svg');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 0;
+        pointer-events: none;
+    }
+    
+    /* Mobilde share panel için Asset 21 */
+    #share-panel .password-panel-bg {
+        display: none;
+    }
+    
+    #share-panel .password-panel-outer::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+        background-image: url('assets/Asset 21.svg');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 0;
+        pointer-events: none;
+    }
+    
+    /* Mobilde phishing panel için Asset 21 */
+    #phishing-panel .password-panel-bg {
+        display: none;
+    }
+    
+    #phishing-panel .password-panel-outer::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: calc(100% + 20px);
+        height: calc(100% + 20px);
+        background-image: url('assets/Asset 21.svg');
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        z-index: 0;
+        pointer-events: none;
+    }
+    
+    /* Panel content mobilde daha compakt */
+    .password-panel-content {
+        top: clamp(50px, 8vh, 80px);
+        padding: clamp(15px, 2.5vh, 25px) clamp(12px, 3vw, 20px) clamp(60px, 10vh, 100px) clamp(12px, 3vw, 20px);
+        max-height: calc(95vh - clamp(120px, 18vh, 180px));
+        overflow-y: auto;
+        position: relative;
+        z-index: 10;
+        gap: clamp(8px, 1.5vh, 15px);
+    }
+    
+    #share-panel .password-panel-content,
+    #phishing-panel .password-panel-content {
+        top: clamp(50px, 8vh, 80px);
+        padding: clamp(15px, 2vh, 25px) clamp(8px, 2vw, 15px) clamp(60px, 10vh, 100px) clamp(8px, 2vw, 15px);
+        max-height: calc(95vh - clamp(120px, 18vh, 180px));
+        overflow-y: auto;
+        overflow-x: hidden;
+        position: relative;
+        z-index: 10;
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(255,255,255,0.3) rgba(0,0,0,0.1);
+        gap: clamp(6px, 1vh, 12px);
+    }
+    
+    /* Mobilde panel top area daha compakt */
+    .password-panel-top {
+        top: 35px;
+        padding: 0 15px;
+        min-height: 35px;
+        position: relative;
+        z-index: 10;
+    }
+    
+    .svg-box {
+        width: clamp(95px, 30vw, 130px);
+        height: clamp(48px, 8vh, 65px);
+        min-width: 95px;
+        max-width: 130px;
+    }
+    
+    .svg-text {
+        font-size: clamp(0.65rem, 2.2vw, 0.9rem);
+        font-weight: 400;
+        max-width: 88%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    /* Mobilde security icon daha küçük */
+    .security-icon {
+        width: 28px;
+        height: auto;
+        margin-bottom: 4px;
+    }
+    
+    /* Mobilde title daha küçük */
+    .password-title {
+        font-size: 0.9rem;
+        margin-bottom: 3px;
+        letter-spacing: 0.3px;
+    }
+    
+    /* Mobilde description daha küçük */
+    .password-desc {
+        font-size: 0.7rem;
+        margin-bottom: 8px;
+        line-height: 1.2;
+    }
+    
+    /* Touch friendly butonlar */
+    .main-btn-svg {
+        min-height: 50px;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Input alanları touch için optimize */
+    .username-input-on-svg {
+        font-size: 22px; /* iOS zoom önleme */
+        min-height: 44px; /* Touch target minimum */
+        padding: 8px 12px;
+    }
+    
+    /* Password input wrapper mobilde daha küçük */
+    .password-input-wrapper {
+        width: 80%;
+        max-width: 260px;
+        margin-bottom: 10px;
+    }
+    
+    /* Check button mobilde daha küçük */
+    .password-check-btn-wrapper {
+        width: 160px;
+        height: 35px;
+        margin: 0 auto;
+    }
+    
+    .password-check-btn-text {
+        font-size: 0.7rem;
     }
 }
 
 .password-panel-outer {
     position: relative;
-    width: 1000px;
-    max-width: 95vw;
-    height: 800px;
-    max-height: 95vh;
-    margin: 0 auto;
+    width: clamp(300px, 85vw, 900px);
+    height: clamp(400px, 85vh, 800px);
+    margin: clamp(10px, 3vh, 30px) auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     overflow: hidden;
-    min-height: 500px;
-}
-
-/* Web versiyonunda büyük ekranlar için scroll'u gizle ama boyutu koru */
-@media (min-width: 901px) {
-    .password-panel-outer {
-        width: 1000px;
-        height: 800px;
-        max-height: 95vh;
-        overflow: hidden;
-    }
-    
-    .password-panel-content {
-        height: 100%;
-        max-height: 700px;
-        overflow: hidden;
-    }
 }
 
 .password-panel-bg {
@@ -355,22 +543,21 @@ body, html {
 }
 .password-panel-top {
     position: absolute;
-    top: 110px;
+    top: clamp(60px, 12vh, 120px);
     left: 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 100px;
+    padding: 0 clamp(20px, 8vw, 120px);
     z-index: 5;
-    min-height: 70px;
+    min-height: clamp(40px, 8vh, 80px);
     box-sizing: border-box;
-    margin-top: 0;
 }
 .security-icon {
-    width: 52px;
+    width: clamp(32px, 6vw, 70px);
     height: auto;
-    margin-bottom: 8px;
+    margin-bottom: clamp(4px, 1vh, 12px);
 }
 .password-time, .password-score {
     display: flex;
@@ -386,9 +573,9 @@ body, html {
     position: relative;
 }
 .password-time-icon, .password-score-icon {
-    width: 32px;
-    height: 32px;
-    margin-right: 8px;
+    width: clamp(24px, 4vw, 40px);
+    height: clamp(24px, 4vw, 40px);
+    margin-right: clamp(4px, 1vw, 12px);
 }
 .password-time-text, .password-score-text {
     background: none;
@@ -404,6 +591,7 @@ body, html {
     align-items: center;
     justify-content: center;
 }
+
 .password-lock {
     position: absolute;
     left: 50%;
@@ -423,38 +611,50 @@ body, html {
 }
 .password-panel-content {
     position: absolute;
-    top: 120px;
+    top: clamp(100px, 18vh, 150px);
     left: 0;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 2;
-    min-height: 600px;
-    max-height: 650px;
-    overflow-y: hidden;
+    max-height: calc(100% - clamp(140px, 25vh, 200px));
+    overflow-y: auto;
+    overflow-x: hidden;
     justify-content: flex-start;
-    padding: 30px 0 100px 0;
+    padding: clamp(25px, 4vh, 45px) clamp(15px, 3vw, 35px) clamp(60px, 10vh, 120px) clamp(15px, 3vw, 35px);
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.3) rgba(0,0,0,0.1);
+    gap: clamp(10px, 2vh, 18px);
 }
 
 /* Paylaş/Sakla panel hizalama düzeltmesi */
 #share-panel .password-panel-content {
-    top: 120px;
+    top: clamp(90px, 16vh, 130px);
     justify-content: flex-start;
-    min-height: 600px;
-    max-height: 650px;
-    overflow-y: hidden;
-    padding: 30px 0 100px 0;
+    max-height: calc(100% - clamp(130px, 22vh, 180px));
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: clamp(20px, 3vh, 35px) clamp(10px, 2vw, 25px) clamp(50px, 8vh, 100px) clamp(10px, 2vw, 25px);
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.3) rgba(0,0,0,0.1);
+    gap: clamp(8px, 1.5vh, 15px);
 }
 
 /* Phishing panel hizalama düzeltmesi */
 #phishing-panel .password-panel-content {
-    top: 120px;
+    top: clamp(90px, 16vh, 130px);
     justify-content: flex-start;
-    min-height: 600px;
-    max-height: 650px;
-    overflow-y: hidden;
-    padding: 30px 0 100px 0;
+    max-height: calc(100% - clamp(130px, 22vh, 180px));
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: clamp(20px, 3vh, 35px) clamp(10px, 2vw, 25px) clamp(50px, 8vh, 100px) clamp(10px, 2vw, 25px);
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.3) rgba(0,0,0,0.1);
+    gap: clamp(8px, 1.5vh, 15px);
 }
 
 /* İkon ve başlık arası hizalama */
@@ -466,35 +666,37 @@ body, html {
     margin-bottom: 6px;
 }
 .password-title {
-    font-size: 1.4rem;
+    font-size: clamp(1rem, 3vw, 1.8rem);
     font-family: 'Conthrax', 'Gilmer', Arial, sans-serif;
     font-weight: bold;
     color: #fff;
-    margin-bottom: 6px;
-    letter-spacing: 1px;
+    margin-bottom: clamp(4px, 1vh, 10px);
+    letter-spacing: clamp(0.5px, 0.1vw, 1.5px);
     text-align: center;
 }
 .password-desc {
-    font-size: 1.2rem;
+    font-size: clamp(0.9rem, 2.2vw, 1.4rem);
     color: #fff;
-    margin-bottom: 18px;
+    margin-bottom: clamp(10px, 2vh, 24px);
     text-align: center;
     font-family: 'Gilmer Light', Arial, sans-serif;
     font-weight: 300;
+    line-height: 1.3;
+    padding: 0 clamp(8px, 1.5vw, 20px);
 }
 .password-input-wrapper {
-    width: 60%;
-    max-width: 420px;
-    margin-bottom: 24px;
+    width: clamp(70%, 85%, 90%);
+    max-width: clamp(280px, 90vw, 500px);
+    margin-bottom: clamp(12px, 2vh, 30px);
 }
 .password-input {
     color: #000;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 .password-check-btn-wrapper {
     position: relative;
-    width: 260px;
-    height: 56px;
+    width: clamp(180px, 50vw, 400px);
+    height: clamp(45px, 8vh, 80px);
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -505,7 +707,7 @@ body, html {
 }
 .password-check-btn {
     width: 100%;
-    height: 56px;
+    height: 100%;
     display: block;
     cursor: pointer;
     pointer-events: auto;
@@ -518,9 +720,9 @@ body, html {
     transform: translate(-50%, -50%);
     color: #fff;
     font-family: 'Gilmer', Arial, sans-serif;
-    font-size: 1.1rem;
+    font-size: clamp(0.8rem, 2vw, 1.3rem);
     font-weight: bold;
-    letter-spacing: 1px;
+    letter-spacing: clamp(0.3px, 0.1vw, 1px);
     pointer-events: none;
     white-space: nowrap;
     width: 90%;
@@ -530,344 +732,19 @@ body, html {
     text-overflow: ellipsis;
 }
 
-/* Mobilde logo ayarları - orta ekranlar */
-@media (max-width: 900px) {
-    .logo {
-        width: 45px;
-        top: 8px;
-        left: 8px;
-        z-index: 999;
-        position: fixed;
-    }
-    
-    /* Süre/Puan kutularını düzenle */
-    .password-panel-top {
-        top: 15px !important;
-        position: absolute !important;
-        z-index: 10 !important;
-        display: flex !important;
-        justify-content: space-between !important; /* Kutular arasında daha fazla mesafe */
-        align-items: center !important;
-        padding: 10px 20px !important;
-        width: calc(100% - 40px) !important;
-        box-sizing: border-box !important;
-    }
-}
 
-@media (max-width: 900px) {
-    /* Çerçeveleri gizle */
-    .password-panel-bg {
-        display: none !important;
-    }
-    
-    .password-panel-outer {
-        width: 80vw; /* Orta boyut */
-        height: auto;
-        min-height: 75vh;
-        max-height: 85vh;
-        background: linear-gradient(135deg, 
-            rgba(30, 41, 59, 0.2), 
-            rgba(51, 65, 85, 0.25), 
-            rgba(71, 85, 105, 0.3)
-        );
-        border: 2px solid rgba(71, 85, 105, 0.6);
-        border-radius: 16px;
-        backdrop-filter: blur(15px);
-        box-shadow: 0 8px 32px rgba(30, 41, 59, 0.4);
-        padding: 15px 12px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin: 10px auto; /* Ortala */
-    }
-    
-    .password-panel-content {
-        top: 70px; /* Süre/skor kutularının altında başlasın */
-        position: relative;
-        padding: 20px 0;
-        min-height: auto;
-        max-height: none;
-        overflow: visible;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    #share-panel .password-panel-content, 
-    #phishing-panel .password-panel-content {
-        top: 70px; /* Tutarlılık için aynı değer */
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    .password-panel-top {
-        top: 0;
-        position: absolute;
-        padding: 15px 20px;
-        min-height: 50px;
-        width: calc(100% - 40px);
-        justify-content: space-between;
-    }
-    
-    .password-time-icon, .password-score-icon {
-        width: 28px;
-        height: 28px;
-    }
-    
-    .password-lock-icon {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .svg-box {
-        width: 140px; /* Biraz büyüttüm */
-        max-width: 140px;
-        min-width: 120px;
-        height: 45px;
-        flex-shrink: 0; /* Küçülmesini engelle */
-    }
-}
-/* Mobilde logo ayarları - küçük ekranlar */
-@media (max-width: 600px) {
-    .logo {
-        width: 40px;
-        top: 5px;
-        left: 5px;
-        z-index: 999;
-        position: fixed;
-    }
-    
-    /* Süre/Puan kutularını düzenle - küçük ekranlar */
-    .password-panel-top {
-        top: 10px !important;
-        position: absolute !important;
-        z-index: 10 !important;
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        padding: 8px 15px !important;
-        width: calc(100% - 30px) !important;
-        box-sizing: border-box !important;
-    }
-}
 
-@media (max-width: 600px) {
-    /* Çerçeveleri gizle */
-    .password-panel-bg {
-        display: none !important;
-    }
-    
-    .password-panel-outer {
-        width: 75vw; /* Küçük ekranlar için */
-        height: auto;
-        min-height: 70vh;
-        max-height: 80vh;
-        background: linear-gradient(135deg, 
-            rgba(30, 41, 59, 0.2), 
-            rgba(51, 65, 85, 0.25), 
-            rgba(71, 85, 105, 0.3)
-        );
-        border: 2px solid rgba(71, 85, 105, 0.6);
-        border-radius: 12px;
-        backdrop-filter: blur(15px);
-        box-shadow: 0 6px 24px rgba(30, 41, 59, 0.4);
-        padding: 12px 10px;
-        margin: 5px auto; /* Ortala */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .password-panel-content {
-        top: 65px; /* Süre/skor kutularının altında başlasın */
-        position: relative;
-        padding: 15px 0;
-        min-height: auto;
-        max-height: none;
-        overflow: visible;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    #share-panel .password-panel-content, 
-    #phishing-panel .password-panel-content {
-        top: 55px;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    .password-panel-top {
-        top: 0;
-        position: absolute;
-        padding: 10px 15px;
-        min-height: 45px;
-        width: calc(100% - 30px);
-        justify-content: space-between;
-    }
-    
-    .password-time-icon, .password-score-icon {
-        width: 24px;
-        height: 24px;
-    }
-    
-    .password-lock-icon {
-        width: 28px;
-        height: 28px;
-    }
-    
-    .password-check-btn-wrapper {
-        width: 90vw;
-        max-width: 200px;
-    }
-    
-    .svg-box {
-        width: 120px; /* Küçük ekranlar için */
-        max-width: 120px;
-        min-width: 100px;
-        height: 40px;
-        flex-shrink: 0;
-    }
-    
-    .password-title {
-        font-size: 1.1rem;
-    }
-    
-    .password-desc {
-        font-size: 0.9rem;
-        margin-bottom: 15px;
-    }
-    
-    .security-icon {
-        width: 40px;
-        height: 40px;
-        margin-bottom: 10px;
-    }
-}
 
-/* Çok küçük ekranlar için ekstra güvenlik */
-/* Mobilde logo ayarları - çok küçük ekranlar */
-@media (max-width: 400px) {
-    .logo {
-        width: 35px;
-        top: 5px;
-        left: 5px;
-        z-index: 999;
-        position: fixed;
-    }
-    
-    /* Süre/Puan kutularını düzenle - çok küçük ekranlar */
-    .password-panel-top {
-        top: 8px !important;
-        position: absolute !important;
-        z-index: 10 !important;
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        padding: 6px 10px !important;
-        width: calc(100% - 20px) !important;
-        box-sizing: border-box !important;
-    }
-}
 
-@media (max-width: 400px) {
-    /* Çerçeveleri gizle */
-    .password-panel-bg {
-        display: none !important;
-    }
-    
-    .password-panel-outer {
-        width: 70vw; /* Çok küçük ekranlar için */
-        height: auto;
-        min-height: 65vh;
-        max-height: 75vh;
-        background: linear-gradient(135deg, 
-            rgba(30, 41, 59, 0.2), 
-            rgba(51, 65, 85, 0.25), 
-            rgba(71, 85, 105, 0.3)
-        );
-        border: 2px solid rgba(71, 85, 105, 0.6);
-        border-radius: 10px;
-        backdrop-filter: blur(15px);
-        box-shadow: 0 4px 16px rgba(30, 41, 59, 0.4);
-        padding: 10px 8px;
-        margin: 5px auto; /* Ortala */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .password-panel-content {
-        top: 20px;
-        position: relative;
-        padding: 10px 0;
-        min-height: auto;
-        max-height: none;
-        overflow: visible;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .password-panel-top {
-        top: 0;
-        position: absolute;
-        padding: 8px 12px;
-        min-height: 40px;
-        width: calc(100% - 24px);
-        justify-content: space-between;
-        flex-wrap: nowrap;
-    }
-    
-    .password-panel-content {
-        top: 50px;
-        position: relative;
-        padding: 0;
-        min-height: auto;
-        max-height: none;
-        overflow: visible;
-    }
-    
-    #share-panel .password-panel-content, 
-    #phishing-panel .password-panel-content {
-        top: 50px;
-    }
-    
-    .svg-box {
-        width: 105px; /* Çok küçük ekranlar için */
-        max-width: 105px;
-        min-width: 85px;
-        height: 35px;
-        flex-shrink: 0;
-    }
-    
-    .svg-text {
-        font-size: 0.65rem !important;
-    }
-    
-    .password-title {
-        font-size: 0.95rem;
-        letter-spacing: 0.5px;
-        margin-bottom: 8px;
-    }
-    
-    .password-desc {
-        font-size: 0.8rem;
-        margin-bottom: 12px;
-    }
-    
-    .security-icon {
-        width: 32px;
-        height: 32px;
-        margin-bottom: 8px;
-    }
-}
+
+
+
+
+
+
 
 .password-result {
-    margin-top: 18px;
+    margin-top: clamp(12px, 2vh, 20px);
     text-align: center;
     width: 100%;
     display: flex;
@@ -875,76 +752,127 @@ body, html {
     align-items: center;
     justify-content: flex-start;
     position: static;
-    gap: 8px;
+    gap: clamp(8px, 1vh, 12px);
 }
 
 .strength-badge {
     display: inline-block;
-    padding: 4px 18px;
+    padding: clamp(5px, 0.8vh, 8px) clamp(12px, 2.5vw, 20px);
     border-radius: 8px;
     font-weight: bold;
-    font-size: 1.05rem;
-    margin-bottom: 2px;
+    font-size: clamp(0.9rem, 1.8vw, 1.15rem);
+    margin-bottom: clamp(6px, 1vh, 10px);
     color: #fff;
-    letter-spacing: 1px;
+    letter-spacing: clamp(0.3px, 0.05vw, 0.8px);
     background: #222;
-    box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
+    box-shadow: 0 3px 8px 0 rgba(0,0,0,0.1);
+    min-height: clamp(30px, 4vh, 40px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #crack-time {
-    margin: 15px 0;
-    font-size: 1.8rem;
-    font-weight: bold;
-    color: #ff6b35;
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    font-weight: 700;
+    padding: clamp(20px, 4vh, 30px) clamp(25px, 5vw, 40px);
+    border-radius: 18px;
+    margin: clamp(15px, 3vh, 25px) 0;
     text-align: center;
-    background: linear-gradient(135deg, rgba(255, 107, 53, 0.2), rgba(247, 147, 30, 0.2));
-    border: 2px solid #ff6b35;
-    border-radius: 15px;
-    padding: 15px 20px;
-    box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
-    animation: pulseGlow 2s infinite alternate;
-    font-family: 'Conthrax', 'Gilmer', Arial, sans-serif;
+    border: 3px solid;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    min-height: clamp(70px, 10vh, 90px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+    position: relative;
     letter-spacing: 1px;
-    text-shadow: 0 0 10px rgba(255, 107, 53, 0.6);
-    transition: all 0.5s ease;
+    text-shadow: 0 2px 8px currentColor;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
 }
+
+#crack-time::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, currentColor, transparent, currentColor);
+    border-radius: 18px;
+    z-index: -1;
+    opacity: 0.5;
+    animation: borderPulse 2s infinite ease-in-out;
+}
+
+@keyframes borderPulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+/* Crack time child selectors removed - using single line format now */
 
 /* Şifre gücüne göre farklı renkler */
 #crack-time.very-weak {
-    color: #ff0000;
-    border-color: #ff0000;
-    background: linear-gradient(135deg, rgba(255, 0, 0, 0.2), rgba(255, 68, 68, 0.2));
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
-    text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
-    animation: pulseGlowRed 1.5s infinite alternate;
+    color: #ff2d2d;
+    background: linear-gradient(135deg, rgba(255, 45, 45, 0.25), rgba(139, 0, 0, 0.2));
+    border-color: #ff2d2d;
+    box-shadow: 0 8px 32px rgba(255, 45, 45, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+    animation: shake 2s infinite;
 }
+
+@keyframes shake {
+    0%, 50%, 100% { transform: translateX(0); }
+    10%, 30% { transform: translateX(-3px); }
+    20%, 40% { transform: translateX(3px); }
+}
+
+/* Very weak specific styles consolidated */
 
 #crack-time.weak {
-    color: #ff4500;
-    border-color: #ff4500;
-    background: linear-gradient(135deg, rgba(255, 69, 0, 0.2), rgba(255, 107, 53, 0.2));
-    box-shadow: 0 0 20px rgba(255, 69, 0, 0.4);
-    text-shadow: 0 0 10px rgba(255, 69, 0, 0.6);
-    animation: pulseGlowOrange 1.8s infinite alternate;
+    color: #ff8c00;
+    background: linear-gradient(135deg, rgba(255, 140, 0, 0.25), rgba(255, 107, 53, 0.2));
+    border-color: #ff8c00;
+    box-shadow: 0 8px 32px rgba(255, 140, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
 }
+
+/* Weak specific styles consolidated */
 
 #crack-time.medium {
-    color: #ffaa00;
-    border-color: #ffaa00;
-    background: linear-gradient(135deg, rgba(255, 170, 0, 0.2), rgba(255, 193, 51, 0.2));
-    box-shadow: 0 0 20px rgba(255, 170, 0, 0.4);
-    text-shadow: 0 0 10px rgba(255, 170, 0, 0.6);
-    animation: pulseGlowYellow 2s infinite alternate;
+    color: #ffd700;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.25), rgba(218, 165, 32, 0.2));
+    border-color: #ffd700;
+    box-shadow: 0 8px 32px rgba(255, 215, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
 }
 
+/* Medium specific styles consolidated */
+
 #crack-time.good {
-    color: #00ff99;
-    border-color: #00ff99;
-    background: linear-gradient(135deg, rgba(0, 255, 153, 0.2), rgba(51, 255, 153, 0.2));
-    box-shadow: 0 0 20px rgba(0, 255, 153, 0.4);
-    text-shadow: 0 0 10px rgba(0, 255, 153, 0.6);
-    animation: pulseGlowGreen 2.5s infinite alternate;
+    color: #32cd32;
+    background: linear-gradient(135deg, rgba(50, 205, 50, 0.25), rgba(0, 206, 124, 0.2));
+    border-color: #32cd32;
+    box-shadow: 0 8px 32px rgba(50, 205, 50, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
 }
+
+/* Good specific styles consolidated */
+
+#crack-time.excellent {
+    color: #00bfff;
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.25), rgba(30, 144, 255, 0.2));
+    border-color: #00bfff;
+    box-shadow: 0 8px 32px rgba(0, 191, 255, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+    animation: celebrate 3s infinite ease-in-out;
+}
+
+@keyframes celebrate {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+/* Excellent specific styles consolidated */
 
 #crack-time.very-strong {
     color: #00ff00;
@@ -1010,6 +938,38 @@ body, html {
     }
 }
 
+@keyframes pulseGlowBlue {
+    0% {
+        box-shadow: 0 4px 25px rgba(0, 212, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        transform: scale(1);
+    }
+    100% {
+        box-shadow: 0 4px 35px rgba(0, 212, 255, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        transform: scale(1.02);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-3px); }
+    20%, 40%, 60%, 80% { transform: translateX(3px); }
+}
+
+@keyframes celebration {
+    0%, 100% { 
+        transform: scale(1) rotate(0deg); 
+    }
+    25% { 
+        transform: scale(1.1) rotate(5deg); 
+    }
+    50% { 
+        transform: scale(1.05) rotate(-3deg); 
+    }
+    75% { 
+        transform: scale(1.1) rotate(3deg); 
+    }
+}
+
 @keyframes pulseGlowBrightGreen {
     0% {
         box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
@@ -1027,190 +987,29 @@ body, html {
 }
 
 .next-task-btn {
-    position: static !important;
+    position: static;
     left: unset;
     bottom: unset;
     transform: none;
     width: auto;
-    display: flex !important; /* Her zaman görünür */
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin: 20px 0 0 0;
+    margin: 14px 0 0 0;
     z-index: 10;
-    background: transparent !important;
-    border: none !important;
-    border-radius: 0;
-    backdrop-filter: none;
-    box-shadow: none !important;
-    padding: 0;
-    visibility: visible !important;
-    opacity: 1 !important;
-}
-
-/* Parola sonucu gösterildiğinde buton görünür olsun */
-.password-result #next-task-btn,
-#password-result #next-task-btn {
-    display: flex !important;
-}
-
-/* Önemli: innerHTML ile oluşturulan buton için */
-#password-result .next-task-btn {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: static !important;
-    z-index: 999 !important;
-}
-
-/* KESIN BUTON GÖRÜNÜRLÜĞÜ - TÜM DURUMLAR */
-.next-task-btn,
-#next-task-btn,
-div[id="next-task-btn"] {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: static !important;
-    z-index: 999 !important;
-    margin: 20px auto !important;
-    width: auto !important;
-    height: auto !important;
-    overflow: visible !important;
-}
-
-/* Password result içindeki buton */
-.password-result .next-task-btn,
-.password-result #next-task-btn,
-#password-result .next-task-btn,
-#password-result #next-task-btn {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: relative !important;
-    z-index: 999 !important;
-}
-
-/* Buton gösterildikten sonra gizlenmesin */
-#next-task-btn[style*="display: none"] {
-    display: flex !important;
-}
-
-/* Force visible sınıfı - JavaScript tarafından eklenir */
-.force-visible {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: static !important;
-    z-index: 9999 !important;
-    pointer-events: auto !important;
-}
-
-/* Tüm butonlar için genel görünürlük kuralları */
-#continue-to-phishing-btn,
-#next-task-btn,
-.continue-btn,
-.next-task-btn {
-    display: flex !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    position: relative !important;
-    z-index: 999 !important;
-    pointer-events: auto !important;
-    justify-content: center !important;
-    align-items: center !important;
-    margin: 20px auto !important;
-    background: transparent !important;
-    border: none !important;
-    padding: 0 !important;
-    text-align: center !important;
-}
-
-/* Mobilde next-task-btn'i küçült - %100 zoom'da sığsın */
-@media (max-width: 900px) {
-    #next-task-btn img {
-        width: 65% !important; /* %70 → %65 */
-        max-width: 250px !important; /* 280px → 250px */
-        height: auto !important;
-        display: block !important;
-        margin: 0 auto !important;
-    }
-}
-
-/* Paylaş/Sakla ve Parola Gücü butonları aynı stilde */
-#continue-to-phishing-btn img,
-#next-task-btn img {
-    max-width: 100% !important;
-    height: auto !important;
-    display: block !important;
 }
 
 #next-task-btn img {
-    width: 350px; /* 420px'den küçültüldü */
-    max-width: 90vw; /* 98vw'den küçültüldü */
+    width: 420px;
+    max-width: 98vw;
     height: auto;
     display: block;
 }
 
-/* Mobilde next-task-btn için responsive ayar */
-@media (max-width: 600px) {
-    #next-task-btn img {
-        width: 60% !important; /* %65 → %60 */
-        max-width: 220px !important; /* 260px → 220px */
-    }
-}
-
-@media (max-width: 400px) {
-    #next-task-btn img {
-        width: 55% !important; /* %60 → %55 */
-        max-width: 200px !important; /* 230px → 200px */
-    }
-}
-
-/* Mobil cihazlarda next task button optimizasyonu */
-@media (max-width: 900px) {
-    .next-task-btn {
-        margin: 15px 0 0 0;
-        padding: 0;
-        border-radius: 0;
-    }
-    
-    #next-task-btn img {
-        width: 300px;
-        max-width: 90vw;
-    }
-}
-
-@media (max-width: 600px) {
-    .next-task-btn {
-        margin: 12px 0 0 0;
-        padding: 0;
-        border-radius: 0;
-    }
-    
-    #next-task-btn img {
-        width: 280px;
-        max-width: 85vw;
-    }
-}
-
-@media (max-width: 400px) {
-    .next-task-btn {
-        margin: 10px 0 0 0;
-        padding: 0;
-        border-radius: 0;
-    }
-    
-    #next-task-btn img {
-        width: 250px;
-        max-width: 80vw;
-    }
-}
-
 .svg-box {
     position: relative;
-    width: 15vw;
-    max-width: 200px;
-    min-width: 120px;
-    height: 70px;
+    width: clamp(120px, 20vw, 250px);
+    height: clamp(55px, 10vh, 90px);
     box-sizing: border-box;
     flex-shrink: 1;
     overflow: hidden;
@@ -1232,11 +1031,14 @@ div[id="next-task-btn"] {
     transform: translate(-50%, -50%);
     color: white;
     font-family: 'Gilmer Light', Arial, sans-serif;
-    font-size: clamp(0.8rem, 2.2vw, 1.1rem);
-    font-weight: 300;
+    font-size: clamp(0.7rem, 1.8vw, 1.1rem);
+    font-weight: 400;
     text-align: center;
     z-index: 2;
     white-space: nowrap;
+    max-width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .svg-box:not(:last-child) {
@@ -1276,6 +1078,8 @@ div[id="next-task-btn"] {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: highlightText 2s ease-in-out infinite;
+    white-space: pre-line;
+    line-height: 1.2;
 }
 
 .share-explanation.correct {
@@ -1310,28 +1114,6 @@ div[id="next-task-btn"] {
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
     overflow: visible;
-}
-
-/* Mobil cihazlar için final score paneli */
-@media (max-width: 700px) {
-    .final-score-container {
-        background: linear-gradient(135deg, 
-            rgba(215, 48, 196, 0.15), 
-            rgba(176, 72, 212, 0.18), 
-            rgba(122, 105, 235, 0.20)
-        );
-        border: 2px solid rgba(215, 48, 196, 0.6);
-        border-radius: 20px;
-        backdrop-filter: blur(15px);
-        box-shadow: 0 8px 32px rgba(215, 48, 196, 0.4);
-        padding: 20px;
-        width: 95vw;
-        max-width: 400px;
-    }
-    
-    .final-score-bg {
-        opacity: 0.1;
-    }
 }
 
 .final-score-container {
@@ -1508,269 +1290,7 @@ div[id="next-task-btn"] {
     margin: 20px auto;
     padding: 10px;
     max-height: 400px;
-    overflow-y: hidden;
-}
-
-/* Web versiyonunda büyük ekranlar için */
-@media (min-width: 901px) {
-    .share-questions-container {
-        max-height: 400px;
-        overflow-y: hidden;
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Paylaş/Sakla scroll bar'ını güzelleştir - mobil için */
-@media (max-width: 900px) {
-    .share-questions-container::-webkit-scrollbar {
-        width: 6px;
-        display: block;
-    }
-    
-    .share-questions-container::-webkit-scrollbar-track {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-    }
-    
-    .share-questions-container::-webkit-scrollbar-thumb {
-        background: rgba(215, 48, 196, 0.6);
-        border-radius: 10px;
-    }
-    
-    .share-questions-container::-webkit-scrollbar-thumb:hover {
-        background: rgba(215, 48, 196, 0.8);
-    }
-}
-
-/* Paylaş/Sakla sonuç kutusu - mobil stil */
-@media (max-width: 900px) {
-    .share-results {
-        background: linear-gradient(135deg, 
-            rgba(215, 48, 196, 0.15), 
-            rgba(176, 72, 212, 0.18), 
-            rgba(122, 105, 235, 0.20)
-        ) !important;
-        border: 2px solid rgba(215, 48, 196, 0.6) !important;
-        border-radius: 16px !important;
-        backdrop-filter: blur(15px) !important;
-        box-shadow: 0 8px 32px rgba(215, 48, 196, 0.4) !important;
-        padding: 25px 20px !important;
-        margin: 20px auto !important;
-        width: 90vw !important;
-        max-width: none !important;
-        position: relative !important;
-        z-index: 100 !important;
-    }
-    
-    .share-results div[style*="font-size: 1.5rem"] {
-        font-size: 1.3rem !important;
-        margin-bottom: 15px !important;
-    }
-    
-    .share-results div[style*="font-size: 1.2rem"] {
-        font-size: 1.1rem !important;
-        margin-bottom: 25px !important;
-        line-height: 1.5 !important;
-    }
-    
-    .share-results div[style*="display: flex"] {
-        gap: 20px !important;
-        margin-top: 25px !important;
-        flex-direction: column !important;
-        align-items: center !important;
-    }
-    
-    .share-results img[alt="Geç"], 
-    .share-results img[alt="Geçme"] {
-        max-width: 160px !important;
-        width: auto !important;
-    }
-}
-
-/* Mobil cihazlar için paylaş/sakla optimizasyonu */
-@media (max-width: 900px) {
-    .share-questions-container {
-        grid-template-columns: repeat(2, 1fr); /* İki sütun düzeni */
-        gap: 10px;
-        margin: 15px auto;
-        padding: 10px;
-        max-height: 50vh;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        max-width: 100%;
-    }
-    
-    .share-question-item {
-        padding: 10px;
-        font-size: 0.9rem;
-        border-radius: 6px;
-    }
-}
-
-/* Paylaş/Sakla sonuç kutusu - küçük ekranlar */
-@media (max-width: 600px) {
-    .share-results {
-        width: 95vw !important;
-        padding: 20px 15px !important;
-        border-radius: 12px !important;
-        box-shadow: 0 6px 24px rgba(215, 48, 196, 0.4) !important;
-    }
-    
-    .share-results div[style*="font-size: 1.5rem"] {
-        font-size: 1.2rem !important;
-        margin-bottom: 12px !important;
-    }
-    
-    .share-results div[style*="font-size: 1.2rem"] {
-        font-size: 1.0rem !important;
-        margin-bottom: 20px !important;
-    }
-    
-    .share-results div[style*="display: flex"] {
-        gap: 15px !important;
-        margin-top: 20px !important;
-    }
-    
-    .share-results img[alt="Geç"], 
-    .share-results img[alt="Geçme"] {
-        max-width: 140px !important;
-    }
-}
-
-@media (max-width: 600px) {
-    .share-questions-container {
-        grid-template-columns: repeat(2, 1fr); /* Küçük ekranlarda da iki sütun */
-        gap: 8px;
-        margin: 10px auto;
-        padding: 8px;
-        max-height: 45vh;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    .share-question-item {
-        padding: 8px;
-        font-size: 0.85rem;
-        border-radius: 4px;
-        margin: 2px 0;
-    }
-    
-    .submit-answers-btn {
-        margin: 20px auto;
-        padding: 8px;
-    }
-    
-    .submit-answers-btn img {
-        max-width: 200px;
-    }
-    
-    /* Oltalama testine geç butonu için temiz tasarım */
-    #continue-to-phishing-btn {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important;
-        z-index: 999 !important;
-        background: transparent !important;
-        border: none !important;
-        border-radius: 0;
-        backdrop-filter: none;
-        box-shadow: none !important;
-        padding: 0 !important;
-        justify-content: center;
-        align-items: center;
-        margin: 30px auto !important;
-        width: auto !important;
-        max-width: none !important;
-        text-align: center !important;
-    }
-    
-    #continue-to-phishing-btn img {
-        max-width: 350px !important;
-        width: 100% !important;
-        height: auto !important;
-        display: block !important;
-    }
-}
-
-/* Paylaş/Sakla sonuç kutusu - çok küçük ekranlar */
-@media (max-width: 400px) {
-    .share-results {
-        width: 95vw !important;
-        padding: 15px 12px !important;
-        border-radius: 10px !important;
-        box-shadow: 0 4px 16px rgba(215, 48, 196, 0.4) !important;
-    }
-    
-    .share-results div[style*="font-size: 1.5rem"] {
-        font-size: 1.1rem !important;
-        margin-bottom: 10px !important;
-    }
-    
-    .share-results div[style*="font-size: 1.2rem"] {
-        font-size: 0.95rem !important;
-        margin-bottom: 18px !important;
-    }
-    
-    .share-results div[style*="display: flex"] {
-        gap: 12px !important;
-        margin-top: 18px !important;
-    }
-    
-    .share-results img[alt="Geç"], 
-    .share-results img[alt="Geçme"] {
-        max-width: 120px !important;
-    }
-}
-
-@media (max-width: 400px) {
-    .share-questions-container {
-        grid-template-columns: 1fr; /* Çok küçük ekranlarda tek sütun */
-        max-height: 40vh;
-        margin: 8px auto;
-        padding: 5px;
-        gap: 6px;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    .share-question-item {
-        padding: 6px;
-        font-size: 0.8rem;
-        border-radius: 3px;
-    }
-    
-    .submit-answers-btn img {
-        max-width: 180px;
-    }
-    
-    /* Oltalama testine geç butonu için temiz tasarım - küçük ekranlar */
-    #continue-to-phishing-btn {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important;
-        z-index: 999 !important;
-        background: transparent !important;
-        border: none !important;
-        border-radius: 0;
-        backdrop-filter: none;
-        box-shadow: none !important;
-        padding: 0 !important;
-        justify-content: center;
-        align-items: center;
-        margin: 25px auto !important;
-        width: auto !important;
-        max-width: none !important;
-        text-align: center !important;
-    }
-    
-    #continue-to-phishing-btn img {
-        max-width: 300px !important;
-        width: 95% !important;
-        height: auto !important;
-        display: block !important;
-    }
+    overflow-y: auto;
 }
 
 .share-question-item {
@@ -1851,53 +1371,6 @@ div[id="next-task-btn"] {
     text-align: center;
 }
 
-/* Web versiyonunda share-results normal kalacak */
-@media (min-width: 901px) {
-    .share-results {
-        background: rgba(0, 0, 0, 0.3) !important;
-        border: none !important;
-        border-radius: 12px !important;
-        backdrop-filter: none !important;
-        box-shadow: none !important;
-        padding: 20px !important;
-        margin: 20px auto !important;
-        max-width: 600px !important;
-        width: auto !important;
-    }
-    
-    .share-results div[style*="display: flex"] {
-        flex-direction: row !important;
-        gap: 30px !important;
-    }
-    
-    /* Web versiyonunda Oltalama Testine Geç butonu */
-    #continue-to-phishing-btn {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important;
-        z-index: 999 !important;
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-        padding: 0 !important;
-        margin: 30px auto !important;
-        width: auto !important;
-        max-width: none !important;
-        text-align: center !important;
-        justify-content: center !important;
-        align-items: center !important;
-    }
-    
-    #continue-to-phishing-btn img {
-        max-width: 400px !important;
-        width: auto !important;
-        height: auto !important;
-        display: block !important;
-        cursor: pointer !important;
-    }
-}
-
 .result-text {
     font-size: 1.1rem;
     color: #fff;
@@ -1912,7 +1385,7 @@ div[id="next-task-btn"] {
 }
 
 #continue-to-phishing-btn {
-    display: flex !important;
+    display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
     position: relative !important;
@@ -1920,17 +1393,7 @@ div[id="next-task-btn"] {
     width: 100% !important;
     text-align: center !important;
     margin-top: 30px !important;
-    padding: 0 !important;
-    justify-content: center !important;
-    align-items: center !important;
-}
-
-#continue-to-phishing-btn img {
-    max-width: 400px !important;
-    width: 100% !important;
-    height: auto !important;
-    display: block !important;
-    cursor: pointer !important;
+    padding: 20px !important;
 }
 
 .continue-btn:hover {
@@ -1976,82 +1439,6 @@ div[id="next-task-btn"] {
     margin-top: 20px !important;
     width: 100% !important;
     max-width: 600px !important;
-}
-
-/* Mobil cihazlar için phishing butonu optimizasyonu */
-@media (max-width: 900px) {
-    .phishing-buttons-container {
-        gap: 10px !important;
-        margin-top: 15px !important;
-        max-width: 100% !important;
-    }
-    
-    .phishing-button {
-        min-height: 50px !important;
-    }
-    
-    .phishing-button img {
-        min-height: 50px !important;
-    }
-    
-    .phishing-button div {
-        font-size: 0.9rem !important;
-        line-height: 1.1 !important;
-    }
-}
-
-@media (max-width: 600px) {
-    .phishing-buttons-container {
-        gap: 8px !important;
-        margin-top: 12px !important;
-    }
-    
-    .phishing-button {
-        min-height: 45px !important;
-    }
-    
-    .phishing-button img {
-        min-height: 45px !important;
-    }
-    
-    .phishing-button div {
-        font-size: 0.85rem !important;
-        width: 95% !important;
-        line-height: 1.1 !important;
-    }
-    
-    .phishing-explanation {
-        font-size: 1rem !important;
-        margin-top: 15px !important;
-        min-height: 50px !important;
-    }
-}
-
-@media (max-width: 400px) {
-    .phishing-buttons-container {
-        gap: 6px !important;
-        margin-top: 10px !important;
-    }
-    
-    .phishing-button {
-        min-height: 40px !important;
-    }
-    
-    .phishing-button img {
-        min-height: 40px !important;
-    }
-    
-    .phishing-button div {
-        font-size: 0.8rem !important;
-        width: 95% !important;
-        line-height: 1.0 !important;
-    }
-    
-    .phishing-explanation {
-        font-size: 0.9rem !important;
-        margin-top: 12px !important;
-        min-height: 45px !important;
-    }
 }
 
 /* Modal animasyonları */
@@ -2124,231 +1511,54 @@ div[id="next-task-btn"] {
     100% { transform: translateX(100%); }
 }
 
-/* Mobil touch optimizasyonları - En Son Eklenen */
-@media (hover: none) and (pointer: coarse) {
-    /* Touch cihazlar için buton optimizasyonları */
-    .main-btn-svg, .start-svg, .password-check-btn, .phishing-button, .share-question-item {
-        min-height: 44px; /* Apple'ın önerdiği minimum dokunma alanı */
-        cursor: pointer;
-        -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
-    }
-    
-    /* Hover efektlerini touch için uyarlama */
-    .main-btn-svg:active, .start-svg:active {
-        transform: scale(0.98);
-    }
-    
-    .phishing-button:active {
-        transform: scale(0.98);
-        opacity: 0.8;
-    }
-    
-    .share-question-item:active {
-        transform: scale(0.98);
-        background: rgba(255, 255, 255, 0.25) !important;
-    }
-    
-    /* Input alanlarını touch için optimize et */
-    .username-input-on-svg {
-        font-size: 16px; /* iOS zoom'u engellemek için */
-        min-height: 44px;
-    }
+/* WebKit browsers için scrollbar stilleri */
+.password-panel-content::-webkit-scrollbar,
+#share-panel .password-panel-content::-webkit-scrollbar,
+#phishing-panel .password-panel-content::-webkit-scrollbar {
+    width: 8px;
 }
 
-/* Mobil cihazlarda input ve buton optimizasyonları */
-@media (max-width: 900px) {
-    input[type="text"], input[type="password"] {
-        font-size: 14px !important; /* Daha küçük font - kutuya sığar */
-        min-height: 40px !important;
-        padding: 8px 12px !important;
-        box-sizing: border-box !important;
-    }
-    
-    /* Input placeholder yazısı da küçük olsun */
-    input[type="text"]::placeholder, 
-    input[type="password"]::placeholder {
-        font-size: 14px !important;
-        opacity: 0.7;
-    }
-    
-    /* Oltalama testine geç butonu mobilde sığsın */
-    #continue-to-phishing-btn {
-        display: flex !important;
-        visibility: visible !important;
-        opacity: 1 !important;
-        position: relative !important;
-        z-index: 999 !important;
-        background: transparent !important;
-        border: none !important;
-        box-shadow: none !important;
-        padding: 0 !important;
-        margin: 15px auto !important;
-        width: auto !important;
-        max-width: 85vw !important;
-        text-align: center !important;
-        justify-content: center !important;
-        align-items: center !important;
-        overflow: visible !important;
-    }
-    
-    #continue-to-phishing-btn img {
-        max-width: 220px !important; /* Çok küçük */
-        width: 65% !important; /* %75 → %65 */
-        height: auto !important;
-        display: block !important;
-        margin: 0 auto !important;
-    }
+.password-panel-content::-webkit-scrollbar-track,
+#share-panel .password-panel-content::-webkit-scrollbar-track,
+#phishing-panel .password-panel-content::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+    border-radius: 10px;
+    margin: 10px 0;
 }
 
-@media (max-width: 600px) {
-    input[type="text"], input[type="password"] {
-        font-size: 13px !important; /* Küçük ekranlarda daha da küçük */
-        min-height: 38px !important;
-        padding: 6px 10px !important;
-        box-sizing: border-box !important;
-    }
-    
-    input[type="text"]::placeholder, 
-    input[type="password"]::placeholder {
-        font-size: 13px !important;
-        opacity: 0.7;
-    }
-    
-    #continue-to-phishing-btn img {
-        max-width: 200px !important; /* Çok küçük */
-        width: 60% !important; /* %70 → %60 */
-    }
+.password-panel-content::-webkit-scrollbar-thumb,
+#share-panel .password-panel-content::-webkit-scrollbar-thumb,
+#phishing-panel .password-panel-content::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
+    transition: background 0.3s ease;
 }
 
-@media (max-width: 400px) {
-    input[type="text"], input[type="password"] {
-        font-size: 12px !important; /* Çok küçük ekranlarda en küçük */
-        min-height: 36px !important;
-        padding: 5px 8px !important;
-        box-sizing: border-box !important;
-    }
-    
-    input[type="text"]::placeholder, 
-    input[type="password"]::placeholder {
-        font-size: 12px !important;
-        opacity: 0.7;
-    }
-    
-    #continue-to-phishing-btn img {
-        max-width: 180px !important; /* En küçük */
-        width: 55% !important; /* %65 → %55 */
-    }
+.password-panel-content::-webkit-scrollbar-thumb:hover,
+#share-panel .password-panel-content::-webkit-scrollbar-thumb:hover,
+#phishing-panel .password-panel-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.5);
 }
 
-/* Mobil klavye açıldığında viewport fix */
-@media screen and (max-height: 500px) {
-    .password-panel-outer {
-        max-height: 95vh;
-        overflow-y: visible;
-        height: auto;
-    }
-    
-    .password-panel-content {
-        max-height: none;
-        overflow: visible;
-        height: auto;
-    }
+/* Share questions container scroll */
+.share-questions-container::-webkit-scrollbar {
+    width: 6px;
 }
 
-/* Oltalama testine geç modalı - responsive çerçeve */
-.completion-modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-    max-width: 700px;
-    width: 85vw;
-    min-height: 400px;
-    text-align: center;
-    font-size: 1.3rem;
-    line-height: 1.5;
-    animation: modalFadeIn 0.5s ease-out;
+.share-questions-container::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.1);
+    border-radius: 8px;
 }
 
-.modal-svg-frame {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    pointer-events: none;
+.share-questions-container::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 8px;
 }
 
-.modal-content {
-    position: relative;
-    z-index: 1;
-    padding: 50px 40px;
-    color: #ffffff;
+.share-questions-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,0.4);
 }
 
-/* Web versiyonunda SVG çerçeve kullan */
-@media (min-width: 901px) {
-    .completion-modal {
-        background: transparent;
-        border: none;
-        border-radius: 0;
-        backdrop-filter: none;
-        box-shadow: none;
-    }
-    
-    .modal-svg-frame {
-        display: block;
-    }
-    
-    .modal-content {
-        padding: 50px 40px;
-    }
-}
-
-/* Mobil versiyonunda CSS çerçeve kullan */
-@media (max-width: 900px) {
-    .completion-modal {
-        width: 85vw;
-        max-width: 85vw;
-        min-height: 380px;
-        font-size: 1.1rem;
-        background: linear-gradient(135deg, 
-            rgba(30, 41, 59, 0.25), 
-            rgba(51, 65, 85, 0.3), 
-            rgba(71, 85, 105, 0.35)
-        );
-        border: 2px solid rgba(71, 85, 105, 0.7);
-        border-radius: 14px;
-        backdrop-filter: blur(20px);
-        box-shadow: 0 10px 40px rgba(30, 41, 59, 0.5);
-    }
-    
-    .modal-svg-frame {
-        display: none; /* SVG çerçeveyi gizle */
-    }
-    
-    .modal-content {
-        padding: 40px 30px;
-    }
-}
-
-@media (max-width: 600px) {
-    .completion-modal {
-        width: 90vw;
-        max-width: 90vw;
-        min-height: 350px;
-        font-size: 1rem;
-    }
-}
-
-@media (max-width: 400px) {
-    .completion-modal {
-        width: 95vw;
-        max-width: 95vw;
-        min-height: 320px;
-        font-size: 0.9rem;
-    }
-}
+/* Cache buster - Panel spacing and scroll improvements applied */
+/* Updated: 2024-01-01 */
 
