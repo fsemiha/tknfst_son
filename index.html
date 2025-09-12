@@ -682,8 +682,13 @@
             }
         }
 
-        /* TABLET OPTIMIZASYON - iPad Mini 6. nesil için - BASİT VERSİYON */
-        @media screen and (min-width: 768px) and (max-width: 1024px) {
+        /* TABLET OPTIMIZASYON - iPad Mini 6. nesil ve diğer tabletler için - GENİŞ UYUMLULUK */
+        @media screen and (min-width: 744px) and (max-width: 1133px),
+               screen and (min-device-width: 768px) and (max-device-width: 1024px),
+               screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait),
+               screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape),
+               screen and (device-width: 744px) and (device-height: 1133px),
+               screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 744px) and (max-device-width: 1133px) {
             /* Modal çerçevesi için tablet modunda */
             #explanation-modal img[src*="Asset 43"] {
                 content: url('assets/cerceve.svg') !important;
