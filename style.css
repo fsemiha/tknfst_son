@@ -428,6 +428,18 @@ body, html {
     overflow: hidden;
 }
 
+/* iPad Mini 6 için büyük çerçeve geçersiz kılma */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .password-panel-outer {
+        width: 96vw !important;
+        max-width: 950px !important;
+        min-width: 900px !important;
+        height: 95vh !important;
+        min-height: 900px !important;
+        margin: 10px auto !important;
+    }
+}
+
 .password-panel-bg {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
@@ -1485,12 +1497,27 @@ body, html {
         transform: scale(1.02) !important;
     }
     
-    /* Oyun panelleri için - çok büyük çerçeve */
+    /* Oyun panelleri için - çok büyük çerçeve - ZORLA UYGULA */
     .password-panel-outer {
-        width: 96% !important;
+        width: 96vw !important;
         max-width: 950px !important;
+        min-width: 950px !important;
+        height: 95vh !important;
         min-height: 950px !important;
         max-height: none !important;
+        margin: 10px auto !important;
+    }
+    
+    .password-panel-bg {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        z-index: 0 !important;
+        pointer-events: none !important;
+        object-fit: stretch !important;
+        transform: none !important;
     }
     
     .password-panel-top {
@@ -1619,6 +1646,31 @@ body, html {
     }
 }
 
+/* ZORLA BÜYÜK ÇERÇEVE - EN GÜÇLÜ KURALLAR */
+@media (min-width: 768px) and (max-width: 1024px) {
+    #password-panel .password-panel-outer,
+    #share-panel .password-panel-outer,
+    #phishing-panel .password-panel-outer {
+        width: 96vw !important;
+        max-width: 950px !important;
+        min-width: 900px !important;
+        height: 95vh !important;
+        min-height: 900px !important;
+        max-height: 1000px !important;
+        margin: 10px auto !important;
+        transform: scale(1) !important;
+    }
+    
+    #password-panel .password-panel-bg,
+    #share-panel .password-panel-bg,
+    #phishing-panel .password-panel-bg {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: stretch !important;
+        transform: none !important;
+    }
+}
+
 /* Cache buster - iPad Mini 6 optimizasyonu uygulandı */
-/* Updated: 2024-01-15 iPad Mini 6 Final */
+/* Updated: 2024-01-15 iPad Mini 6 Final - BÜYÜK ÇERÇEVE */
 
