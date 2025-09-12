@@ -732,12 +732,8 @@
                 margin: 0 auto !important;
             }
             
-            /* Ana menü de cerceve.svg ile */
+            /* Ana menü ÇOK BASIT - sadece boyutlandırma */
             .main-title-panel {
-                background-image: url('assets/cerceve.svg') !important;
-                background-size: 100% 100% !important;
-                background-repeat: no-repeat !important;
-                background-position: center !important;
                 width: 90vw !important;
                 max-width: 600px !important;
                 min-height: 500px !important;
@@ -746,8 +742,9 @@
                 flex-direction: column !important;
                 align-items: center !important;
                 justify-content: center !important;
-                padding: 60px 40px 40px 40px !important;
+                padding: 40px !important;
                 margin: 0 auto !important;
+                /* Kendi çerçevesini kullanır, background-image eklemeyelim */
             }
             
             /* Eski çerçeveleri kaldır (SKOR TABLOSU DAHİL) */
@@ -855,10 +852,22 @@
                 margin: 20px auto !important;
             }
             
-            /* Panel ortalama */
+            /* Panel ortalama - ANA MENÜ ve USERNAME için basit */
             #main-panel,
-            #username-panel,
-            .center-panel {
+            #username-panel {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                width: 100vw !important;
+                height: 100vh !important;
+                /* Çerçeve karışıklığını engellemek için */
+            }
+            
+            /* Oyun panelleri ortalama */
+            #password-panel,
+            #share-panel,
+            #phishing-panel,
+            #scoreboard-panel {
                 display: flex !important;
                 align-items: center !important;
                 justify-content: center !important;
@@ -866,6 +875,7 @@
                 height: 100vh !important;
             }
             
+            /* Username paneli içeriği */
             .inside-panel {
                 text-align: center !important;
                 width: 100% !important;
@@ -873,6 +883,16 @@
                 flex-direction: column !important;
                 align-items: center !important;
                 gap: 20px !important;
+                padding: 40px !important;
+            }
+            
+            /* Ana menü butonları container */
+            .main-buttons {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 15px !important;
+                margin-top: 20px !important;
             }
             
             /* Sonuç panelleri */
