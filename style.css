@@ -431,12 +431,13 @@ body, html {
 /* iPad Mini 6 için büyük çerçeve geçersiz kılma */
 @media (min-width: 768px) and (max-width: 1024px) {
     .password-panel-outer {
-        width: 96vw !important;
-        max-width: 950px !important;
-        min-width: 900px !important;
+        width: 88vw !important;
         height: 95vh !important;
-        min-height: 900px !important;
-        margin: 10px auto !important;
+        max-width: none !important;
+        margin: 2.5vh auto !important;
+        min-height: 700px !important;
+        max-height: none !important;
+        min-width: 800px !important;
     }
 }
 
@@ -1499,13 +1500,13 @@ body, html {
     
     /* Oyun panelleri için - çok büyük çerçeve - ZORLA UYGULA */
     .password-panel-outer {
-        width: 96vw !important;
-        max-width: 950px !important;
-        min-width: 950px !important;
+        width: 88vw !important;
         height: 95vh !important;
-        min-height: 950px !important;
+        max-width: none !important;
+        margin: 2.5vh auto !important;
+        min-height: 700px !important;
         max-height: none !important;
-        margin: 10px auto !important;
+        min-width: 800px !important;
     }
     
     .password-panel-bg {
@@ -1651,13 +1652,13 @@ body, html {
     #password-panel .password-panel-outer,
     #share-panel .password-panel-outer,
     #phishing-panel .password-panel-outer {
-        width: 96vw !important;
-        max-width: 950px !important;
-        min-width: 900px !important;
+        width: 88vw !important;
         height: 95vh !important;
-        min-height: 900px !important;
-        max-height: 1000px !important;
-        margin: 10px auto !important;
+        max-width: none !important;
+        margin: 2.5vh auto !important;
+        min-height: 700px !important;
+        max-height: none !important;
+        min-width: 800px !important;
         transform: scale(1) !important;
     }
     
