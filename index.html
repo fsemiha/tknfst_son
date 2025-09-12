@@ -11,7 +11,6 @@
     
     <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#0a1428">
-    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Siber Macera">
@@ -36,89 +35,100 @@
     <link rel="preload" href="fonts/conthrax-sb.otf" as="font" type="font/otf" crossorigin> -->
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css?v=9.0&t=1735683000&cache=bust&mobile=fix&iphone12=final&buttons=tight">
+    <link rel="stylesheet" href="style.css?v=9.0&t=1735683000&cache=bust&ipad=mini6">
     
-    <!-- MOBIL CSS - SUPER GÜÇLÜ -->
+    <!-- iPad Mini 6 Özel Optimizasyon -->
     <style>
-        /* HER CIHAZDA ÇALIŞSIN */
-        /* Phishing efektleri tamamen kaldırıldı */
-        
-        /* iPhone 12 Pro ZORUNLU DÜZELTİCİ - BYPASS CACHE */
-        @media (max-width: 400px) and (min-height: 800px) {
-            .panel-desc {
-                font-size: 0.85rem !important;
-                position: relative !important;
-                top: -8px !important;
-                line-height: 1.1 !important;
-                margin-bottom: 6px !important;
-                padding: 0 4px !important;
-                word-wrap: break-word !important;
-                overflow-wrap: break-word !important;
-            }
-            
-            .inside-panel {
-                top: 54% !important;
-                transform: translate(-50%, -54%) !important;
-                gap: 12px !important;
-            }
-            
+        /* iPad Mini 6 (8.3 inç, 2266x1488) için özel optimizasyon */
+        @media (min-width: 768px) and (max-width: 1024px) {
             .main-title-panel {
-                height: 75vh !important;
-                min-height: 450px !important;
+                width: 80% !important;
+                max-width: 900px !important;
+                min-height: 600px !important;
             }
-        }
-        #phishing-panel .password-panel-content {
-            padding-top: 35px !important;
+            
+            .panel-desc {
+                font-size: 2rem !important;
+                margin: 25px 0 !important;
+                line-height: 1.3 !important;
+            }
+            
+            .main-btn-svg {
+                max-width: 450px !important;
+                margin: 15px 0 !important;
+            }
+            
+            .password-panel-outer {
+                width: 85% !important;
+                max-width: 800px !important;
+                min-height: 700px !important;
+            }
+            
+            .password-panel-content {
+                padding-top: 80px !important;
+            }
+            
+            .password-title {
+                font-size: 2rem !important;
+            }
+            
+            .password-desc {
+                font-size: 1.2rem !important;
+                line-height: 1.4 !important;
+            }
+            
+            .svg-box {
+                width: 180px !important;
+                height: 50px !important;
+            }
+            
+            .svg-text {
+                font-size: 1rem !important;
+            }
         }
     </style>
     
-    <!-- JAVASCRIPT ZORLA STYLE UYGULAYICI -->
+    <!-- iPad Mini 6 için JavaScript optimizasyonu -->
     <script>
-        // TÜM EKRANLARDA TURUNCU MESAJLARI KALDIR
-        function applyResponsiveFix() {
-            console.log('TURUNCU KALDIRICI - Timestamp: ' + new Date().getTime());
-            
-            // HER EKRANDA ÇALIŞ - ana menü kontrolü kaldırıldı
+        // iPad Mini 6 için kompakt optimizasyon
+        function applyiPadMiniOptimization() {
+            console.log('iPad Mini 6 kompakt optimizasyonu uygulanıyor...');
             
             const panelDesc = document.querySelector('.panel-desc');
             const insidePanel = document.querySelector('.inside-panel');
             const mainButtons = document.querySelector('.main-buttons');
             
-            // Mobil cihazlar için (iPhone 12 Pro dahil)
-            if (window.innerWidth <= 500 && window.innerHeight >= 700) {
+            // iPad Mini 6 için (768-1024px arası)
+            if (window.innerWidth >= 768 && window.innerWidth <= 1024) {
                 if (panelDesc) {
-                    // Mobilde yazıyı ZORLA kaldır
                     panelDesc.style.cssText = `
-                        display: none !important;
-                        visibility: hidden !important;
-                        opacity: 0 !important;
-                        height: 0 !important;
-                        margin: 0 !important;
-                        padding: 0 !important;
-                        position: absolute !important;
-                        top: -9999px !important;
-                        left: -9999px !important;
+                        color: #ffffff !important;
+                        font-size: 1.9rem !important;
+                        text-align: center !important;
+                        margin-bottom: 20px !important;
+                        font-family: 'Gilmer', Arial, sans-serif !important;
+                        font-weight: 500 !important;
+                        letter-spacing: 0.6px !important;
+                        line-height: 1.2 !important;
+                        display: block !important;
                     `;
-                    panelDesc.innerHTML = '';
-                    console.log('Mobile: Text FORCEFULLY hidden and emptied');
+                    console.log('iPad Mini: Text kompakt optimized');
                 }
                 
                 if (insidePanel) {
-                    // Butonları daha da aşağı indir - çok rahat mesafe
                     insidePanel.style.cssText = `
                         position: absolute !important;
-                        top: 65% !important;
+                        top: 50% !important;
                         left: 50% !important;
-                        transform: translate(-50%, -65%) !important;
+                        transform: translate(-50%, -50%) !important;
                         display: flex !important;
                         flex-direction: column !important;
                         align-items: center !important;
                         gap: 8px !important;
-                        width: 85% !important;
+                        width: 80% !important;
                         z-index: 2 !important;
-                        padding: 5px !important;
                     `;
-                    console.log('Mobile: Buttons moved down to 65% - very comfortable spacing');
+                    console.log('iPad Mini: Panel positioned kompakt');
                 }
                 
                 if (mainButtons) {
@@ -126,1220 +136,148 @@
                         display: flex !important;
                         flex-direction: column !important;
                         align-items: center !important;
-                        gap: 6px !important;
+                        gap: 8px !important;
                         width: 100% !important;
                     `;
-                    console.log('Mobile: Button gaps reduced to 6px');
+                    console.log('iPad Mini: Button spacing kompakt - 8px gap');
                 }
             }
             
-            // Tüm cihazlarda turuncu/kırmızı uyarı mesajlarını kaldır
-            const warningMessages = [
-                document.getElementById('password-match-message'),
-                document.getElementById('crack-time'),
-                document.querySelector('#crack-time'),
-                document.querySelector('.crack-time'),
-                document.querySelector('.warning-message'),
-                document.querySelector('.error-message'),
-                document.querySelector('[style*="orange"]'),
-                document.querySelector('[style*="#ff"]'),
-                document.querySelector('[style*="color: orange"]'),
-                document.querySelector('[style*="color: #ff"]'),
-                document.querySelector('[style*="color: red"]'),
-                document.querySelector('[style*="#ff4444"]'),
-                document.querySelector('[style*="#ffaa00"]'),
-                document.querySelector('[style*="background: red"]'),
-                document.querySelector('.strength-warning'),
-                document.querySelector('.password-warning'),
-                document.querySelector('.strength-badge'),
-                document.querySelector('.password-result')
-            ];
-            
-            // NUCLEAR TURUNCU KALDIRMA - HER ŞEYİ TARA
-            const allElements = document.querySelectorAll('*');
-            allElements.forEach(element => {
-                try {
-                    // Sadece spesifik turuncu mesajları hedefle - phishing'e dokunma
-                    if (element.id === 'crack-time' || element.className.includes('crack-time')) {
-                        element.style.cssText = 'display: none !important; visibility: hidden !important; opacity: 0 !important; height: 0 !important; width: 0 !important; position: absolute !important; top: -9999px !important; left: -9999px !important;';
-                        element.innerHTML = '';
-                        element.remove();
-                        console.log('CRACK-TIME DIV DESTROYED: ' + element.id);
-                    }
-                    
-                    // Sadece "Lütfen parolayı tekrar girin" mesajını hedefle
-                    if (element.textContent && element.textContent.trim() === 'Lütfen parolayı tekrar girin') {
-                        element.style.display = 'none !important';
-                        element.innerHTML = '';
-                        console.log('PASSWORD WARNING DESTROYED');
-                    }
-                    
-                    // Style attribute kontrol et
-                    if (element.getAttribute('style')) {
-                        const style = element.getAttribute('style');
-                        if (style.includes('#ffaa00') || 
-                            style.includes('#ff4444') ||
-                            style.includes('orange') ||
-                            style.includes('255, 170, 0') ||
-                            style.includes('255, 68, 68')) {
-                            element.style.cssText = 'display: none !important;';
-                            element.innerHTML = '';
-                            element.remove();
-                            console.log('TURUNCU STYLE DESTROYED');
-                        }
-                    }
-                } catch(e) {
-                    // Ignore errors
-                }
-            });
-            
-            // CRACK-TIME DIV'İNİ ÖZELLIKLE HEDEFLE - SPESİFİK
-            const crackTimeDiv = document.getElementById('crack-time');
-            if (crackTimeDiv) {
-                crackTimeDiv.style.cssText = 'display: none !important; visibility: hidden !important; opacity: 0 !important; height: 0 !important; width: 0 !important; position: absolute !important; top: -9999px !important; left: -9999px !important;';
-                crackTimeDiv.innerHTML = '';
-                crackTimeDiv.parentNode.removeChild(crackTimeDiv);
-                console.log('CRACK-TIME DIV COMPLETELY REMOVED FROM DOM!');
-            }
-            
-            // Tüm crack içeren elementleri de kaldır
-            document.querySelectorAll('[id*="crack"], [class*="crack"]').forEach(el => {
-                if (el) {
-                    el.style.display = 'none !important';
-                    el.remove();
-                    console.log('Crack element removed: ' + el.id || el.className);
-                }
-            });
-            
-            warningMessages.forEach(msg => {
-                if (msg) {
-                    msg.style.display = 'none !important';
-                    msg.style.visibility = 'hidden !important';
-                    msg.style.opacity = '0 !important';
-                    msg.innerHTML = '';
-                }
-            });
-            
-            // Ana menü butonlarını eşitle (Asset 10 ve Asset 11)
-            const mainMenuButtons = document.querySelectorAll('.main-btn-svg');
-            if (mainMenuButtons.length > 0) {
-                mainMenuButtons.forEach((button, index) => {
-                    // Asset 10 (Paylaş/Sakla) ve Asset 11 (Oltalama Testi) butonları
-                    if (index === 1 || index === 2) { // 2. ve 3. butonlar
-                        button.style.cssText = `
-                            width: 98% !important;
-                            max-width: 440px !important;
-                            min-width: 220px !important;
-                            height: auto !important;
-                            display: block !important;
-                            cursor: pointer !important;
-                            transition: transform 0.15s !important;
-                            margin: 0 auto !important;
-                            font-family: 'Gilmer', Arial, sans-serif !important;
-                            font-weight: bold !important;
-                        `;
-                    }
-                });
-                console.log('Main menu buttons (Paylaş/Sakla & Oltalama) equalized');
-            }
-            
-            console.log('All orange/red warning messages removed');
-            
-            // Yeşil butonlara dokunma - sadece ana menü butonlarını düzenle
-            
-            // Honor Pad ve büyük ekranlar için
-            else if (window.innerWidth >= 1000) {
-                if (panelDesc) {
-                    // Honor Pad'de yazıyı büyüt
-                    panelDesc.style.cssText = `
-                        color: #ffffff !important;
-                        font-size: 1.7rem !important;
-                        text-align: center !important;
-                        margin-bottom: 20px !important;
-                        font-family: 'Gilmer', Arial, sans-serif !important;
-                        font-weight: 400 !important;
-                        letter-spacing: 0.6px !important;
-                        line-height: 1.4 !important;
-                        display: block !important;
-                    `;
-                    console.log('Honor Pad: Text enlarged to 1.7rem');
-                }
-            }
+            console.log('iPad Mini 6 kompakt optimizasyonu tamamlandı');
         }
         
         // Sayfa yüklendiğinde uygula
-        document.addEventListener('DOMContentLoaded', applyResponsiveFix);
+        document.addEventListener('DOMContentLoaded', applyiPadMiniOptimization);
         
         // Window resize'da da kontrol et
-        window.addEventListener('resize', applyResponsiveFix);
+        window.addEventListener('resize', applyiPadMiniOptimization);
         
-        // Hemen uygula (eğer DOM hazırsa)
+        // Hemen uygula
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', function() {
-                setTimeout(applyResponsiveFix, 100);
+                setTimeout(applyiPadMiniOptimization, 100);
             });
         } else {
-            setTimeout(applyResponsiveFix, 100);
+            setTimeout(applyiPadMiniOptimization, 100);
         }
-        
-        // SÜREKLI TURUNCU KALDIRICI - HER EKRANDA
-        setInterval(applyResponsiveFix, 1000);
-        setTimeout(applyResponsiveFix, 100);
-        setTimeout(applyResponsiveFix, 500);
     </script>
     
     <style>
-        
-        /* MOBIL OPTIMIZASYON */
-        /* Mobilde ana menü çerçevesi için özel ayar */
-        @media screen and (max-width: 767px) {
-            .main-title-svg {
-                content: url('assets/sibermacera_cerceve.svg') !important;
-                width: 130% !important;
-                height: 130% !important;
-                margin: -15% !important;
-                max-width: none !important;
-            }
-            
-            .main-title-panel {
-                width: 98vw !important;
-                max-width: 98vw !important;
-            }
-            
-            /* Mobilde TAMAMEN yeni çerçeve sistemi */
-            .password-panel-outer,
-            #share-panel .password-panel-outer,
-            #phishing-panel .password-panel-outer {
-                background-image: url('assets/cerceve.svg') !important;
-                background-size: 100% 100% !important;
-                background-repeat: no-repeat !important;
-                background-position: center !important;
-                border: none !important;
-            }
-            
-            /* Eski çerçeveleri tamamen kaldır */
-            .password-panel-bg,
-            #share-panel .password-panel-bg,
-            #phishing-panel .password-panel-bg,
-            .password-panel-outer::before,
-            #share-panel .password-panel-outer::before,
-            #phishing-panel .password-panel-outer::before {
-                display: none !important;
-                visibility: hidden !important;
-                content: none !important;
-            }
-            
-            /* Panel boyutlarını ayarla */
-            .password-panel-outer,
-            #share-panel .password-panel-outer,
-            #phishing-panel .password-panel-outer {
-                width: 98vw !important;
-                max-width: 450px !important;
-                height: auto !important;
-                min-height: 80vh !important;
-                position: relative !important;
-                overflow: visible !important;
-            }
-            
-            /* Panel içeriğinin z-index ayarı */
-            .password-panel-content,
-            #share-panel .password-panel-content,
-            #phishing-panel .password-panel-content {
-                position: relative !important;
-                z-index: 2 !important;
-            }
-            
-            /* Panel içeriğini normale döndür */
-            .password-panel-content,
-            #share-panel .password-panel-content {
-                padding-top: 20px !important;
-                margin-top: 0 !important;
-            }
-            
-                         /* Tüm panellerde skor ve time kutularını çerçeve içinde konumlandır */
-             .password-panel-top,
-             #share-panel .password-panel-top,
-             #phishing-panel .password-panel-top {
-                 position: absolute !important;
-                 top: 60px !important;
-                 left: 0 !important;
-                 right: 0 !important;
-                 margin: 0 !important;
-                 z-index: 10 !important;
-                 display: flex !important;
-                 justify-content: space-between !important;
-                 align-items: center !important;
-                 padding: 0 30px !important;
-                 width: 100% !important;
-                 box-sizing: border-box !important;
-             }
-            
-            /* İkon ve diğer öğeleri normal pozisyona döndür */
-            .password-panel-content .security-icon,
-            #share-panel .password-panel-content .security-icon {
-                margin-top: 0 !important;
-            }
-            
-            .password-panel-content .password-title,
-            #share-panel .password-panel-content .password-title {
-                margin-top: 0 !important;
-            }
-            
-            .password-panel-content .password-desc,
-            #share-panel .password-panel-content .password-desc {
-                margin-top: 0 !important;
-            }
-            
-                         /* Oltalama testindeki seçenek yazılarını ultra küçük boyutta düzenle */
-             #phishing-panel .phishing-button div {
-                 font-size: 0.5rem !important;
-                 line-height: 0.5 !important;
-                 background: rgba(0,0,0,0.9) !important;
-                 padding: 1px 2px !important;
-                 border-radius: 1px !important;
-                 font-weight: 200 !important;
-                 color: #ffffff !important;
-                 text-align: center !important;
-                 max-width: 80% !important;
-                 word-wrap: break-word !important;
-                 overflow-wrap: break-word !important;
-                 white-space: normal !important;
-                 margin: 0px auto !important;
-                 box-sizing: border-box !important;
-                 display: block !important;
-                 transform: scale(0.3) !important;
-                 zoom: 0.3 !important;
-             }
-            
-            /* Sadece spesifik turuncu uyarı mesajlarını kaldır */
-            .warning-message,
-            .error-message,
-            .password-warning,
-            [style*="color: orange"],
-            [style*="color: #ffaa00"],
-            [style*="color: #ff4444"] {
-                display: none !important;
-                visibility: hidden !important;
-                opacity: 0 !important;
-            }
-            
-            /* crack-time elementini göster ve dinamik renkler */
-            #crack-time {
-                display: block !important;
-                font-size: 0.9rem !important;
-                margin: 8px 0 !important;
-                padding: 5px 10px !important;
-                border-radius: 6px !important;
-                text-align: center !important;
-                font-weight: bold !important;
-                transition: all 0.3s ease !important;
-            }
-            
-            /* Kırılma süresine göre renkler ve animasyonlar */
-            #crack-time.very-weak,
-            #crack-time.weak {
-                color: #ff4444 !important;
-                background: rgba(255, 68, 68, 0.2) !important;
-                border: 1px solid rgba(255, 68, 68, 0.5) !important;
-                animation: dangerPulse 0.5s infinite alternate !important;
-            }
-            
-            #crack-time.medium {
-                color: #ffaa00 !important;
-                background: rgba(255, 170, 0, 0.2) !important;
-                border: 1px solid rgba(255, 170, 0, 0.5) !important;
-                animation: warningPulse 1s infinite alternate !important;
-            }
-            
-            #crack-time.good,
-            #crack-time.very-strong {
-                color: #00ff99 !important;
-                background: rgba(0, 255, 153, 0.2) !important;
-                border: 1px solid rgba(0, 255, 153, 0.5) !important;
-            }
-            
-            /* Animasyonlar */
-            @keyframes dangerPulse {
-                0% { 
-                    background: rgba(255, 68, 68, 0.2);
-                    box-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
-                }
-                100% { 
-                    background: rgba(255, 68, 68, 0.4);
-                    box-shadow: 0 0 15px rgba(255, 68, 68, 0.6);
-                }
-            }
-            
-            @keyframes warningPulse {
-                0% { 
-                    background: rgba(255, 170, 0, 0.2);
-                    box-shadow: 0 0 5px rgba(255, 170, 0, 0.3);
-                }
-                100% { 
-                    background: rgba(255, 170, 0, 0.3);
-                    box-shadow: 0 0 10px rgba(255, 170, 0, 0.5);
-                }
-            }
-            
-            /* Tüm geçiş butonlarını eşitle */
-            .next-task-btn img,
-            #continue-to-phishing-btn img {
-                max-width: 350px !important;
-                width: 100% !important;
-            }
-            
-            /* Paylaş/Sakla görevine geç butonu boyutu */
-            .next-task-btn img[alt*="Paylaş/Sakla"] {
-                max-width: 350px !important;
-                width: 100% !important;
-            }
-            
-            /* Oltalama testine geç butonu da aynı boyutta */
-            img[src*="oltalamatestinegec.svg"] {
-                max-width: 350px !important;
-                width: 200% !important;
-            }
-            
-            /* Paylaş/Sakla seçimleri için renk geri bildirimi */
-            .share-question-item {
-                transition: all 0.3s ease !important;
-                border-radius: 8px !important;
-                padding: 8px !important;
-                margin: 4px 0 !important;
-                cursor: pointer !important;
-                border: 2px solid transparent !important;
-            }
-            
-            .share-question-item.correct {
-                background: rgba(0, 255, 153, 0.2) !important;
-                border: 2px solid rgba(0, 255, 153, 0.5) !important;
-                color: #00ff99 !important;
-                box-shadow: 0 0 10px rgba(0, 255, 153, 0.3) !important;
-            }
-            
-            .share-question-item.wrong {
-                background: rgba(255, 68, 68, 0.2) !important;
-                border: 2px solid rgba(255, 68, 68, 0.5) !important;
-                color: #ff4444 !important;
-                box-shadow: 0 0 10px rgba(255, 68, 68, 0.3) !important;
-                animation: shake 0.5s ease-in-out !important;
-            }
-            
-            .share-question-item.selected {
-                background: rgba(255, 255, 255, 0.1) !important;
-                border: 2px solid rgba(255, 255, 255, 0.3) !important;
-            }
-            
-            @keyframes shake {
-                0%, 100% { transform: translateX(0); }
-                25% { transform: translateX(-5px); }
-                75% { transform: translateX(5px); }
-            }
-            
-            /* Final score paneli için mobilde */
-            .final-score-bg {
-                content: url('assets/cerceve.svg') !important;
-            }
-            
-            /* Modal çerçevesi için mobilde */
-            #explanation-modal img[src*="Asset 43"] {
-                content: url('assets/cerceve.svg') !important;
-            }
+        /* iPad Mini 6 için temiz CSS konfigürasyonu */
+        @keyframes loading {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
         
-        /* Mobilde modal için özel ayarlar */
-        @media screen and (max-width: 480px) {
-            /* Modal çerçevesini sibermacera_cerceve yap */
-            #explanation-modal img[src*="Asset 43"] {
-                content: url('assets/sibermacera_cerceve.svg') !important;
+        /* iPad Mini 6 paneller için optimizasyon */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .password-panel-outer {
+                width: 85% !important;
+                max-width: 800px !important;
+                min-height: 700px !important;
             }
             
-            /* Modal yazılarını küçült */
-            #explanation-modal {
-                max-width: 300px !important;
-                font-size: 0.9rem !important;
-                padding: 15px 20px !important;
+            .password-panel-content {
+                padding-top: 80px !important;
+                gap: 15px !important;
             }
             
-            #explanation-modal div:first-of-type {
-                font-size: 1.0rem !important;
-                margin-bottom: 8px !important;
+            .svg-box {
+                width: 180px !important;
+                height: 50px !important;
             }
             
-            #explanation-modal div:nth-of-type(2) {
-                font-size: 0.8rem !important;
+            .svg-text {
+                font-size: 1rem !important;
             }
             
-            #explanation-modal img[src*="Asset 60"],
-            #explanation-modal img[src*="Asset 61"] {
-                max-width: 80px !important;
+            .password-title {
+                font-size: 2rem !important;
             }
             
-            /* Phishing buton efektleri kaldırıldı */
-	/* Timer kutlarını göster */
-	.svg-box { 
-		display: block !important;
-		position: absolute !important;
-		z-index: 10 !important;
-	}
-	
-	.password-panel-top .svg-box:first-child {
-		top: 15px !important;
-		left: 30px !important;
-	}
-	
-	.password-panel-top .svg-box:last-child {
-		top: 15px !important;
-		right: 30px !important;
-	}
-	
-	/* Çerçeve ayarları */
-	.password-panel-bg { display: none; }
-	#share-panel .password-panel-bg { display: none; }
-	#phishing-panel .password-panel-bg { display: none; }
-		
-	.password-panel-outer::before,
-	#share-panel .password-panel-outer::before,
-	#phishing-panel .password-panel-outer::before {
-		content: '';
-		position: absolute;
-		top: -10px; left: -10px;
-		width: calc(100% + 20px);
-		height: calc(100% + 20px);
-		background: url('assets/Asset 21.svg') center/100% 100% no-repeat;
-		z-index: 1;
-	}
-	
-        @media (max-width: 480px) {
-	/* Timer kutlarını göster */
-	.svg-box { 
-		display: block !important;
-		position: absolute !important;
-		z-index: 10 !important;
-	}
-	
-	.password-panel-top .svg-box:first-child {
-		top: 15px !important;
-		left: 30px !important;
-	}
-	
-	.password-panel-top .svg-box:last-child {
-		top: 15px !important;
-		right: 30px !important;
-	}
-	
-	/* Çerçeve ayarları */
-	.password-panel-bg { display: none; }
-	#share-panel .password-panel-bg { display: none; }
-	#phishing-panel .password-panel-bg { display: none; }
-		
-	.password-panel-outer::before,
-	#share-panel .password-panel-outer::before,
-	#phishing-panel .password-panel-outer::before {
-		content: '';
-		position: absolute;
-		top: -10px; left: -10px;
-		width: calc(100% + 20px);
-		height: calc(100% + 20px);
-		background: url('assets/Asset 21.svg') center/100% 100% no-repeat;
-		z-index: 1;
-	}
-	
-	.password-panel-content {
-		padding-top: 25px !important;
-	}
-	
-	/* Timer/skor yukarı çek */
-	.password-panel-top .svg-box:first-child {
-		top: 5px !important;
-		left: 25px !important;
-	}
-	
-	.password-panel-top .svg-box:last-child {
-		top: 5px !important;
-		right: 25px !important;
-	}
-	
-	/* Yazıları ve içerikleri ayarla */
-	.password-title { font-size: 16px !important; }
-	.password-desc { font-size: 12px !important; }
-	.password-input-wrapper input { font-size: 14px !important; height: 35px !important; }
-	.password-check-btn-text { font-size: 10px !important; }
-	.password-check-btn-wrapper { padding: 8px 15px !important; }
-	.password-strength-result { font-size: 11px !important; }
-	.password-feedback { font-size: 10px !important; }
-	.password-suggestions { font-size: 10px !important; }
-	.strength-display { font-size: 10px !important; }
-	.suggestions { font-size: 10px !important; }
-	.crack-time { font-size: 10px !important; }
-	.security-warning { font-size: 10px !important; }
-	.password-tips { font-size: 10px !important; }
-	.character-requirements { font-size: 10px !important; }
-	.password-panel-content div, 
-	.password-panel-content span, 
-	.password-panel-content p { 
-		font-size: 10px !important; 
-		line-height: 1.2 !important; 
-	}
-	
-	/* Paylaş/Sakla butonu görünsün */
-	.next-task-btn {
-		display: block !important;
-		visibility: visible !important;
-		opacity: 1 !important;
-		z-index: 25 !important;
-		margin-top: 15px !important;
-		text-align: center !important;
-		position: relative !important;
-	}
-	
-	#next-task-btn {
-		display: block !important;
-		visibility: visible !important;
-		opacity: 1 !important;
-		z-index: 25 !important;
-		margin-top: 15px !important;
-		text-align: center !important;
-		position: relative !important;
-	}
-	
-	.next-task-btn img,
-	#next-task-btn img {
-		max-width: 250px !important;
-		width: 100% !important;
-		cursor: pointer !important;
-	}
-	
-	/* Password result paneli görünsün */
-	.password-result {
-		display: flex !important;
-		flex-direction: column !important;
-		align-items: center !important;
-		z-index: 20 !important;
-		position: relative !important;
-	}
-	
-	#password-result {
-		display: flex !important;
-		flex-direction: column !important;
-		align-items: center !important;
-		z-index: 20 !important;
-		position: relative !important;
-	}
-	
-	/* Share grid - 2 sütun 5 satır çerçeveye sığdır */
-	.share-grid {
-		display: grid !important;
-		grid-template-columns: 1fr 1fr !important;
-		grid-template-rows: repeat(5, 35px) !important;
-		gap: 5px !important;
-		padding: 8px !important;
-		width: 100% !important;
-		margin: 10px auto !important;
-		max-height: 200px !important;
-	}
-	
-	.share-grid .share-item {
-		background: rgba(255, 255, 255, 0.1) !important;
-		border: 1px solid rgba(255, 255, 255, 0.3) !important;
-		border-radius: 6px !important;
-		padding: 4px !important;
-		font-size: 8px !important;
-		line-height: 1.0 !important;
-		text-align: center !important;
-		color: white !important;
-		display: flex !important;
-		align-items: center !important;
-		justify-content: center !important;
-		cursor: pointer !important;
-		pointer-events: auto !important;
-		z-index: 15 !important;
-		position: relative !important;
-		height: 35px !important;
-		width: 100% !important;
-		box-sizing: border-box !important;
-		word-wrap: break-word !important;
-		transition: all 0.3s ease !important;
-	}
-	
-	.share-grid .share-item:hover {
-		background: rgba(255, 255, 255, 0.2) !important;
-		transform: scale(1.02) !important;
-	}
-	
-	/* Oltalama Test butonu - her yerde görünsün */
-	#continue-to-phishing-btn {
-		display: block !important;
-		visibility: visible !important;
-		opacity: 1 !important;
-		z-index: 25 !important;
-		margin-top: 15px !important;
-		text-align: center !important;
-		position: relative !important;
-	}
-	
-	#continue-to-phishing-btn img {
-		max-width: 180px !important;
-		width: 100% !important;
-		cursor: pointer !important;
-	}
-	
-	/* Dinamik oltalama butonu */
-	.phishing-test-btn {
-		display: block !important;
-		text-align: center !important;
-		margin-top: 15px !important;
-		z-index: 25 !important;
-	}
-	
-	.phishing-test-btn img {
-		max-width: 180px !important;
-		width: 100% !important;
-		cursor: pointer !important;
-	}
-	
-	/* Share paneli direkt CSS düzeltmesi */
-	#share-questions-container {
-		display: grid !important;
-		grid-template-columns: 1fr 1fr !important;
-		grid-template-rows: repeat(5, 30px) !important;
-		gap: 4px !important;
-		padding: 5px !important;
-		max-height: 170px !important;
-		margin-top: 5px !important;
-	}
-	
-	.share-question-item {
-		background: rgba(255, 255, 255, 0.1) !important;
-		border: 1px solid rgba(255, 255, 255, 0.3) !important;
-		border-radius: 6px !important;
-		padding: 3px !important;
-		font-size: 8px !important;
-		text-align: center !important;
-		color: white !important;
-		display: flex !important;
-		align-items: center !important;
-		justify-content: center !important;
-		cursor: pointer !important;
-		height: 30px !important;
-		box-sizing: border-box !important;
-		word-wrap: break-word !important;
-		line-height: 1.0 !important;
-	}
-	
-	/* Oltalama butonu kesinlikle görünsün */
-	#continue-to-phishing-btn {
-		display: block !important;
-		visibility: visible !important;
-		opacity: 1 !important;
-		z-index: 25 !important;
-		margin-top: 8px !important;
-		text-align: center !important;
-		position: relative !important;
-		width: 100% !important;
-		clear: both !important;
-	}
-	
-	#continue-to-phishing-btn img {
-		max-width: 140px !important;
-		width: 100% !important;
-		cursor: pointer !important;
-		display: block !important;
-		margin: 0 auto !important;
-	}
-	
-	/* Phishing paneli yukarı taşı */
-	#phishing-panel .password-panel-content {
-		padding-top: 35px !important;
-	}
-	
-	#phishing-panel .password-desc {
-		margin: 5px 0 !important;
-		font-size: 10px !important;
-	}
-	
-	/* Phishing butonları yakın ve yukarı */
-	.phishing-buttons-container {
-		gap: 1px !important;
-		margin-top: 5px !important;
-	}
-	
-	.phishing-button {
-		width: 85% !important;
-		margin: 1px auto !important;
-		position: relative !important;
-		min-height: 32px !important;
-	}
-	
-	.phishing-button img {
-		width: 100% !important;
-		height: 100% !important;
-	}
-	
-	/* Phishing buton div efektleri kaldırıldı */
-	
-	/* Modal yazılarını küçült */
-	#explanation-modal {
-		max-width: 300px !important;
-		width: 85vw !important;
-		font-size: 0.9rem !important;
-		padding: 15px 20px !important;
-	}
-	
-	#explanation-modal div:first-child {
-		font-size: 1.0rem !important;
-		margin-bottom: 8px !important;
-	}
-	
-	#explanation-modal div:nth-child(2) {
-		font-size: 0.8rem !important;
-		line-height: 1.2 !important;
-	}
-	
-	#explanation-modal div:last-child {
-		font-size: 0.7rem !important;
-		margin-top: 10px !important;
-	}
-	}
-	
-	/* Honor Pad ve Tablet Optimizasyonu - Geniş Aralık */
-	@media (min-width: 481px) {
-		/* Ana ekran ve username ekranları için - Honor Pad Büyük */
-		.main-title-panel {
-			width: 80% !important;
-			max-width: 900px !important;
-			min-height: 800px !important;
-		}
-		
-		        .main-title-svg {
-            max-width: 500px !important; /* Logo boyutunu küçült */
+            .password-desc {
+                font-size: 1.2rem !important;
+                line-height: 1.4 !important;
+            }
         }
-        
-        /* Logo boyutunu küçült */
-        .logo {
-            max-width: 150px !important;
-            width: 150px !important;
-        }
-        
-        /* Sağ alttaki skor tablosu butonunu küçült */
-        .scoreboard-img {
-            max-width: 100px !important;
-            width: 100px !important;
-            height: auto !important;
-        }
-        
-        /* Skor tablosu container'ını da küçült */
-        .scoreboard {
-            transform: scale(0.7) !important;
-            transform-origin: bottom right !important;
-        }
-        
-        /* Skor tablosu başlığını küçült */
-        .password-title {
-            font-size: 1.2rem !important;
-        }
-        
-        #scoreboard-panel .password-title {
-            font-size: 1.2rem !important;
-        }
-        
-        #scoreboard-panel .password-desc {
-            font-size: 1.1rem !important;
-        }
-		
-		.panel-desc {
-			font-size: 24px !important;
-			margin: 30px 0 !important;
-		}
-		
-		.main-btn-svg {
-			max-width: 500px !important;
-			margin: 20px 0 !important;
-		}
-		
-		.input-svg {
-			max-width: 500px !important;
-		}
-		
-		.username-input-on-svg {
-			font-size: 24px !important;
-			padding: 20px !important;
-		}
-		
-		/* Oyun panelleri için - Honor Pad Çok Büyük */
-		.password-panel-outer {
-			width: 85% !important;
-			max-width: 1000px !important;
-			min-height: 1000px !important;
-		}
-		
-		.password-panel-outer::before,
-		#share-panel .password-panel-outer::before,
-		#phishing-panel .password-panel-outer::before {
-			top: -60px !important;
-			left: -50px !important;
-			width: calc(100% + 100px) !important;
-			height: calc(100% + 180px) !important;
-		}
-		
-		.password-panel-content {
-			padding-top: 100px !important;
-		}
-		
-		.svg-box {
-			width: 220px !important;
-			height: 60px !important;
-		}
-		
-		.svg-text {
-			font-size: 24px !important;
-		}
-		
-		.password-title {
-			font-size: 36px !important;
-		}
-		
-		.password-desc {
-			font-size: 24px !important;
-			line-height: 1.4 !important;
-		}
-		
-		.password-input-wrapper input {
-			font-size: 26px !important;
-			height: 65px !important;
-		}
-		
-		.password-check-btn-text {
-			font-size: 18px !important;
-		}
-		
-		.password-check-btn-wrapper {
-			padding: 12px 20px !important;
-		}
-		
-		.password-strength-result {
-			font-size: 18px !important;
-		}
-		
-		.password-feedback {
-			font-size: 16px !important;
-		}
-		
-		.password-panel-content div,
-		.password-panel-content span,
-		.password-panel-content p {
-			font-size: 16px !important;
-		}
-		
-		/* Share grid tablet için - Honor Pad */
-		.share-grid {
-			grid-template-rows: repeat(5, 80px) !important;
-			gap: 15px !important;
-			padding: 15px !important;
-		}
-		
-		.share-grid .share-item {
-			font-size: 18px !important;
-			height: 80px !important;
-			border-radius: 10px !important;
-		}
-		
-		/* Phishing butonları tablet için - Honor Pad */
-		.phishing-buttons-container {
-			gap: 8px !important;
-			margin-top: 30px !important;
-		}
-		
-		.phishing-button {
-			width: 85% !important;
-			margin: 4px auto !important;
-		}
-		
-		.phishing-button img {
-			min-height: 70px !important;
-		}
-		
-		.phishing-button div {
-			font-size: 18px !important;
-			line-height: 1.3 !important;
-			padding: 8px 12px !important;
-		}
-		
-		/* Final skor paneli - Honor Pad */
-		.final-score-container {
-			max-width: 800px !important;
-			min-height: 900px !important;
-		}
-		
-		.final-score-content {
-			padding: 60px 40px 40px 40px !important;
-		}
-		
-		.final-score-title {
-			font-size: 24px !important;
-			line-height: 1.3 !important;
-		}
-		
-		.final-score-star {
-			width: 50px !important;
-			height: 50px !important;
-		}
-		
-		.final-score-row {
-			font-size: 20px !important;
-			margin-bottom: 12px !important;
-			padding: 8px 15px !important;
-		}
-		
-		.final-back-btn img {
-			max-width: 200px !important;
-		}
-	}
     </style>
     
-    <!-- MOBİL TIMER VE PAYLAŞ/SAKLA OPTİMİZASYONU -->
+    <!-- iPad Mini 6 için JavaScript optimizasyonu -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        function isMobile() {
-            return window.innerWidth <= 480;
+        // iPad Mini 6 kontrolü
+        function isiPadMini() {
+            return window.innerWidth >= 768 && window.innerWidth <= 1024;
         }
         
-        console.log('Mobil kontrol:', window.innerWidth, 'isMobile:', isMobile());
+        console.log('iPad Mini 6 optimizasyonu başlatılıyor...', window.innerWidth);
         
-        // Mobilde direkt DOM manipülasyonu
-        if (isMobile()) {
-            console.log('Mobil tespit edildi, DOM manipülasyonu başlıyor...');
+        // iPad Mini 6 için panel optimizasyonu
+        if (isiPadMini()) {
+            console.log('iPad Mini 6 tespit edildi, optimizasyonlar uygulanıyor...');
             
-            // Phishing butonlarını direkt setProperty ile değiştir
-            function fixPhishingButtons() {
-                const container = document.querySelector('.phishing-buttons-container');
-                if (container) {
-                    container.style.setProperty('gap', '3px', 'important');
-                    container.style.setProperty('margin-top', '15px', 'important');
-                    console.log('✅ Phishing container düzeltildi');
+            function optimizeForIPadMini() {
+                // Ana panel optimizasyonu
+                const mainTitlePanel = document.querySelector('.main-title-panel');
+                if (mainTitlePanel) {
+                    mainTitlePanel.style.cssText = `
+                        width: 80% !important;
+                        max-width: 900px !important;
+                        min-height: 600px !important;
+                    `;
                 }
                 
-                const buttons = document.querySelectorAll('.phishing-button');
-                buttons.forEach((btn, index) => {
-                    btn.style.setProperty('margin-bottom', '2px', 'important');
-                    const img = btn.querySelector('img');
-                    if (img) {
-                        img.style.setProperty('min-height', '35px', 'important');
-                        img.style.setProperty('height', 'auto', 'important');
-                    }
-                    const div = btn.querySelector('div');
-                    if (div) {
-                        div.style.setProperty('font-size', '0.7rem', 'important');
-                        div.style.setProperty('background', 'rgba(0,0,0,0.4)', 'important');
-                        div.style.setProperty('padding', '2px 4px', 'important');
-                        div.style.setProperty('border-radius', '3px', 'important');
-                        div.style.setProperty('line-height', '1.0', 'important');
-                    }
-                    console.log('✅ Phishing buton', index, 'düzeltildi');
+                // Panel açıklaması optimizasyonu
+                const panelDesc = document.querySelector('.panel-desc');
+                if (panelDesc) {
+                    panelDesc.style.cssText = `
+                        font-size: 2rem !important;
+                        margin: 25px 0 !important;
+                        line-height: 1.3 !important;
+                        color: #ffffff !important;
+                        text-align: center !important;
+                        font-family: 'Gilmer', Arial, sans-serif !important;
+                        font-weight: 500 !important;
+                    `;
+                }
+                
+                // Butonlar optimizasyonu
+                const mainButtons = document.querySelectorAll('.main-btn-svg');
+                mainButtons.forEach(button => {
+                    button.style.cssText = `
+                        max-width: 450px !important;
+                        margin: 15px 0 !important;
+                        transition: transform 0.2s ease !important;
+                        cursor: pointer !important;
+                    `;
                 });
                 
-                const phishingContent = document.querySelector('#phishing-panel .password-panel-content');
-                if (phishingContent) {
-                    phishingContent.style.setProperty('padding-top', '35px', 'important');
-                    console.log('✅ Phishing content padding düzeltildi');
-                }
-            }
-            
-            // Birden fazla kez dene
-            setTimeout(fixPhishingButtons, 500);
-            setTimeout(fixPhishingButtons, 1000);
-            setTimeout(fixPhishingButtons, 2000);
-        }
-        
-        // Timer fonksiyonu kaldırıldı - basit CSS ile çözülecek
-        
-        function convertSharePanelToGrid() {
-            console.log('convertSharePanelToGrid çağrıldı, isMobile:', isMobile());
-            if (!isMobile()) {
-                console.log('Mobil değil, çıkılıyor');
-                return;
-            }
-            
-            const sharePanel = document.querySelector('#share-panel .password-panel-content');
-            if (!sharePanel) return;
-            
-            // Gerçek soru sistemini kullan
-            const shareData = [
-                { text: 'Adın ve Soyadın', shareable: false },
-                { text: 'En sevdiğin renk', shareable: true },
-                { text: 'E-posta adresin', shareable: false },
-                { text: 'Telefon numaran', shareable: false },
-                { text: 'Hobin (futbol)', shareable: true },
-                { text: 'TC kimlik numaran', shareable: false },
-                { text: 'En sevdiğin film', shareable: true },
-                { text: 'Ev adresin', shareable: false },
-                { text: 'En sevdiğin spor', shareable: true },
-                { text: 'Sosyal medya şifren', shareable: false }
-            ];
-            
-            // Başlık ve ikon oluştur
-            const header = document.createElement('div');
-            header.style.textAlign = 'center';
-            header.style.marginBottom = '15px';
-            header.style.color = 'white';
-            header.style.zIndex = '20';
-            header.style.position = 'relative';
-            
-            const icon = document.createElement('img');
-            icon.src = 'assets/Asset 36.svg';
-            icon.style.width = '24px';
-            icon.style.height = '24px';
-            icon.style.marginBottom = '5px';
-            
-            const title = document.createElement('div');
-            title.textContent = 'PAYLAŞ/SAKLA';
-            title.style.fontSize = '1rem';
-            title.style.fontWeight = 'bold';
-            
-            const subtitle = document.createElement('div');
-            subtitle.textContent = 'Aşağıdaki bilgilerden hangilerini güvenle paylaşabilirsiniz?';
-            subtitle.style.fontSize = '0.7rem';
-            subtitle.style.marginTop = '5px';
-            subtitle.style.lineHeight = '1.2';
-            
-            header.appendChild(icon);
-            header.appendChild(title);
-            header.appendChild(subtitle);
-            
-            // Mevcut içeriği temizle ve başlığı ekle
-            sharePanel.innerHTML = '';
-            sharePanel.appendChild(header);
-            
-            // Grid container oluştur
-            const gridContainer = document.createElement('div');
-            gridContainer.className = 'share-grid';
-            
-            // Grid item'ları oluştur
-            shareData.forEach((item, index) => {
-                const gridItem = document.createElement('div');
-                gridItem.className = 'share-item';
-                gridItem.textContent = item.text;
-                gridItem.dataset.shareable = item.shareable;
-                gridItem.dataset.clicked = 'false';
-                
-                gridItem.addEventListener('click', function() {
-                    if (this.dataset.clicked === 'true') return; // Sadece bir kez tıklanabilir
-                    
-                    this.dataset.clicked = 'true';
-                    const isShareable = (this.dataset.shareable === 'true');
-                    
-                    if (isShareable) {
-                        // Paylaşılabilir - yeşil (doğru seçim)
-                        this.style.setProperty('background', 'rgba(0, 255, 0, 0.4)', 'important');
-                        this.style.setProperty('border', '2px solid #00ff00', 'important');
-                        this.style.setProperty('color', '#ffffff', 'important');
-                        console.log('✅ Doğru seçim:', this.textContent);
-                    } else {
-                        // Paylaşılmamalı - kırmızı (yanlış seçim)
-                        this.style.setProperty('background', 'rgba(255, 0, 0, 0.4)', 'important');
-                        this.style.setProperty('border', '2px solid #ff0000', 'important');
-                        this.style.setProperty('color', '#ffffff', 'important');
-                        console.log('❌ Yanlış seçim:', this.textContent);
-                    }
-                    
-                    this.style.setProperty('pointer-events', 'none', 'important');
+                // Oyun panelleri optimizasyonu
+                const passwordPanels = document.querySelectorAll('.password-panel-outer');
+                passwordPanels.forEach(panel => {
+                    panel.style.cssText = `
+                        width: 85% !important;
+                        max-width: 800px !important;
+                        min-height: 700px !important;
+                    `;
                 });
-                gridContainer.appendChild(gridItem);
-            });
-            
-            // Oltalama Test butonu oluştur
-            const phishingButton = document.createElement('div');
-            phishingButton.style.cssText = `
-                text-align: center;
-                margin-top: 20px;
-                z-index: 25;
-                position: relative;
-            `;
-            
-            const phishingImg = document.createElement('img');
-            phishingImg.src = 'assets/oltalamatestinegec.svg';
-            phishingImg.alt = 'Oltalama Testine Geç';
-            phishingImg.style.cssText = `
-                max-width: 180px;
-                width: 100%;
-                cursor: pointer;
-                transition: transform 0.2s ease;
-            `;
-            
-            phishingImg.addEventListener('click', function() {
-                // Oltalama testine geç
-                document.getElementById('share-panel').style.display = 'none';
-                document.getElementById('phishing-panel').style.display = 'flex';
                 
-                // Test başlat
-                if (typeof showNextPhishingQuestion === 'function') {
-                    currentPhishingQuestion = 0;
-                    showNextPhishingQuestion();
-                }
-            });
+                console.log('✅ iPad Mini 6 optimizasyonları uygulandı');
+            }
             
-            phishingImg.addEventListener('mouseover', function() {
-                this.style.transform = 'scale(1.05)';
-            });
-            
-            phishingImg.addEventListener('mouseout', function() {
-                this.style.transform = 'scale(1)';
-            });
-            
-            phishingButton.appendChild(phishingImg);
-            
-            // Oltalama Test butonu oluştur
-            const phishingButton = document.createElement('div');
-            phishingButton.style.cssText = `
-                text-align: center;
-                margin-top: 20px;
-                z-index: 25;
-                position: relative;
-            `;
-            
-            const phishingImg = document.createElement('img');
-            phishingImg.src = 'assets/oltalamatestinegec.svg';
-            phishingImg.alt = 'Oltalama Testine Geç';
-            phishingImg.style.cssText = `
-                max-width: 180px;
-                width: 100%;
-                cursor: pointer;
-                transition: transform 0.2s ease;
-            `;
-            
-            phishingImg.addEventListener('click', function() {
-                document.getElementById('share-panel').style.display = 'none';
-                document.getElementById('phishing-panel').style.display = 'flex';
-                
-                if (typeof showNextPhishingQuestion === 'function') {
-                    currentPhishingQuestion = 0;
-                    showNextPhishingQuestion();
-                }
-            });
-            
-            phishingButton.appendChild(phishingImg);
-            
-            // Eski içeriği temizle ve yeni içeriği ekle
-            sharePanel.innerHTML = '';
-            sharePanel.appendChild(header);
-            sharePanel.appendChild(gridContainer);
-            sharePanel.appendChild(phishingButton);
+            // Optimizasyonları uygula
+            setTimeout(optimizeForIPadMini, 100);
+            setTimeout(optimizeForIPadMini, 500);
+            setTimeout(optimizeForIPadMini, 1000);
         }
         
-        // Sayfa yüklendiğinde ve resize edildiğinde çalıştır
-        console.log('Sayfa yüklendi, convertSharePanelToGrid çağrılıyor...');
-        convertSharePanelToGrid();
-        
+        // Window resize kontrolü
         window.addEventListener('resize', function() {
-            console.log('Resize event, convertSharePanelToGrid çağrılıyor...');
-            convertSharePanelToGrid();
+            if (isiPadMini()) {
+                console.log('iPad Mini 6 resize optimizasyonu');
+                setTimeout(optimizeForIPadMini, 100);
+            }
         });
-        
-        // Share paneli açıldığında da çalıştır
-        setTimeout(function() {
-            console.log('Timeout ile convertSharePanelToGrid çağrılıyor...');
-            convertSharePanelToGrid();
-        }, 1000);
     });
     </script>
     
