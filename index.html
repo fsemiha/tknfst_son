@@ -43,30 +43,7 @@
         /* HER CIHAZDA ÇALIŞSIN */
         /* Phishing efektleri tamamen kaldırıldı */
         
-        /* iPhone 12 Pro ZORUNLU DÜZELTİCİ - BYPASS CACHE */
-        @media (max-width: 400px) and (min-height: 800px) {
-            .panel-desc {
-                font-size: 0.85rem !important;
-                position: relative !important;
-                top: -8px !important;
-                line-height: 1.1 !important;
-                margin-bottom: 6px !important;
-                padding: 0 4px !important;
-                word-wrap: break-word !important;
-                overflow-wrap: break-word !important;
-            }
-            
-            .inside-panel {
-                top: 54% !important;
-                transform: translate(-50%, -54%) !important;
-                gap: 12px !important;
-            }
-            
-            .main-title-panel {
-                height: 75vh !important;
-                min-height: 450px !important;
-            }
-        }
+        
         #phishing-panel .password-panel-content {
             padding-top: 35px !important;
         }
@@ -293,6 +270,103 @@
         /* MOBIL OPTIMIZASYON */
         /* Mobilde ana menü çerçevesi için özel ayar */
         @media screen and (max-width: 767px) {
+            /* Panel içeriklerini ortalama */
+            .password-title,
+            .password-desc,
+            .panel-desc,
+            .inside-panel {
+                text-align: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            
+            /* Input wrapper ortalama */
+            .password-input-wrapper,
+            .input-svg-wrapper {
+                margin: 0 auto !important;
+                display: block !important;
+            }
+            
+            /* Button wrapper ortalama */
+            .password-check-btn-wrapper,
+            .main-buttons {
+                margin: 0 auto !important;
+                text-align: center !important;
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                position: relative !important;
+                z-index: 1000 !important;
+            }
+            
+            /* MOBİL PANEL İÇERİK AYARLARI - index_mobil.html gibi SCROLL YOK */
+            .password-panel-content,
+            #share-panel .password-panel-content,
+            #phishing-panel .password-panel-content {
+                position: absolute !important;
+                top: 120px !important;
+                left: 0 !important;
+                width: 100% !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                z-index: 2 !important;
+                min-height: 600px !important;
+                max-height: 650px !important;
+                overflow: hidden !important;
+                justify-content: flex-start !important;
+                padding: 30px 0 100px 0 !important;
+            }
+            
+            /* Parola kontrol butonu - style_mobil.css gibi */
+            .password-check-btn-wrapper {
+                position: relative !important;
+                width: 260px !important;
+                height: 56px !important;
+                margin: 0 auto !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                overflow: hidden !important;
+                pointer-events: auto !important;
+                z-index: 2 !important;
+            }
+            
+            .password-check-btn {
+                width: 100% !important;
+                height: 56px !important;
+                display: block !important;
+                cursor: pointer !important;
+                pointer-events: auto !important;
+                z-index: 2 !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+            
+            /* Parola gücü paneli sadece mobilde ortalama - SAĞA KAYMA DÜZELTİLDİ */
+            .password-panel-outer {
+                position: fixed !important;
+                top: 50% !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%) !important;
+                margin: 0 !important;
+                z-index: 1000 !important;
+            }
+            
+            /* Parola gücü paneli içeriği sadece mobilde ortalama - SAĞA KAYMA DÜZELTİLDİ */
+            .password-panel-content {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+                padding: 25px 15px 60px 15px !important;
+                position: relative !important;
+                left: 0 !important;
+                right: 0 !important;
+                margin: 0 !important;
+            }
             .main-title-svg {
                 content: url('assets/sibermacera_cerceve.svg') !important;
                 width: 130% !important;
@@ -302,8 +376,14 @@
             }
             
             .main-title-panel {
-                width: 98vw !important;
-                max-width: 98vw !important;
+                width: 92vw !important;
+                max-width: 92vw !important;
+                height: 70vh !important;
+                max-height: 500px !important;
+                margin: 0 auto !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
             }
             
             /* Mobilde TAMAMEN yeni çerçeve sistemi */
@@ -329,16 +409,42 @@
                 content: none !important;
             }
             
-            /* Panel boyutlarını ayarla */
+            /* MOBİL PANEL AYARLARI - index_mobil.html ve style_mobil.css gibi */
             .password-panel-outer,
             #share-panel .password-panel-outer,
             #phishing-panel .password-panel-outer {
-                width: 98vw !important;
-                max-width: 450px !important;
-                height: auto !important;
-                min-height: 80vh !important;
                 position: relative !important;
-                overflow: visible !important;
+                width: 1000px !important;
+                max-width: 95vw !important;
+                height: 800px !important;
+                max-height: 95vh !important;
+                margin: 0 auto !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: center !important;
+                justify-content: flex-start !important;
+                overflow: hidden !important;
+                min-height: 500px !important;
+            }
+            
+            /* Çerçeve sistemi - index_mobil.html gibi */
+            .password-panel-bg,
+            #share-panel .password-panel-bg,
+            #phishing-panel .password-panel-bg {
+                display: none !important;
+            }
+            
+            .password-panel-outer::before,
+            #share-panel .password-panel-outer::before,
+            #phishing-panel .password-panel-outer::before {
+                content: '' !important;
+                position: absolute !important;
+                top: -10px !important;
+                left: -10px !important;
+                width: calc(100% + 20px) !important;
+                height: calc(100% + 20px) !important;
+                background: url('assets/Asset 21.svg') center/100% 100% no-repeat !important;
+                z-index: 1 !important;
             }
             
             /* Panel içeriğinin z-index ayarı */
@@ -392,15 +498,15 @@
             
                          /* Oltalama testindeki seçenek yazılarını ultra küçük boyutta düzenle */
              #phishing-panel .phishing-button div {
-                 font-size: 0.5rem !important;
-                 line-height: 0.5 !important;
-                 background: rgba(0,0,0,0.9) !important;
-                 padding: 1px 2px !important;
-                 border-radius: 1px !important;
-                 font-weight: 200 !important;
+                 font-size: 0.9rem !important;
+                 line-height: 1.2 !important;
+                 background: rgba(0,0,0,0.8) !important;
+                 padding: 8px 12px !important;
+                 border-radius: 6px !important;
+                 font-weight: 400 !important;
                  color: #ffffff !important;
                  text-align: center !important;
-                 max-width: 80% !important;
+                 max-width: 85% !important;
                  word-wrap: break-word !important;
                  overflow-wrap: break-word !important;
                  white-space: normal !important;
@@ -574,6 +680,111 @@
             #explanation-modal img[src*="Asset 61"] {
                 max-width: 80px !important;
             }
+        }
+
+        /* TABLET OPTIMIZASYON - iPad Mini 6. nesil ve diğer tabletler için - GENİŞ UYUMLULUK */
+        @media screen and (min-width: 744px) and (max-width: 1133px),
+               screen and (min-device-width: 768px) and (max-device-width: 1024px),
+               screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait),
+               screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape),
+               screen and (device-width: 744px) and (device-height: 1133px),
+               screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 744px) and (max-device-width: 1133px) {
+            /* Modal çerçevesi için tablet modunda */
+            #explanation-modal img[src*="Asset 43"] {
+                content: url('assets/cerceve.svg') !important;
+            }
+            
+            /* Modal boyutları tablet için optimize edildi */
+            #explanation-modal {
+                max-width: 400px !important;
+                width: 80vw !important;
+                font-size: 1.1rem !important;
+                padding: 20px 25px !important;
+            }
+            
+            #explanation-modal div:first-of-type {
+                font-size: 1.3rem !important;
+                margin-bottom: 12px !important;
+            }
+            
+            #explanation-modal div:nth-of-type(2) {
+                font-size: 1.0rem !important;
+                line-height: 1.4 !important;
+            }
+            
+            #explanation-modal img[src*="Asset 60"],
+            #explanation-modal img[src*="Asset 61"] {
+                max-width: 100px !important;
+            }
+
+            /* TABLET İÇİN BASİT PANELLERİ DÜZENLEMESİ - MEVCUT ÇERÇEVELERİ KORUYARAK */
+            
+            /* Panel içeriklerini ortalama ve boyutlandırma - mobil gibi */
+            .password-title,
+            .password-desc,
+            .panel-desc,
+            .inside-panel {
+                text-align: center !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            
+            /* Input wrapper ortalama */
+            .password-input-wrapper,
+            .input-svg-wrapper {
+                margin: 15px auto !important;
+                display: block !important;
+                max-width: 300px !important;
+            }
+            
+            /* Panel boyutlarını tablet için ayarla */
+            .password-panel-outer,
+            #share-panel .password-panel-outer,
+            #phishing-panel .password-panel-outer {
+                width: 85vw !important;
+                max-width: 500px !important;
+                margin: 0 auto !important;
+            }
+            
+            /* Font boyutlarını tablet için ayarla */
+            .password-title {
+                font-size: 1.4rem !important;
+            }
+            
+            .password-desc,
+            .panel-desc {
+                font-size: 1.1rem !important;
+                line-height: 1.3 !important;
+            }
+            
+            .password-input-wrapper input,
+            .username-input-on-svg {
+                font-size: 1.1rem !important;
+                height: 45px !important;
+                padding: 10px !important;
+            }
+            
+            .password-check-btn-text {
+                font-size: 1.0rem !important;
+            }
+            
+            /* Ana menü butonları */
+            .main-btn-svg {
+                max-width: 280px !important;
+                height: auto !important;
+                margin: 10px auto !important;
+                display: block !important;
+            }
+            
+            .main-title-svg {
+                max-width: 220px !important;
+            }
+            
+            /* Güvenlik ikonu */
+            .security-icon {
+                max-width: 70px !important;
+            }
+        }
             
             /* Phishing buton efektleri kaldırıldı */
 	/* Timer kutlarını göster */
@@ -611,6 +822,70 @@
 	}
 	
         @media (max-width: 480px) {
+	/* Oltalama test buton yazıları mobilde okunabilir olsun */
+	#phishing-panel .phishing-button div {
+		font-size: 0.8rem !important;
+		line-height: 1.2 !important;
+		background: rgba(0,0,0,0.85) !important;
+		padding: 6px 10px !important;
+		border-radius: 5px !important;
+		color: #ffffff !important;
+		font-weight: 400 !important;
+		text-align: center !important;
+	}
+	
+	/* MOBİL AYARLAR - index_mobil.html gibi SCROLL YOK */
+	.password-panel-content {
+		padding-top: 25px !important;
+		overflow: hidden !important;
+	}
+	
+	/* Parola kontrol butonu - style_mobil.css gibi */
+	.password-check-btn-wrapper {
+		padding: 8px 15px !important;
+		width: auto !important;
+		height: auto !important;
+		margin: 0 auto !important;
+		position: relative !important;
+		display: flex !important;
+		align-items: center !important;
+		justify-content: center !important;
+		overflow: hidden !important;
+		pointer-events: auto !important;
+		z-index: 2 !important;
+	}
+	
+	.password-check-btn {
+		width: 100% !important;
+		height: auto !important;
+		display: block !important;
+		cursor: pointer !important;
+		pointer-events: auto !important;
+		z-index: 2 !important;
+		opacity: 1 !important;
+		visibility: visible !important;
+	}
+	
+	/* Font boyutları - index_mobil.html gibi */
+	.password-title { font-size: 16px !important; }
+	.password-desc { font-size: 12px !important; }
+	.password-input-wrapper input { font-size: 14px !important; height: 35px !important; }
+	.password-check-btn-text { font-size: 10px !important; }
+	.password-strength-result { font-size: 11px !important; }
+	.password-feedback { font-size: 10px !important; }
+	.password-suggestions { font-size: 10px !important; }
+	.strength-display { font-size: 10px !important; }
+	.suggestions { font-size: 10px !important; }
+	.crack-time { font-size: 10px !important; }
+	.security-warning { font-size: 10px !important; }
+	.password-tips { font-size: 10px !important; }
+	.character-requirements { font-size: 10px !important; }
+	.password-panel-content div, 
+	.password-panel-content span, 
+	.password-panel-content p { 
+		font-size: 10px !important; 
+		line-height: 1.2 !important; 
+	}
 	/* Timer kutlarını göster */
 	.svg-box { 
 		display: block !important;
@@ -903,12 +1178,41 @@
 	}
 	
 	/* Honor Pad ve Tablet Optimizasyonu - Geniş Aralık */
-	@media (min-width: 481px) {
+        /* iPad Mini ve tablet ayarları - kırılma süresi dikkat çekici */
+        @media (min-width: 481px) and (max-width: 1024px) {
+            #crack-time {
+                font-size: 1.4rem !important;
+                font-weight: 700 !important;
+                padding: 16px 20px !important;
+                margin: 15px 0 !important;
+                border-radius: 15px !important;
+                background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,140,0,0.15)) !important;
+                border: 2px solid rgba(255,215,0,0.4) !important;
+                box-shadow: 0 4px 15px rgba(255,215,0,0.3) !important;
+                text-shadow: 1px 1px 3px rgba(0,0,0,0.3) !important;
+                animation: pulseGlow 2s infinite alternate !important;
+            }
+            
+            @keyframes pulseGlow {
+                0% { 
+                    box-shadow: 0 4px 15px rgba(255,215,0,0.3);
+                    border-color: rgba(255,215,0,0.4);
+                }
+                100% { 
+                    box-shadow: 0 6px 20px rgba(255,215,0,0.5);
+                    border-color: rgba(255,215,0,0.6);
+                }
+            }
+        }
+        
+        @media (min-width: 481px) {
 		/* Ana ekran ve username ekranları için - Honor Pad Büyük */
 		.main-title-panel {
-			width: 80% !important;
-			max-width: 900px !important;
-			min-height: 800px !important;
+			width: 70% !important;
+			max-width: 700px !important;
+			height: 65vh !important;
+			max-height: 650px !important;
+			min-height: 500px !important;
 		}
 		
 		        .main-title-svg {
@@ -968,10 +1272,12 @@
 		
 		/* Oyun panelleri için - Honor Pad Çok Büyük */
 		.password-panel-outer {
-			width: 85% !important;
-			max-width: 1000px !important;
-			min-height: 1000px !important;
+			width: 75% !important;
+			max-width: 650px !important;
+			height: 75vh !important;
+			max-height: 700px !important;
 		}
+		
 		
 		.password-panel-outer::before,
 		#share-panel .password-panel-outer::before,
@@ -1105,6 +1411,22 @@
         }
         
         console.log('Mobil kontrol:', window.innerWidth, 'isMobile:', isMobile());
+        
+        // 🔧 TABLET BOYUTLARI DEBUG - iPad Mini için tam detay
+        console.log('📱 === CİHAZ BOYUTLARI DEBUG ===');
+        console.log('🖥️ window.innerWidth:', window.innerWidth);
+        console.log('🖥️ window.innerHeight:', window.innerHeight);
+        console.log('📟 screen.width:', screen.width);
+        console.log('📟 screen.height:', screen.height);
+        console.log('📟 screen.availWidth:', screen.availWidth);
+        console.log('📟 screen.availHeight:', screen.availHeight);
+        console.log('🔍 window.devicePixelRatio:', window.devicePixelRatio);
+        console.log('📱 navigator.userAgent:', navigator.userAgent);
+        console.log('🎯 window.orientation:', window.orientation || 'undefined');
+        console.log('📐 CSS pixels (innerWidth x innerHeight):', window.innerWidth, 'x', window.innerHeight);
+        console.log('📐 Actual pixels (screen x devicePixelRatio):', screen.width * window.devicePixelRatio, 'x', screen.height * window.devicePixelRatio);
+        console.log('🎨 Media query hedefleme için kullan: min-width:', window.innerWidth, 'max-width:', window.innerWidth + 50);
+        console.log('📱 === CİHAZ BOYUTLARI DEBUG SON ===');
         
         // Mobilde direkt DOM manipülasyonu
         if (isMobile()) {
@@ -1423,7 +1745,7 @@
                     </div>
                     <div id="password-match-message" style="display: none; text-align: center; margin: 8px 0; font-size: 0.9rem; color: #ff4444;"></div>
                     <div class="password-check-btn-wrapper" id="password-check-btn-wrapper">
-                        <img src="assets/Asset 33.svg" alt="Kontrol Et" class="password-check-btn" id="check-password-btn" style="opacity: 0.5; pointer-events: none;" loading="lazy">
+                        <img src="assets/Asset 33.svg" alt="Kontrol Et" class="password-check-btn" id="check-password-btn" loading="lazy">
                     </div>
                     <div class="password-result" id="password-result" style="display:none;">
                         <div id="strength-label"></div>
@@ -2336,12 +2658,19 @@
              const checkBtn = document.getElementById('check-password-btn');
              const checkBtnWrapper = document.getElementById('password-check-btn-wrapper');
              if (checkBtn) {
-                 checkBtn.style.opacity = '0.5';
-                 checkBtn.style.pointerEvents = 'none';
+                 checkBtn.style.opacity = '1';
+                 checkBtn.style.pointerEvents = 'auto';
                  checkBtn.style.display = 'block';
+                 checkBtn.style.visibility = 'visible';
+                 checkBtn.style.cursor = 'pointer';
              }
              if (checkBtnWrapper) {
                  checkBtnWrapper.style.display = 'flex';
+                 checkBtnWrapper.style.visibility = 'visible';
+                 checkBtnWrapper.style.opacity = '1';
+                 checkBtnWrapper.style.pointerEvents = 'auto';
+                 checkBtnWrapper.style.position = 'relative';
+                 checkBtnWrapper.style.zIndex = '2';
              }
              
              // Parola match mesajını temizle
@@ -3848,6 +4177,40 @@
     if ('ontouchstart' in window) {
         optimizeForTouch();
     }
+    
+    // Mobilde parola kontrol butonunu her zaman görünür ve aktif yap
+    function ensurePasswordButtonVisible() {
+        const isMobile = window.innerWidth <= 767;
+        if (isMobile) {
+            const checkBtn = document.getElementById('check-password-btn');
+            const checkBtnWrapper = document.getElementById('password-check-btn-wrapper');
+            
+            if (checkBtn) {
+                checkBtn.style.opacity = '1';
+                checkBtn.style.pointerEvents = 'auto';
+                checkBtn.style.display = 'block';
+                checkBtn.style.visibility = 'visible';
+                checkBtn.style.cursor = 'pointer';
+            }
+            
+            if (checkBtnWrapper) {
+                checkBtnWrapper.style.display = 'flex';
+                checkBtnWrapper.style.visibility = 'visible';
+                checkBtnWrapper.style.opacity = '1';
+                checkBtnWrapper.style.pointerEvents = 'auto';
+                checkBtnWrapper.style.position = 'relative';
+                checkBtnWrapper.style.zIndex = '2';
+            }
+        }
+    }
+    
+    // Sayfa yüklendiğinde ve resize edildiğinde kontrol et
+    document.addEventListener('DOMContentLoaded', ensurePasswordButtonVisible);
+    window.addEventListener('resize', ensurePasswordButtonVisible);
+    
+    // Parola paneli açıldığında da kontrol et
+    setTimeout(ensurePasswordButtonVisible, 500);
+    setInterval(ensurePasswordButtonVisible, 2000);
 
     </script>
 </body>
