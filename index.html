@@ -715,10 +715,11 @@
 
             /* TABLET KOMPAKT MODU - TARAYICI SİMÜLASYONUNDAKİ GİBİ */
             
-            /* Çerçeve sistemi - cerceve.svg kullan */
+            /* Çerçeve sistemi - cerceve.svg kullan (SKOR TABLOSU DAHİL) */
             .password-panel-outer,
             #share-panel .password-panel-outer,
-            #phishing-panel .password-panel-outer {
+            #phishing-panel .password-panel-outer,
+            #scoreboard-panel .password-panel-outer {
                 background-image: url('assets/cerceve.svg') !important;
                 background-size: 100% 100% !important;
                 background-repeat: no-repeat !important;
@@ -749,21 +750,24 @@
                 margin: 0 auto !important;
             }
             
-            /* Eski çerçeveleri kaldır */
+            /* Eski çerçeveleri kaldır (SKOR TABLOSU DAHİL) */
             .password-panel-bg,
             #share-panel .password-panel-bg,
             #phishing-panel .password-panel-bg,
+            #scoreboard-panel .password-panel-bg,
             .password-panel-outer::before,
             #share-panel .password-panel-outer::before,
-            #phishing-panel .password-panel-outer::before {
+            #phishing-panel .password-panel-outer::before,
+            #scoreboard-panel .password-panel-outer::before {
                 display: none !important;
                 visibility: hidden !important;
             }
             
-            /* Panel içeriklerini ortalama */
+            /* Panel içeriklerini ortalama (SKOR TABLOSU DAHİL) */
             .password-panel-content,
             #share-panel .password-panel-content,
-            #phishing-panel .password-panel-content {
+            #phishing-panel .password-panel-content,
+            #scoreboard-panel .password-panel-content {
                 position: relative !important;
                 z-index: 2 !important;
                 padding: 60px 40px 40px 40px !important;
@@ -878,6 +882,60 @@
                 font-size: 1.1rem !important;
                 margin: 15px 0 !important;
                 text-align: center !important;
+            }
+
+            /* SKOR TABLOSU ÖZEL DÜZENLEMELERİ */
+            #scoreboard-panel .password-panel-outer {
+                max-width: 700px !important;
+                min-height: 600px !important;
+                width: 95vw !important;
+            }
+            
+            #scoreboard-panel .password-panel-content {
+                padding: 40px 30px 30px 30px !important;
+                top: auto !important;
+                align-items: center !important;
+            }
+            
+            #scoreboard-panel .password-title {
+                font-size: 1.6rem !important;
+                margin: 10px 0 !important;
+            }
+            
+            #scoreboard-panel .password-desc {
+                font-size: 1.2rem !important;
+                margin: 10px 0 20px 0 !important;
+            }
+            
+            #scoreboard-panel .security-icon {
+                width: 60px !important;
+                height: 60px !important;
+                margin: 10px auto !important;
+            }
+            
+            /* Skor tablosu butonları */
+            #scoreboard-panel .main-btn-svg {
+                max-width: 200px !important;
+                margin: 10px !important;
+            }
+            
+            /* Skor tablosu container'ı */
+            #scoreboard-panel .scoreboard-container {
+                max-width: 100% !important;
+                overflow-x: auto !important;
+                margin: 20px 0 !important;
+            }
+            
+            /* Skor tablosu satırları */
+            #scoreboard-panel .scoreboard table {
+                width: 100% !important;
+                font-size: 0.9rem !important;
+            }
+            
+            #scoreboard-panel .scoreboard th,
+            #scoreboard-panel .scoreboard td {
+                padding: 8px 5px !important;
+                font-size: 0.9rem !important;
             }
         }
             
