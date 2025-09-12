@@ -1507,6 +1507,8 @@ body, html {
         min-height: 700px !important;
         max-height: none !important;
         min-width: 800px !important;
+        transform: scale(1.3) !important;
+        transform-origin: center center !important;
     }
     
     .password-panel-bg {
@@ -1518,7 +1520,8 @@ body, html {
         z-index: 0 !important;
         pointer-events: none !important;
         object-fit: stretch !important;
-        transform: none !important;
+        transform: scale(1.3) !important;
+        transform-origin: center center !important;
     }
     
     .password-panel-top {
@@ -1659,7 +1662,8 @@ body, html {
         min-height: 700px !important;
         max-height: none !important;
         min-width: 800px !important;
-        transform: scale(1) !important;
+        transform: scale(1.3) !important;
+        transform-origin: center center !important;
     }
     
     #password-panel .password-panel-bg,
@@ -1668,7 +1672,8 @@ body, html {
         width: 100% !important;
         height: 100% !important;
         object-fit: stretch !important;
-        transform: none !important;
+        transform: scale(1.3) !important;
+        transform-origin: center center !important;
     }
 }
 
