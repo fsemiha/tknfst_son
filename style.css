@@ -1,3 +1,19 @@
+/* TABLET ZORLA BÜYÜK ÇERÇEVE - HİÇBİR ZAMAN CACHE YAPMA */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .password-panel-outer {
+        width: 85vw !important;
+        height: 88vh !important;
+        max-width: 750px !important;
+        margin: 6vh auto !important;
+        min-height: 650px !important;
+        max-height: 850px !important;
+        min-width: 650px !important;
+        transform: scale(1.15) !important;
+        transform-origin: center center !important;
+        border: 2px solid red !important; /* TEST ÇERÇEVE */
+    }
+}
+
 @font-face {
     font-family: 'Gilmer';
     src: url('fonts/Gilmer Regular.otf') format('opentype');

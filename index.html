@@ -35,10 +35,34 @@
     <link rel="preload" href="fonts/conthrax-sb.otf" as="font" type="font/otf" crossorigin> -->
     
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css?v=10.1&t=1735683123&cache=busted&frame=medium&tablet=fix">
+    <link rel="stylesheet" href="style.css?v=15.7&t=1735683999&bust=true&force=reload&ipad=fix&timestamp=2024123122">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     
     <!-- iPad Mini 6 Özel Optimizasyon -->
     <style>
+        /* TABLET CACHE BYPASS - ZORLA UYGULA */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .password-panel-outer {
+                width: 85vw !important;
+                height: 88vh !important;
+                max-width: 750px !important;
+                margin: 6vh auto !important;
+                min-height: 650px !important;
+                max-height: 850px !important;
+                min-width: 650px !important;
+                transform: scale(1.15) !important;
+                transform-origin: center center !important;
+                background: rgba(255, 0, 0, 0.1) !important; /* TEST */
+            }
+            
+            .password-panel-bg {
+                transform: scale(1.15) !important;
+                transform-origin: center center !important;
+            }
+        }
+        
         /* iPad Mini 6 (8.3 inç, 2266x1488) için özel optimizasyon */
         @media (min-width: 768px) and (max-width: 1024px) {
             .main-title-panel {
