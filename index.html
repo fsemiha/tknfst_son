@@ -2,8 +2,27 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Siber Macera</title>
+    
+    <!-- PWA ve Kiosk Modu için Meta Taglar -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Siber Macera">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#0a1428">
+    
+    <!-- iPad için özel viewport ayarları -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    
+    <!-- Ana ekran ikonları -->
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/Asset 5.svg">
+    <link rel="apple-touch-icon" sizes="167x167" href="assets/Asset 5.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/Asset 5.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/Asset 5.svg">
+    
+    <!-- Manifest dosyası -->
+    <link rel="manifest" href="manifest.json">
     <!-- Font preload for faster loading -->
     <link rel="preload" href="fonts/Gilmer Regular.otf" as="font" type="font/otf" crossorigin>
     <link rel="preload" href="fonts/Gilmer Light.otf" as="font" type="font/otf" crossorigin>
@@ -2273,11 +2292,81 @@
              
              console.log(`✅ ${buttons.length} phishing butonu hazırlandı`);
              
-             // İlk soruyu göster
-             currentPhishingQuestion = 0;
-             showNextPhishingQuestion();
-         };
-    });
-    </script>
+            // İlk soruyu göster
+            currentPhishingQuestion = 0;
+            showNextPhishingQuestion();
+        };
+   });
+
+   // PWA ve Kiosk Modu Kontrollerini
+   function initKioskMode() {
+       // Tam ekran modu için gerekli ayarlar
+       if ('serviceWorker' in navigator) {
+           console.log('PWA modu aktif');
+       }
+
+       // iOS Safari tam ekran kontrolü
+       if (window.navigator.standalone === true) {
+           console.log('✅ iPad Ana Ekran Modu Aktif - Arama çubuğu gizli');
+           document.body.classList.add('standalone-mode');
+       }
+
+       // Kiosk modu için zoom engelleme
+       document.addEventListener('gesturestart', function (e) {
+           e.preventDefault();
+       });
+
+       document.addEventListener('gesturechange', function (e) {
+           e.preventDefault();
+       });
+
+       document.addEventListener('gestureend', function (e) {
+           e.preventDefault();
+       });
+
+       // Context menu engelleme
+       document.addEventListener('contextmenu', function(e) {
+           e.preventDefault();
+       });
+
+       // Seçim engelleme
+       document.addEventListener('selectstart', function(e) {
+           e.preventDefault();
+       });
+
+       // Scroll engelleme
+       document.addEventListener('touchmove', function(e) {
+           if (e.scale !== 1) { 
+               e.preventDefault(); 
+           }
+       }, { passive: false });
+
+       // Çift tıklama zoom engelleme
+       let lastTouchEnd = 0;
+       document.addEventListener('touchend', function (event) {
+           let now = (new Date()).getTime();
+           if (now - lastTouchEnd <= 300) {
+               event.preventDefault();
+           }
+           lastTouchEnd = now;
+       }, false);
+
+       console.log('🔒 Kiosk modu ayarları yüklendi');
+   }
+
+   // Dom yüklendiğinde kiosk modunu başlat
+   document.addEventListener('DOMContentLoaded', function() {
+       initKioskMode();
+   });
+
+   // Visibility API ile sayfa odağını kontrol et
+   document.addEventListener('visibilitychange', function() {
+       if (document.hidden) {
+           console.log('⚠️ Uygulama arka plana geçti');
+       } else {
+           console.log('✅ Uygulama tekrar aktif');
+       }
+   });
+   </script>
 </body>
 </html> 
