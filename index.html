@@ -42,8 +42,14 @@
     
     <!-- iPad Mini 6 Özel Optimizasyon -->
     <style>
-        /* TABLET CACHE BYPASS - ZORLA UYGULA */
-        @media (min-width: 768px) and (max-width: 1024px) {
+        /* IPAD MINI 6 ÖZEL TEST - TAM BOYUTLAR */
+        @media (min-width: 810px) and (max-width: 830px) and (min-height: 1170px) and (max-height: 1190px),
+               (min-width: 1170px) and (max-width: 1190px) and (min-height: 810px) and (max-height: 830px) {
+            body {
+                background: red !important;
+                border: 10px solid yellow !important;
+            }
+            
             .password-panel-outer {
                 width: 85vw !important;
                 height: 88vh !important;
@@ -54,7 +60,8 @@
                 min-width: 650px !important;
                 transform: scale(1.15) !important;
                 transform-origin: center center !important;
-                background: rgba(255, 0, 0, 0.1) !important; /* TEST */
+                background: rgba(0, 255, 0, 0.8) !important; /* YEŞİL */
+                border: 5px solid blue !important;
             }
             
             .password-panel-bg {
@@ -63,8 +70,29 @@
             }
         }
         
-        /* iPad Mini 6 (8.3 inç, 2266x1488) için özel optimizasyon */
-        @media (min-width: 768px) and (max-width: 1024px) {
+        /* GENİŞ RANGE TEST - EĞER YUKARDAKI ÇALIŞMAZSA */
+        @media (min-width: 800px) and (max-width: 850px),
+               (min-width: 1150px) and (max-width: 1200px) {
+            body {
+                background: orange !important;
+                border: 5px solid purple !important;
+            }
+        }
+        
+        /* GLOBAL TEST - HER ZAMAN ÇALIŞMALI */
+        .test-indicator {
+            position: fixed !important;
+            top: 10px !important;
+            left: 10px !important;
+            background: red !important;
+            color: white !important;
+            padding: 10px !important;
+            z-index: 999999 !important;
+            font-size: 20px !important;
+        }
+        
+        /* iPad Mini 6 (8.3 inç, 2266x1488) için özel optimizasyon - GENİŞ RANGE */
+        @media (min-width: 768px) and (max-width: 1300px) {
             .main-title-panel {
                 width: 80% !important;
                 max-width: 900px !important;
